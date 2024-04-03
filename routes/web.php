@@ -18,30 +18,31 @@ use App\Http\Controllers\auth\RegisterController;
 */
 
 
-Route::get('/', [LoginController::class, 'index'])->name('login');
+// Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/forgotPassword',  function () {return view('auth.forgotPassword');})->name('forgotPassword');
 Route::post('/login/post', [LoginController::class, 'login'])->name('login.post');
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
-Route::get('/manageBooks', function () {
-    return view('admin.manageBooks');
+
+Route::get('/', function () {
+    return view('home');
 });
 
-Route::get('/cart', function () {
-    return view('home.cart');
-});
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('dashboard')->middleware('role:admin')->group(function () {
         Route::get('/',  function () {return view('admin.dashboard');})->name('dashboard');
+        Route::get('/manageBooks', function () {
+            return view('admin.manageBooks');
+        });
     });
     
     Route::prefix('home')->middleware('role:peminjam')->group(function () {
-        Route::get('/', function () {
-            return view('home');
-        });
         Route::get('/detail', function () {
             return view('home.detail');
+        })->name('detailProduct');
+        Route::get('/cart', function () {
+            return view('home.cart');
         });
         
     });

@@ -1105,6 +1105,9 @@ jQuery(document).ready(function ($) {
         $("#btn-login").on("click", function () {
             $(".login_form_pc").addClass("active");
         }),
+        $("#btn-login2").on("click", function () {
+            $(".login_form_pc").addClass("active");
+        }),
         $(".btn_close_login").on("click", function () {
             $(".login_form_pc").removeClass("active");
         }),

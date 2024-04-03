@@ -1,94 +1,5 @@
 @extends('layouts.partials.home.main.main')
 @section('content')
-    <div class="login_form_pc" id="login_form">
-        <div class="content_login_form over-hidden">
-            <div class="absolute btn_close_login">
-                <a href="#close" title="Close (Esc)"><i class="ti-close"></i></a>
-            </div>
-            <div class="mn-mobile-content-tab tab-pane hidden-xs hidden-sm">
-                <div class="my-account-wrap">
-                    <div class="register-form hidden">
-                        <div class="text-center icon_top"><span class="flaticon-login"></span></div>
-                        <h3 class="title_register">Your personal data will be used to support your experience throughout
-                            this website, to manage access to your account, and for other purposes described in our <a
-                                href="#">privacy policy</a>.</h3>
-                        <form method="post" action="/account" id="create_customer" accept-charset="UTF-8"
-                            data-login-with-shop-sign-up="true"><input type="hidden" name="form_type"
-                                value="create_customer"><input type="hidden" name="utf8" value="✓">
-                            <form method="post" class="form-customer form-login">
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-account " placeholder="Username*"
-                                        name="customer[email]" autocorrect="off" autocapitalize="off">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="customer[password]" class="form-control form-account "
-                                        placeholder="Password*">
-                                </div>
-                                <div class="btn-button-group mg-top-30 mg-bottom-15">
-                                    <button type="submit" class="ciloe-btn btn-login hover-white">REGISTER</button>
-                                </div>
-                            </form>
-                        </form>
-                    </div>
-                    <!--      -->
-                    <div class="login-form">
-                        <div class="text-center icon_top"><span class="flaticon-user"></span></div>
-                        <h3 class="text-center">Create an account to expedite future checkouts, track order history &
-                            receive emails, discounts, & special offers</h3>
-                        <form method="post" action="/account/login" id="customer_login" accept-charset="UTF-8"
-                            data-login-with-shop-sign-in="true"><input type="hidden" name="form_type"
-                                value="customer_login"><input type="hidden" name="utf8" value="✓">
-
-                            <form method="post" class="form-customer form-login">
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-account" placeholder="Username*"
-                                        name="customer[email]">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-account" placeholder="Password*"
-                                        name="customer[password]">
-                                </div>
-                                <div class="flex">
-                                    <a href="#recover" id="RecoverPassword" class="btn-lostpwd space_bot_30">Lost your
-                                        password?</a>
-                                </div>
-                                <div class="btn-button-group mg-top-30 mg-bottom-15">
-                                    <button type="submit" class="ciloe-btn btn-login hover-white">LOGIN</button>
-                                </div>
-                            </form>
-                        </form>
-                    </div>
-                    <div id="RecoverPasswordForm" class="recover account-element hidden">
-                        <div class="cmt-title text-center">
-                            <h3 class="recover_pw">Reset your password</h3>
-                        </div>
-
-                        <div class="page-content">
-                            <p>We will send you an email to reset your password.</p>
-                            <div class="form-login">
-                                <form method="post" action="/account/recover" accept-charset="UTF-8"><input type="hidden"
-                                        name="form_type" value="recover_customer_password"><input type="hidden"
-                                        name="utf8" value="✓">
-                                    <div class="form-group">
-                                        <label for="RecoverEmail">Email</label>
-                                        <input type="email" class="form-control form-account" value=""
-                                            name="email" id="RecoverEmail" class="input-full" autocorrect="off"
-                                            autocapitalize="off">
-                                    </div>
-                                    <button class="ciloe-btn btn-login hover-white mgr-5">Submit</button>
-                                    <button id="HideRecoverPasswordLink"
-                                        class="ciloe-btn btn-login hover-white">Cancel</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="spec"><span>Or</span></div>
-                <a href="#" class="login-link hidden">Back to login</a>
-                <a href="#" class="register-link ">Back to register</a>
-            </div>
-        </div>
-    </div>
     <div class="pushmenu menu-home5 box-mobile-menu">
         <div class="menu-push box-mobile-menu-inner">
             <a href="#" class="close-menu-mobile"><span class="">Close</span></a>
@@ -480,8 +391,8 @@
                                 <div class="col-lg-2 col-md-2 hidden-sm hidden-xs btn_function gr_btn_product_size">
                                     <p>See: </p>
                                     <button class="products-size size_3 delay03">3</button>
-                                    <button class="products-size size_4 delay03 ">4</button>
-                                    <button class="products-size size_5 delay03 active">5</button>
+                                    <button class="products-size size_4 delay03 active">4</button>
+                                    <button class="products-size size_5 delay03">5</button>
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-2 col-xs-4 btn_function text-center filter-button ">
                                     <h4 class="btn_filter_full" data-click-state="0">Filters</h4>
@@ -747,16 +658,22 @@
                             </div>
                         </div>
                     </div>
+                    {{-- product content --}}
                     <div class="container-fluid container_100 content_shop ">
                         <div class="row">
                             <div
                                 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product_shop product-collection-grid product_full">
                                 <div class="row">
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
-                                                <a href="detail" class="engoj_find_img">
+                                                
+                                                @if (!Auth::user())
+                                                <a href="#login_form" class="delay03 inline-block hidden-sm hidden-xs" id="btn-login2">
+                                                @else
+                                                <a href="{{ route('detailProduct') }}" class="engoj_find_img">
+                                                @endif
                                                     <img src="assets/img/elements/thegirl.jpg?v=1552895486"
                                                         class="img-responsive full-width" alt="Arper Round table">
                                                     <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
@@ -832,87 +749,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add" enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id" value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 <a href="/collections/all/products/arper-round-table"
@@ -992,7 +829,87 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
+                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
+                                            <div class="img-product relative">
+                                                <a href="/collections/all/products/arper-round-table"
+                                                    class="engoj_find_img">
+                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
+                                                        class="img-responsive full-width" alt="Arper Round table">
+                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
+                                                        class="img-responsive absolute img-product-hover full-width"
+                                                        alt="Arper Round table">
+                                                </a>
+                                                <div class="product-icon text-center absolute">
+                                                    <form method="post" action="/cart/add" enctype="multipart/form-data"
+                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
+                                                        <input type="hidden" name="id" value="21680969842793">
+                                                        <button type="submit" name="add"
+                                                            class="enj-add-to-cart-btn btn-default">
+                                                            <i class="icon-bag"></i>
+                                                        </button>
+                                                    </form>
+                                                    <a href="#"
+                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
+                                                        title="quickview" data-id="arper-round-table">
+                                                        <i class="icon-magnifier"></i>
+                                                    </a>
+                                                    <a href="../account/login.html"
+                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
+                                                        data-toggle="tooltip" data-placement="top"
+                                                        data-original-title="Add to Wishlist">
+                                                        <i class=""></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="info-product text-center">
+                                                <h4 class="des-font capital title-product space_top_bot_20">
+                                                    <a href="/collections/all/products/arper-round-table">Arper Round
+                                                        table</a>
+                                                </h4>
+                                                <p class="price-product">
+                                                    <span class="price"><span class="money">$200.00</span></span>
+                                                </p>
+                                                <div class="content_list hidden">
+                                                    <div class="stock">
+                                                        <a href="/collections/all/products/arper-round-table"
+                                                            class="capital">in stock</a>
+                                                    </div>
+                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
+                                                        home accessories, driven by materiality and designed to provide
+                                                        divisions of space...</div>
+                                                    <div class="product-icon flex">
+                                                        <a href="../account/login.html"
+                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
+                                                            data-toggle="tooltip" data-placement="top"
+                                                            data-original-title="Add to Wishlist">
+                                                            <i class=""></i>
+                                                        </a>
+                                                        <form method="post" action="/cart/add"
+                                                            enctype="multipart/form-data"
+                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
+                                                            <input type="hidden" name="id" value="21680969842793">
+                                                            <button type="submit" name="add"
+                                                                class="enj-add-to-cart-btn btn-default">
+                                                                <i class="icon-bag"></i>
+                                                            </button>
+                                                        </form>
+                                                        <a href="#"
+                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
+                                                            title="quickview" data-id="arper-round-table">
+                                                            <i class="icon-magnifier"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-rating space_top_10">
+                                                    <span class="shopify-product-reviews-badge"
+                                                        data-id="2423347839081"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 <a href="/collections/all/products/arper-round-table"
@@ -1073,7 +990,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 <a href="/collections/all/products/arper-round-table"
@@ -1155,7 +1072,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 <a href="/collections/all/products/arper-round-table"
@@ -1237,7 +1154,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 <a href="/collections/all/products/arper-round-table"
@@ -1319,7 +1236,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 <a href="/collections/all/products/arper-round-table"
@@ -1401,7 +1318,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 <a href="/collections/all/products/arper-round-table"
@@ -1483,7 +1400,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 <a href="/collections/all/products/arper-round-table"
@@ -1565,7 +1482,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 <a href="/collections/all/products/arper-round-table"
@@ -1647,7 +1564,7 @@
                                         </div>
                                     </div>
                                     <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 column-6 layout_pd_6c">
+                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 <a href="/collections/all/products/arper-round-table"
@@ -2137,5 +2054,94 @@
                 </div>
             </div>
         </footer>
+    </div>
+
+
+    {{-- login & regis --}}
+    <div class="login_form_pc" id="login_form">
+        <div class="content_login_form over-hidden">
+            <div class="absolute btn_close_login">
+                <a href="#close" title="Close (Esc)"><i class="ti-close"></i></a>
+            </div>
+            <div class="mn-mobile-content-tab tab-pane hidden-xs hidden-sm">
+                <div class="my-account-wrap">
+                    <div class="register-form hidden">
+                        <div class="text-center icon_top"><span class="flaticon-login"></span></div>
+                        <h3 class="title_register">Your personal data will be used to support your experience throughout
+                            this website, to manage access to your account, and for other purposes described in our <a
+                                href="#">privacy policy</a>.</h3>
+                        <form method="post" action="/account" id="create_customer" accept-charset="UTF-8"
+                            data-login-with-shop-sign-up="true"><input type="hidden" name="form_type"
+                                value="create_customer"><input type="hidden" name="utf8" value="✓">
+                            <form method="post" class="form-customer form-login">
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-account " placeholder="Username*"
+                                        name="email" autocorrect="off" autocapitalize="off">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control form-account "
+                                        placeholder="Password*">
+                                </div>
+                                <div class="btn-button-group mg-top-30 mg-bottom-15">
+                                    <button type="submit" class="ciloe-btn btn-login hover-white">REGISTER</button>
+                                </div>
+                            </form>
+                        </form>
+                    </div>
+                    <!--      -->
+                    <div class="login-form">
+                        <div class="text-center icon_top"><span class="flaticon-user"></span></div>
+                        <h3 class="text-center">Create an account to expedite future checkouts, track order history &
+                            receive emails, discounts, & special offers</h3>
+                        <form method="post" action="{{ route('login.post') }}" id="customer_login" accept-charset="UTF-8" data-login-with-shop-sign-in="true"><input type="hidden" name="form_type" value="customer_login"><input type="hidden" name="utf8" value="✓">
+                            @csrf
+                            @method('POST')
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-account" placeholder="Username*"
+                                        name="email">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-account" placeholder="Password*"
+                                        name="password">
+                                </div>
+                                <div class="flex">
+                                    <a href="#recover" id="RecoverPassword" class="btn-lostpwd space_bot_30">Lost your
+                                        password?</a>
+                                </div>
+                                <div class="btn-button-group mg-top-30 mg-bottom-15">
+                                    <button type="submit" class="ciloe-btn btn-login hover-white">LOGIN</button>
+                                </div>
+                        </form>
+                    </div>
+                    <div id="RecoverPasswordForm" class="recover account-element hidden">
+                        <div class="cmt-title text-center">
+                            <h3 class="recover_pw">Reset your password</h3>
+                        </div>
+
+                        <div class="page-content">
+                            <p>We will send you an email to reset your password.</p>
+                            <div class="form-login">
+                                <form method="post" action="/account/recover" accept-charset="UTF-8"><input type="hidden"
+                                        name="form_type" value="recover_customer_password"><input type="hidden"
+                                        name="utf8" value="✓">
+                                    <div class="form-group">
+                                        <label for="RecoverEmail">Email</label>
+                                        <input type="email" class="form-control form-account" value=""
+                                            name="email" id="RecoverEmail" class="input-full" autocorrect="off"
+                                            autocapitalize="off">
+                                    </div>
+                                    <button class="ciloe-btn btn-login hover-white mgr-5">Submit</button>
+                                    <button id="HideRecoverPasswordLink"
+                                        class="ciloe-btn btn-login hover-white">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="spec"><span>Or</span></div>
+                <a href="#" class="login-link hidden">Back to login</a>
+                <a href="#" class="register-link ">Back to register</a>
+            </div>
+        </div>
     </div>
 @endsection

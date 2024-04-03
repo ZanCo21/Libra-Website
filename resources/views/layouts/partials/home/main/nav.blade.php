@@ -222,18 +222,16 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 logo_header text-center">
-                    <a href="../index.htm" class="left">
                         <img alt=" Minim - Minimal &amp; Clean Furniture Store Shopify Theme"
                             src="{{ asset('assets/home/cdn/shop/t/9/assets/logo.png?v=76281246793426370331552127529')}}"
                             width="118px;" class="img-logo">
-                    </a>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-4 col-xs-4 text-right icon-main">
                     <a href="#" class="delay03 inline-block" id="btn-search">
                         <img src="{{ asset('assets/home/cdn/shop/t/9/assets/iconsearch.png?v=143931648200267966671552623708')}}"
                             class="img-responsive">
                     </a>
-                    <a href="#login_form" class="delay03 inline-block hidden-sm hidden-xs" id="btn-login">
+                    <a href="#login_form" class="delay03 inline-block hidden-sm hidden-xs" id="c">
                         <img src="{{ asset('assets/home/cdn/shop/t/9/assets/iconlogin.png?v=17151735571898987051552623697')}}"
                             class="img-responsive">
                     </a>

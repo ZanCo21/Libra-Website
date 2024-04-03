@@ -38,11 +38,11 @@ class LoginController extends Controller
             if ($user->hasRole('admin') || $user->hasRole('petugas')) {
                 return redirect('/dashboard')->with(['success' => "$name Login successfully"]);
             } elseif ($user->hasRole('peminjam')) {
-                return redirect('/home')->with(['success' => "$name Login successfully"]);
+                return redirect('/')->with(['success' => "$name Login successfully"]);
             } else {
                 return redirect('/')->withErrors(['error' => 'Login failed. Please check your credentials.']);
             }
         }
-        return redirect('/login')->withErrors(['error' => 'Login failed. Please check your credentials.']);
+        return redirect('/')->withErrors(['error' => 'Login failed. Please check your credentials.']);
     }    
 }

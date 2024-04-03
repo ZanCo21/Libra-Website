@@ -247,5 +247,5 @@
             <!-- End cart bottom -->
         </div>
     </div>
-    <div class="overlay"></div>
+
 @endsection
