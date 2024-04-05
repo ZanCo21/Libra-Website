@@ -202,27 +202,7 @@
                 </div>
                 <div id="menu1" class="mn-mobile-content-tab tab-pane fade hidden-lg">
                     <div class="my-account-wrap">
-                        <div class="register-form">
-                            <h3 class="text-center">REGISTER</h3>
-                            <form method="post" action="/account" id="create_customer" accept-charset="UTF-8"
-                                data-login-with-shop-sign-up="true"><input type="hidden" name="form_type"
-                                    value="create_customer"><input type="hidden" name="utf8" value="✓">
-                                <form method="post" class="form-customer form-login">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-account " placeholder="Username*"
-                                            name="customer[email]" autocorrect="off" autocapitalize="off">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="customer[password]"
-                                            class="form-control form-account " placeholder="Password*">
-                                    </div>
-                                    <div class="btn-button-group mg-top-30 mg-bottom-15">
-                                        <button type="submit" class="ciloe-btn btn-login hover-white">REGISTER</button>
-                                    </div>
-                                </form>
-                            </form>
-                        </div>
-                        <div class="login-form hidden">
+                        <div class="login-form">
                             <h3 class="text-center">LOGIN</h3>
                             <form method="post" action="/account/login" id="customer_login" accept-charset="UTF-8"
                                 data-login-with-shop-sign-in="true"><input type="hidden" name="form_type"
@@ -244,8 +224,7 @@
                         </div>
                     </div>
                     <div class="spec"><span>Or</span></div>
-                    <a href="#" class="login-link">Back to login</a>
-                    <a href="#" class="register-link hidden">Back to register</a>
+                    <a href="{{ route('register') }}" class="register-link">Back to register</a>
                 </div>
             </div>
             <div class="box-tabs-nav-wrap">
@@ -264,7 +243,7 @@
             </div>
         </div>
     </div>
-    <!-- Push cart -->
+    <!-- Push cart modal-->
     <div class="pushmenu pushmenu-left cart-box-container">
         <div class="cart-list enj-minicart-ajax">
             <div class="cart-list-heading">
@@ -275,7 +254,7 @@
             <div class="empty-cart">
                 <p class="fz-18">No products in the cart.</p>
                 <div class="flex center">
-                    <a href="all.html" class="capital">start shopping</a>
+                    <a href="" class="capital">start shopping</a>
                 </div>
             </div>
             <!-- End cart bottom -->
@@ -300,7 +279,7 @@
             <div class="shop_page">
                 <div class="container-fluid  relative banner_page margin_bottom_20  hidden-xs ">
                     <div class="row">
-                        <a href="all.html" class="effect_img2">
+                        <a href="" class="effect_img2">
                             <img src="assets/home/cdn/shop/files/banner_hero.png" class="img-responsive">
                         </a>
                     </div>
@@ -2065,30 +2044,6 @@
             </div>
             <div class="mn-mobile-content-tab tab-pane hidden-xs hidden-sm">
                 <div class="my-account-wrap">
-                    <div class="register-form hidden">
-                        <div class="text-center icon_top"><span class="flaticon-login"></span></div>
-                        <h3 class="title_register">Your personal data will be used to support your experience throughout
-                            this website, to manage access to your account, and for other purposes described in our <a
-                                href="#">privacy policy</a>.</h3>
-                        <form method="post" action="/account" id="create_customer" accept-charset="UTF-8"
-                            data-login-with-shop-sign-up="true"><input type="hidden" name="form_type"
-                                value="create_customer"><input type="hidden" name="utf8" value="✓">
-                            <form method="post" class="form-customer form-login">
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-account " placeholder="Username*"
-                                        name="email" autocorrect="off" autocapitalize="off">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" name="password" class="form-control form-account "
-                                        placeholder="Password*">
-                                </div>
-                                <div class="btn-button-group mg-top-30 mg-bottom-15">
-                                    <button type="submit" class="ciloe-btn btn-login hover-white">REGISTER</button>
-                                </div>
-                            </form>
-                        </form>
-                    </div>
-                    <!--      -->
                     <div class="login-form">
                         <div class="text-center icon_top"><span class="flaticon-user"></span></div>
                         <h3 class="text-center">Create an account to expedite future checkouts, track order history &
@@ -2140,7 +2095,7 @@
                 </div>
                 <div class="spec"><span>Or</span></div>
                 <a href="#" class="login-link hidden">Back to login</a>
-                <a href="#" class="register-link ">Back to register</a>
+                <a href="{{ route('register') }}">Back to register</a>
             </div>
         </div>
     </div>

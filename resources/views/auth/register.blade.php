@@ -1,195 +1,423 @@
 <!DOCTYPE html>
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed layout-compact " dir="ltr"
+    data-theme="theme-default" data-assets-path="assets/" data-template="vertical-menu-template">
 
-<html
-  lang="en"
-  class="light-style layout-wide customizer-hide"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="../assets/"
-  data-template="vertical-menu-template-free">
-  <head>
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Register Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Wizard Icons - Forms | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
-    <meta name="description" content="" />
+
+    <meta name="description"
+        content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
+    <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://themeselection.com/item/sneat-bootstrap-html-admin-template/">
+
+
+    <!-- ? PROD Only: Google Tag Manager (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5DDHKGP');
+    </script>
+    <!-- End Google Tag Manager -->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet" />
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/bs-stepper/bs-stepper.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/bootstrap-select/bootstrap-select.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/select2/select2.css" />
 
     <!-- Page CSS -->
-    <!-- Page -->
-    <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
     <!-- Helpers -->
-    <script src="../assets/vendor/js/helpers.js"></script>
+    <script src="assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="assets/vendor/js/template-customizer.js"></script>
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../assets/js/config.js"></script>
-  </head>
+    <script src="assets/js/config.js"></script>
 
-  <body>
-    <!-- Content -->
+</head>
 
-    <div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner">
-          <!-- Register Card -->
-          <div class="card">
-            <div class="card-body">
-              <!-- Logo -->
-              <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
-                  <span class="app-brand-logo demo">
-                    <svg
-                      width="25"
-                      viewBox="0 0 25 42"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink">
-                      <defs>
-                        <path
-                          d="M13.7918663,0.358365126 L3.39788168,7.44174259 C0.566865006,9.69408886 -0.379795268,12.4788597 0.557900856,15.7960551 C0.68998853,16.2305145 1.09562888,17.7872135 3.12357076,19.2293357 C3.8146334,19.7207684 5.32369333,20.3834223 7.65075054,21.2172976 L7.59773219,21.2525164 L2.63468769,24.5493413 C0.445452254,26.3002124 0.0884951797,28.5083815 1.56381646,31.1738486 C2.83770406,32.8170431 5.20850219,33.2640127 7.09180128,32.5391577 C8.347334,32.0559211 11.4559176,30.0011079 16.4175519,26.3747182 C18.0338572,24.4997857 18.6973423,22.4544883 18.4080071,20.2388261 C17.963753,17.5346866 16.1776345,15.5799961 13.0496516,14.3747546 L10.9194936,13.4715819 L18.6192054,7.984237 L13.7918663,0.358365126 Z"
-                          id="path-1"></path>
-                        <path
-                          d="M5.47320593,6.00457225 C4.05321814,8.216144 4.36334763,10.0722806 6.40359441,11.5729822 C8.61520715,12.571656 10.0999176,13.2171421 10.8577257,13.5094407 L15.5088241,14.433041 L18.6192054,7.984237 C15.5364148,3.11535317 13.9273018,0.573395879 13.7918663,0.358365126 C13.5790555,0.511491653 10.8061687,2.3935607 5.47320593,6.00457225 Z"
-                          id="path-3"></path>
-                        <path
-                          d="M7.50063644,21.2294429 L12.3234468,23.3159332 C14.1688022,24.7579751 14.397098,26.4880487 13.008334,28.506154 C11.6195701,30.5242593 10.3099883,31.790241 9.07958868,32.3040991 C5.78142938,33.4346997 4.13234973,34 4.13234973,34 C4.13234973,34 2.75489982,33.0538207 2.37032616e-14,31.1614621 C-0.55822714,27.8186216 -0.55822714,26.0572515 -4.05231404e-15,25.8773518 C0.83734071,25.6075023 2.77988457,22.8248993 3.3049379,22.52991 C3.65497346,22.3332504 5.05353963,21.8997614 7.50063644,21.2294429 Z"
-                          id="path-4"></path>
-                        <path
-                          d="M20.6,7.13333333 L25.6,13.8 C26.2627417,14.6836556 26.0836556,15.9372583 25.2,16.6 C24.8538077,16.8596443 24.4327404,17 24,17 L14,17 C12.8954305,17 12,16.1045695 12,15 C12,14.5672596 12.1403557,14.1461923 12.4,13.8 L17.4,7.13333333 C18.0627417,6.24967773 19.3163444,6.07059163 20.2,6.73333333 C20.3516113,6.84704183 20.4862915,6.981722 20.6,7.13333333 Z"
-                          id="path-5"></path>
-                      </defs>
-                      <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
-                          <g id="Icon" transform="translate(27.000000, 15.000000)">
-                            <g id="Mask" transform="translate(0.000000, 8.000000)">
-                              <mask id="mask-2" fill="white">
-                                <use xlink:href="#path-1"></use>
-                              </mask>
-                              <use fill="#696cff" xlink:href="#path-1"></use>
-                              <g id="Path-3" mask="url(#mask-2)">
-                                <use fill="#696cff" xlink:href="#path-3"></use>
-                                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-3"></use>
-                              </g>
-                              <g id="Path-4" mask="url(#mask-2)">
-                                <use fill="#696cff" xlink:href="#path-4"></use>
-                                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4"></use>
-                              </g>
-                            </g>
-                            <g
-                              id="Triangle"
-                              transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) ">
-                              <use fill="#696cff" xlink:href="#path-5"></use>
-                              <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
-                            </g>
-                          </g>
-                        </g>
-                      </g>
-                    </svg>
-                  </span>
-                  <span class="app-brand-text demo text-body fw-bold">Sneat</span>
-                </a>
+<body>
+
+
+    <!-- Content wrapper -->
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <div class="content-wrapper">
+          <!-- Content -->
+          <div class="container-xxl flex-grow-1 container-p-y">
+            <h3 class="text-center  fw-bold">Welcome To Libra</h3>
+            <p class="text-center fw-light mb-5">Your personal data will be used to support your experience throughout this website <br> to manage access to your account, and for other purposes described in our <a href="#">privacy policy</a>.</p>
+              <!-- Vertical Icons Wizard -->
+              <div class="col-12 mb-4">
+                  <div class="bs-stepper wizard-vertical vertical wizard-vertical-icons-example mt-2">
+                      <div class="bs-stepper-header">
+                          <div class="step" data-target="#account-details-vertical">
+                              <button type="button" class="step-trigger">
+                                  <span class="bs-stepper-circle">
+                                      <i class="bx bx-detail"></i>
+                                  </span>
+                                  <span class="bs-stepper-label mt-1">
+                                      <span class="bs-stepper-title">Account Details</span>
+                                      <span class="bs-stepper-subtitle">Setup Account Details</span>
+                                  </span>
+                              </button>
+                          </div>
+                          <div class="line"></div>
+                          <div class="step" data-target="#personal-info-vertical">
+                              <button type="button" class="step-trigger">
+                                  <span class="bs-stepper-circle">
+                                      <i class="bx bx-user"></i>
+                                  </span>
+                                  <span class="bs-stepper-label mt-1">
+                                      <span class="bs-stepper-title">Personal Info</span>
+                                      <span class="bs-stepper-subtitle">Add personal info</span>
+                                  </span>
+                              </button>
+                          </div>
+                          <div class="line"></div>
+                          <div class="step" data-target="#social-links-vertical">
+                              <button type="button" class="step-trigger">
+                                  <span class="bs-stepper-circle">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAPxJREFUSEvt07tKBDEUBuBvn8LCwgvaKCJYKpZ2lj6OvS9ja2cnWgk2qyCCl8LCp1ADM5AdspMTcbtNM8yQ/N9J5mRiwWOy4HwtwAqu8I1TfEWKiwIp/A6bXegrDiNIBEjhN9jGRwes4QXHNaQG5JV/4qgDbrGK6k7GgFJ4voMQMg8YC+//bTqmKlICIuFhZAi0hIeQHMi7JS3ewHuk17GOt27uTHf1QHo+YD8LrHXY0E4XsB9T7KWXHLjHwT8B178NcJIDeTV9JX/dwcy6UsgSWB7R3KtXbI5SFz1iJ3iDh9OesJt/LAFnuMBWI/KMc1zWgMbc8emtt7UZ/wERZUUZyr5HKAAAAABJRU5ErkJggg=="/>
+                                  </span>
+                                  <span class="bs-stepper-label mt-1">
+                                      <span class="bs-stepper-title">Address</span>
+                                      <span class="bs-stepper-subtitle">Add Address</span>
+                                  </span>
+                              </button>
+                          </div>
+                          <button class="btn btn-outline-secondary" onclick="window.location.href = '{{ route('home') }}';">
+                            <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                            <span class="align-middle d-sm-inline-block d-none">Back</span>
+                          </button>
+                      </div>
+                      <div class="bs-stepper-content">
+                          <form  method="POST" action="{{ route('register.store') }}">
+                              @csrf
+                              <!-- Account Details -->
+                              <div id="account-details-vertical" class="content">
+                                  <div class="content-header mb-3">
+                                      <h6 class="mb-0">Account Details</h6>
+                                      <small>Enter Your Account Details.</small>
+                                  </div>
+                                  <div class="row g-3">
+                                      <div class="col-sm-6">
+                                          <label class="form-label" for="username1">Username</label>
+                                          <input name="username" type="text" id="username1" class="form-control"
+                                              placeholder="johnBro" required/>
+                                      </div>
+                                      <div class="col-sm-6">
+                                          <label class="form-label" for="email1">Email</label>
+                                          <input name="email" type="text" id="email" class="form-control" placeholder="john@gmail.com"
+                                              aria-label="john@gmail.com" required/>
+                                      </div>
+                                      <div class="col-sm-6 form-password-toggle">
+                                          <label class="form-label" for="password60">Password</label>
+                                          <div class="input-group input-group-merge">
+                                              <input name="password" type="password" id="password60" class="form-control"
+                                                  placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                                  aria-describedby="password6" required/>
+                                              <span class="input-group-text cursor-pointer" id="password6"><i
+                                                      class="bx bx-hide"></i></span>
+                                          </div>
+                                      </div>
+                                      <div class="col-12 d-flex justify-content-between">
+                                          <button class="btn btn-label-secondary btn-prev" disabled>
+                                              <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                              <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                          </button>
+                                          <button class="btn btn-primary btn-next">
+                                              <span class="align-middle d-sm-inline-block d-none me-sm-1">Next</span>
+                                              <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                                          </button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Personal Info -->
+                              <div id="personal-info-vertical" class="content">
+                                  <div class="content-header mb-3">
+                                      <h6 class="mb-0">Personal Info</h6>
+                                      <small>Enter Your Personal Info.</small>
+                                  </div>
+                                  <div class="row g-3">
+                                      <div class="col-sm-6">
+                                          <label class="form-label" for="nama-lengkap">Name Lengkap</label>
+                                          <input name="nama_lengkap" type="text" id="nama-lengkap" class="form-control"
+                                              placeholder="John Doe" required/>
+                                      </div>
+                                      <div class="col-sm-6">
+                                          <label class="form-label" for="nomer-telephone">No Telephone</label>
+                                          <input name="no_telephone" type="number" id="nomer-telephone" class="form-control"
+                                              placeholder="08x-xxx-xxx" required/>
+                                      </div>
+                                      <div class="col-sm-6">
+                                          <label class="form-label" for="country1">Jenis Kelamin</label>
+                                          <select name="jenis_kelamin" class="select2" id="country1" required>
+                                              <option label=" "></option>
+                                              <option value="male">Laki - Laki</option>
+                                              <option value="female">Perempuan</option>
+                                          </select>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <div class="flex flex-col">
+                                          <label class="form-label">Jenis Kartu Identitas</label>
+                                          <div class="d-flex mt-2">
+                                            <div class="form-check">
+                                              <input name="jenis_kartu_identitas" class="form-check-input" type="radio" value="KTP" id="collapsible-addressType-home" checked="">
+                                              <label class="form-check-label" for="collapsible-addressType-home"> KTP</label>
+                                            </div>
+                                            <div class="form-check ms-4">
+                                              <input name="jenis_kartu_identitas" class="form-check-input" type="radio" value="KARTU PELAJAR" id="collapsible-addressType-office">
+                                              <label class="form-check-label" for="collapsible-addressType-office"> KARTU PELAJAR </label>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-sm-6">
+                                        <label class="form-label" for="nomer-telephone">No Identitas</label>
+                                        <input name="no_identitas" type="number" id="nomer-identitas" class="form-control"
+                                            placeholder="xxx-xxx-xxx" required/>
+                                      </div>
+                                      <div class="col-12 d-flex justify-content-between">
+                                          <button class="btn btn-primary btn-prev">
+                                              <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                              <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                          </button>
+                                          <button class="btn btn-primary btn-next">
+                                              <span class="align-middle d-sm-inline-block d-none me-sm-1">Next</span>
+                                              <i class="bx bx-chevron-right bx-sm me-sm-n2"></i>
+                                          </button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <!-- Social Links -->
+                              <div id="social-links-vertical" class="content">
+                                  <div class="content-header mb-3">
+                                      <h6 class="mb-0">Personal Address</h6>
+                                      <small>Enter Your Address.</small>
+                                  </div>
+                                  <div class="row g-3">
+                                      <div class="col-sm-6">
+                                          <label class="form-label" for="provinsi">Provinsi</label>
+                                          <select id="provinsi" class="form-select" name="provinsi" required>
+                                            <option label="Pilih Provinsi"></option>
+                                            @foreach ($provinsi as $item)
+                                            <option value="{{$item['name']}}" data-ProvinsiID="{{ $item['id'] }}">{{$item['name']}}</option>
+                                            @endforeach
+                                          </select>
+                                      </div>
+                                      <div class="col-sm-6" id="divKota" hidden>
+                                          <label class="form-label">Kota</label>
+                                          <select id="kota" class="form-select" name="kota" required>
+                                          </select>
+                                      </div>
+                                      <div class="col-sm-6" id="divKecamatan" hidden>
+                                          <label class="form-label" for="google1">Kecamatan</label>
+                                          <select id="kecamatan" class="form-select" name="kecamatan" required>
+                                          </select>
+                                      </div>
+                                      <div class="col-sm-6" id="divKelurahan" hidden>
+                                          <label class="form-label" for="linkedin1">Kelurahan</label>
+                                          <select id="kelurahan" class="form-select" name="kelurahan" required>
+                                            <option label=""></option>
+                                          </select>
+                                      </div>
+                                      <div class="col-sm-12" id="divAddress" hidden>
+                                        <label class="form-label" for="google1">Address</label>
+                                        <textarea name="alamat" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Jalan/Gang/Blok/Dusun, RT, RW, Kelurahan, Kecamatan, KodePos" required></textarea>
+                                      </div>
+                                      <div class="col-12 d-flex justify-content-between">
+                                          <button class="btn btn-primary btn-prev">
+                                              <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i>
+                                              <span class="align-middle d-sm-inline-block d-none">Previous</span>
+                                          </button>
+                                          <button type="submit" class="btn btn-success">Submit</button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
               </div>
-              <!-- /Logo -->
-              <h4 class="mb-2">Adventure starts here 🚀</h4>
-              <p class="mb-4">Make your app management easy and fun!</p>
-
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
-                <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="username"
-                    name="username"
-                    placeholder="Enter your username"
-                    autofocus />
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
-                </div>
-                <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="password">Password</label>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password" />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
-                </div>
-
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-                    <label class="form-check-label" for="terms-conditions">
-                      I agree to
-                      <a href="javascript:void(0);">privacy policy & terms</a>
-                    </label>
-                  </div>
-                </div>
-                <button class="btn btn-primary d-grid w-100">Sign up</button>
-              </form>
-
-              <p class="text-center">
-                <span>Already have an account?</span>
-                <a href="auth-login-basic.html">
-                  <span>Sign in instead</span>
-                </a>
-              </p>
-            </div>
+              <!-- /Vertical Icons Wizard -->
           </div>
-          <!-- Register Card -->
-        </div>
       </div>
     </div>
-
     <!-- / Content -->
+    <div class="content-backdrop fade"></div>
+    </div>
+    <!-- Content wrapper -->
+    </div>
+    <!-- / Layout page -->
+    </div>
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+    <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+    <div class="drag-target"></div>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+          $('select[id="provinsi"]').on('change', function(){
+
+            var provinsi = $("#provinsi option:selected").attr("data-ProvinsiID");
+
+            if(provinsi != null){
+              $.ajax({
+                  url: '/get/kota/'+ provinsi,
+                  type: 'GET',
+                  dataType: 'json',
+                  beforeSend: function() {
+                      $.LoadingOverlay("show");
+                  },
+                  success: function(data) {
+                      $('select[name="kota"]').empty();
+                      $('#divKota').removeAttr('hidden');
+                      $('#kota').prepend('<option disabled selected>Pilih Kota</option>');
+                      $.each(data, function(index, kota) {
+                          $('#kota').append('<option value="' + kota.name + '" data-kotaId="' + kota.id + '">' + kota.name + '</option>');
+                      });
+                  },
+                  error: function(jqXHR, textStatus, errorThrown) {
+                      console.log('Error:', errorThrown);
+                  },
+                  complete: function(){
+                      $.LoadingOverlay("hide");
+                  },
+              });
+            }else{
+              console.log('Error: Provinsi ID tidak dapat ditemukan');
+            }
+          });
+
+          $('select[id="kota"]').on('change', function(){
+            var kotaId = $("#kota option:selected").attr("data-kotaId");
+
+              if(kotaId != null){
+              $.ajax({
+                  url: '/get/kecamatan/'+ kotaId,
+                  type: 'GET',
+                  dataType: 'json',
+                  beforeSend: function() {
+                      $.LoadingOverlay("show");
+                  },
+                  success: function(data) {
+                      $('select[name="kecamatan"]').empty();
+                      $('#divKecamatan').removeAttr('hidden');
+                      $('#kecamatan').prepend('<option disabled selected>Pilih Kecamatan</option>');
+                      $.each(data, function(index, kecamatan) {
+                          $('#kecamatan').append('<option value="' + kecamatan.name + '" data-kecamatanId="' + kecamatan.id + '">' + kecamatan.name + '</option>');
+                      });
+                  },
+                  error: function(jqXHR, textStatus, errorThrown) {
+                      console.log('Error:', errorThrown);
+                  },
+                  complete: function(){
+                      $.LoadingOverlay("hide");
+                  },
+              });
+            }else{
+              console.log('Error: kota ID tidak dapat ditemukan');
+            }
+          });
+
+          $('select[id="kecamatan"]').on('change', function(){
+            var kecamatanId = $("#kecamatan option:selected").attr("data-kecamatanId");
+
+              if(kecamatanId != null){
+              $.ajax({
+                  url: '/get/kelurahan/'+ kecamatanId,
+                  type: 'GET',
+                  dataType: 'json',
+                  beforeSend: function() {
+                      $.LoadingOverlay("show");
+                  },
+                  success: function(data) {
+                      $('select[name="kelurahan"]').empty();
+                      $('#divKelurahan').removeAttr('hidden');
+                      $('#kelurahan').prepend('<option disabled selected>Pilih kelurahan</option>');
+                      $.each(data, function(index, kelurahan) {
+                          $('#kelurahan').append('<option value="' + kelurahan.name + '" data-kelurahanId="' + kelurahan.id + '">' + kelurahan.name + '</option>');
+                      });
+                  },
+                  error: function(jqXHR, textStatus, errorThrown) {
+                      console.log('Error:', errorThrown);
+                  },
+                  complete: function(){
+                      $.LoadingOverlay("hide");
+                  },
+              });
+            }else{
+              console.log('Error: kota ID tidak dapat ditemukan');
+            }
+          });
+
+          $('select[id="kelurahan"]').on('change', function(){
+            $('#divAddress').removeAttr('hidden');
+          });
+      });
+    </script>
+
+    @include('layouts.partials.admin.flashMessage')
+
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../assets/vendor/js/menu.js"></script>
-
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/typeahead-js/typeahead.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
-
     <!-- Vendors JS -->
-
+    <script src="assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+    <script src="assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
+    <script src="assets/vendor/libs/select2/select2.js"></script>
     <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
-
+    <script src="assets/js/main.js"></script>
     <!-- Page JS -->
+    <script src="assets/js/form-wizard-icons.js"></script>
 
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+    	{{-- gasparesganga cdn --}}
+	<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+</body>
+
 </html>

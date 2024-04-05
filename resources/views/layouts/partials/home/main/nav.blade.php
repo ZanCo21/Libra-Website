@@ -231,7 +231,7 @@
                         <img src="{{ asset('assets/home/cdn/shop/t/9/assets/iconsearch.png?v=143931648200267966671552623708')}}"
                             class="img-responsive">
                     </a>
-                    <a href="#login_form" class="delay03 inline-block hidden-sm hidden-xs" id="c">
+                    <a href="#login_form" class="delay03 inline-block hidden-sm hidden-xs" id="btn-login">
                         <img src="{{ asset('assets/home/cdn/shop/t/9/assets/iconlogin.png?v=17151735571898987051552623697')}}"
                             class="img-responsive">
                     </a>

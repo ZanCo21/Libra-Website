@@ -18,8 +18,13 @@ return new class extends Migration
             $table->string('nama_lengkap');
             $table->string('no_identitas');
             $table->string('jenis_kartu_identitas');
-            $table->text('alamat');
             $table->string('no_telephone');
+            $table->enum('jenis_kelamin',['male','female']);
+            $table->string('provinsi');
+            $table->string('kota');
+            $table->string('kecamatan');
+            $table->string('kelurahan');
+            $table->text('alamat');
             $table->timestamps();
         });
     }

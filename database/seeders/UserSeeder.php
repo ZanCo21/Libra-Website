@@ -40,6 +40,7 @@ class UserSeeder extends Seeder
                 'userName' => $userName,
                 'email' => $email,
                 'role' => $role,
+                'status' => 'active',
                 'number_verified_at' => $number_verified_at,
                 'password' => $password,
             ]);
@@ -52,6 +53,10 @@ class UserSeeder extends Seeder
                     'jenis_kartu_identitas' => 'KTP',
                     'alamat' => 'JL.Pekapuran Rt.01 Rw.19 Kec.Sukmajawa Kel.abadijaya kota Depok',
                     'no_telephone' => '089926166212',
+                    'provinsi' => 'JAWA BARAT',
+                    'kota' => 'KOTA DEPOK',
+                    'kecamatan' => 'SUKMAJAYA',
+                    'kelurahan' => 'ABADIJAYA',
                 ]);
             }
 
