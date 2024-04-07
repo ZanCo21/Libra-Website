@@ -109,7 +109,7 @@
     <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <form method="POST" action="#" enctype="multipart/form-data">
+                <form id="tambahBuku" method="POST" action="#" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalCenterTitle">Tambah Buku</h5>
@@ -226,7 +226,7 @@
             });
         });
 
-        $('form').submit(function(event) {
+        $('form[id="tambahBuku"]').submit(function(event) {
             event.preventDefault(); 
             var editorText = $('#snow-editor .ql-editor').html();
             $('#deskripsi').val(editorText);
