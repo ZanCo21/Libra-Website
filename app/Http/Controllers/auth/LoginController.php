@@ -36,7 +36,7 @@ class LoginController extends Controller
             $user = auth()->user();
             $name = auth()->user()->name;
             if ($user->hasRole('admin') || $user->hasRole('petugas')) {
-                return redirect('/dashboard')->with(['success' => "$name Login successfully"]);
+                return redirect('/dashboard/analytics')->with(['success' => "$name Login successfully"]);
             } elseif ($user->hasRole('peminjam')) {
                 return redirect('/')->with(['success' => "$name Login successfully"]);
             } else {

@@ -63,7 +63,7 @@ class RegisterController extends Controller
 
 
 
-        return redirect()->back()->with('success', 'Data berhasil disimpan.');
+        return redirect()->back()->with(['success' => "Data berhasil disimpan."]);
     }
 
     public function getProvinsi()

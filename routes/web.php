@@ -5,6 +5,7 @@ use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\ManageBooksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,10 +41,9 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('dashboard')->middleware('role:admin')->group(function () {
-        Route::get('/',  function () {return view('admin.dashboard');})->name('dashboard');
-        Route::get('/manageBooks', function () {
-            return view('admin.manageBooks');
-        });
+        Route::get('/analytics',  function () {return view('admin.dashboard');})->name('dashboard');
+        Route::get('/manageBooks', [ManageBooksController::class, 'index'])->name('manageBooks');
+        Route::post('/storeBooks', [ManageBooksController::class, 'store'])->name('storeBooks');
     });
     
     Route::prefix('home')->middleware('role:peminjam')->group(function () {

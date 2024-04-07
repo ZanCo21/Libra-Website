@@ -63,8 +63,6 @@
 
     <!-- Page CSS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
     <!-- Helpers -->
     <script src="assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
@@ -73,8 +71,37 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="assets/js/config.js"></script>
 
-</head>
+    <style>
+          /* Notifikasi responsif untuk perangkat mobile */
+          @media (max-width: 768px) {
+            #notification {
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                width: auto;
+                max-width: 90%;
+                padding: 10px;
+                font-size: 14px;
+                z-index: 999;
+            }
+        }
+        #notification {
+            z-index: 999;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            /* display: none; */
+            padding: 15px;
+            border-radius: 5px;
+            transition: 3s ease-in-out;
+        }
 
+        #notification .hidden{
+            opacity: 0;
+            transition: 3s ease-in;
+        }
+    </style>
+</head>
 <body>
 
 
@@ -397,6 +424,24 @@
     </script>
 
     @include('layouts.partials.admin.flashMessage')
+    @if($errors->any())
+        <div id="notification" class="alert alert-danger show mb-2 absolute right-0 m-4" role="alert">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var notificationContent = document.getElementById('notification');
+
+                    notificationContent.style.display = 'block';
+
+                    setTimeout(function () {
+                        notificationContent.style.display = 'none';
+                    }, 4000);
+            });
+        </script>
+    @endif
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

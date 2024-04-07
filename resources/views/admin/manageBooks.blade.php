@@ -109,100 +109,105 @@
     <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalCenterTitle">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col mb-3">
-                            <label for="nameWithTitle" class="form-label">Judul Buku</label>
-                            <input type="text" id="nameWithTitle" class="form-control" placeholder="Judul Buku" />
-                        </div>
+                <form method="POST" action="#" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalCenterTitle">Tambah Buku</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="row">
-                        <div class="row mt-2">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="nameWithTitle" class="form-label">Judul Buku</label>
+                                <input type="text" name="judul" id="nameWithTitle" class="form-control"
+                                    placeholder="Judul Buku" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row mt-2">
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Front Book Cover</label>
+                                    <input class="form-control" type="file" name="front_book_cover">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Back Book Cover</label>
+                                    <input class="form-control" type="file" name="back_book_cover">
+                                </div>
+                            </div>
+                            <div class="col mb-3">
+                                <label for="penulis" class="form-label">Penulis</label>
+                                <input type="text" name="penulis" id="penulis" class="form-control"
+                                    placeholder="Penulis Buku" />
+                            </div>
+                        </div>
+                        <div class="row">
+
+                        </div>
+                        <div class="col mb-3">
+                            <label for="penerbit" class="form-label">Penerbit</label>
+                            <input type="text" name="penerbit" id="penerbit" class="form-control"
+                                placeholder="Kepustakaan Libra" />
+                        </div>
+                        <div class="row g-2">
+                            <div class="col mb-0">
+                                <label for="penerbit" class="form-label">Stock</label>
+                                <input class="form-control" name="stock" type="number" value="1"
+                                    id="html5-number-input" />
+                            </div>
+                            <div class="col mb-0">
+                                <label for="tahunTerbit" class="form-label">Tahun Terbit</label>
+                                <input type="date" name="tahunTerbit" id="tahunTerbit" class="form-control" />
+                            </div>
+                        </div>
+                        <input type="hidden" name="deskripsi" id="deskripsi">
+                        <div class="row">
+                            <!-- Snow Theme -->
                             <div class="col-12">
                                 <div class="card mb-4">
-                                    <h6 class="card-header">Photo</h6>
+                                    <h6 class="card-header">Deskripsi</h6>
                                     <div class="card-body">
-                                        <form action="/upload" class="dropzone needsclick" id="dropzone-basic">
-                                            <div class="dz-message needsclick">
-                                                <h6>Drop Cover Book here or click to upload</h9>
-                                            </div>
-                                            <div class="fallback">
-                                                <input name="file" type="file" />
-                                            </div>
-                                        </form>
+                                        <div id="snow-toolbar">
+                                            <span class="ql-formats">
+                                                <select class="ql-font"></select>
+                                                <select class="ql-size"></select>
+                                            </span>
+                                            <span class="ql-formats">
+                                                <button class="ql-bold"></button>
+                                                <button class="ql-italic"></button>
+                                                <button class="ql-underline"></button>
+                                                <button class="ql-strike"></button>
+                                            </span>
+                                            <span class="ql-formats">
+                                                <select class="ql-color"></select>
+                                                <select class="ql-background"></select>
+                                            </span>
+                                            <span class="ql-formats">
+                                                <button class="ql-script" value="sub"></button>
+                                                <button class="ql-script" value="super"></button>
+                                            </span>
+                                            <span class="ql-formats">
+                                                <button class="ql-header" value="1"></button>
+                                                <button class="ql-header" value="2"></button>
+                                                <button class="ql-blockquote"></button>
+                                                <button class="ql-code-block"></button>
+                                            </span>
+                                        </div>
+                                        <div id="snow-editor" name="deskripsi">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col mb-3">
-                            <label for="penulis" class="form-label">Penulis</label>
-                            <input type="text" id="penulis" class="form-control" placeholder="Penulis Buku" />
+                            <!-- /Snow Theme -->
                         </div>
                     </div>
-                    <div class="col mb-3">
-                        <label for="penerbit" class="form-label">Penerbit</label>
-                        <input type="email" id="penerbit" class="form-control" placeholder="Kepustakaan Libra" />
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" id="#save-button" class="btn btn-primary">Save changes</button>
                     </div>
-                    <div class="row g-2">
-                        <div class="col mb-0">
-                            <label for="penerbit" class="form-label">Stock</label>
-                            <input class="form-control" type="number" value="1" id="html5-number-input" />
-                        </div>
-                        <div class="col mb-0">
-                            <label for="tahunTerbit" class="form-label">Tahun Terbit</label>
-                            <input type="date" id="tahunTerbit" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="row">
-                    <!-- Snow Theme -->
-                    <div class="col-12">
-                        <div class="card mb-4">
-                            <h6 class="card-header">Deskripsi</h6>
-                            <div class="card-body">
-                                <div id="snow-toolbar">
-                                    <span class="ql-formats">
-                                        <select class="ql-font"></select>
-                                        <select class="ql-size"></select>
-                                    </span>
-                                    <span class="ql-formats">
-                                        <button class="ql-bold"></button>
-                                        <button class="ql-italic"></button>
-                                        <button class="ql-underline"></button>
-                                        <button class="ql-strike"></button>
-                                    </span>
-                                    <span class="ql-formats">
-                                        <select class="ql-color"></select>
-                                        <select class="ql-background"></select>
-                                    </span>
-                                    <span class="ql-formats">
-                                        <button class="ql-script" value="sub"></button>
-                                        <button class="ql-script" value="super"></button>
-                                    </span>
-                                    <span class="ql-formats">
-                                        <button class="ql-header" value="1"></button>
-                                        <button class="ql-header" value="2"></button>
-                                        <button class="ql-blockquote"></button>
-                                        <button class="ql-code-block"></button>
-                                    </span>
-                                </div>
-                                <div id="snow-editor">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Snow Theme -->
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                        Close
-                    </button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                </form>
+
             </div>
         </div>
     </div>
@@ -218,6 +223,47 @@
 
             $('#searchBook').on('keyup', function() {
                 dataTable.search($(this).val()).draw();
+            });
+        });
+
+        $('form').submit(function(event) {
+            event.preventDefault(); 
+            var editorText = $('#snow-editor .ql-editor').html();
+            $('#deskripsi').val(editorText);
+            var formData = new FormData($(this)[0]);
+
+            $.ajax({
+                url: '{{ route('storeBooks') }}',
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    $('#modalCenter').modal('hide');
+                    $.LoadingOverlay("show");
+                },
+                success: function(response) {
+                    Swal.fire({
+						icon: 'success',
+						title: 'Success!',
+						text: 'Book berhasil ditambahkan.',
+                        confirmButtonText: 'OK',
+					}).then(() => {
+                        location.reload();
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    Swal.fire({
+						icon: 'error',
+						title: 'Error!',
+						text: 'Terjadi kesalahan saat menyimpan data.',
+						confirmButtonText: 'OK'
+					});
+                },
+                complete: function(){
+                    $.LoadingOverlay("hide");
+                },
             });
         });
     </script>

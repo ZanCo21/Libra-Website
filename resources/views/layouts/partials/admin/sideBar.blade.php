@@ -63,14 +63,14 @@
 
     <ul class="menu-inner py-1">
       <!-- Dashboards -->
-      <li class="menu-item active open">
+      <li class="menu-item {{ Request::is('dashboard/analytics*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Dashboards">Dashboards</div>
         </a>
         <ul class="menu-sub">
-          <li class="menu-item active">
-            <a href="" class="menu-link">
+          <li class="menu-item {{ Request::is('dashboard/analytics*') ? 'active' : '' }}">
+            <a href="{{ route('dashboard') }}" class="menu-link">
               <div data-i18n="Analytics">Analytics</div>
             </a>
           </li>
@@ -81,14 +81,14 @@
         <span class="menu-header-text">Data &amp; report</span>
       </li>
       <!-- Pages -->
-      <li class="menu-item">
+      <li class="menu-item {{ Request::is('dashboard/manageBooks*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-box"></i>
           <div data-i18n="Account Settings">Data</div>
         </a>
         <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="" class="menu-link">
+          <li class="menu-item {{ Request::is('dashboard/manageBooks*') ? 'active' : '' }}">
+            <a href="{{ route('manageBooks') }}" class="menu-link">
               <div data-i18n="Notifications">Manage Books</div>
             </a>
           </li>

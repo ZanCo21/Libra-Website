@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('judul');
             $table->string('penulis');
-            $table->string('photo');
+            $table->string('front_book_cover');
+            $table->string('back_book_cover')->nullable();
             $table->string('penerbit');
-            $table->integer('tahunTerbit');
-            $table->integer('deskripsi');
+            $table->date('tahunTerbit');
+            $table->text('deskripsi');
             $table->integer('stock');
             $table->timestamps();
             $table->softDeletes();
