@@ -347,7 +347,7 @@
     <meta property="og:site_name" content=" Minim - Minimal &amp; Clean Furniture Store Shopify Theme">
     <meta name="twitter:card" content="summary">
 
-    <script async="" src="{{asset('bundle.js')}}" type="text/javascript"></script>
+    <script async="" src="{{asset('assets/home/bundle.js')}}" type="text/javascript"></script>
     <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
     <script>
         (function() {
@@ -384,7 +384,7 @@
             }
         }());
     </script>
-    <script id="web-pixels-manager-setup">
+    {{-- <script id="web-pixels-manager-setup">
         (function e(e, n, a, t, r) {
             var o = "function" == typeof BigInt && -1 !== BigInt.toString().indexOf("[native code]") ? "modern" :
                 "legacy";
@@ -492,7 +492,7 @@
         }, function pageEvents(webPixelsManagerAPI) {
             webPixelsManagerAPI.publish("page_viewed");
         }, "https://minim-demo.myshopify.com/cdn", "0.0.463", "af064dacw059a0243p359f28e4m038b1d93", );
-    </script>
+    </script> --}}
     <script>
         window.ShopifyAnalytics = window.ShopifyAnalytics || {};
         window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};

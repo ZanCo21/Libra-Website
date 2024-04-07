@@ -54,7 +54,7 @@
                                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                                             class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                                            <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                                            <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle lazyload" />
                                         </li>
                                         <li>
                                             Albert Cook
@@ -65,15 +65,15 @@
                                     <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                                             class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                                            <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
+                                            <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle lazyload" />
                                         </li>
                                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                                             class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
-                                            <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
+                                            <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle lazyload" />
                                         </li>
                                         <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                                             class="avatar avatar-xs pull-up" title="Christina Parker">
-                                            <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
+                                            <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle lazyload" />
                                         </li>
                                     </ul>
                                 </td>

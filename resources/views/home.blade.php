@@ -20,7 +20,7 @@
                                     <div class="demo-img">
                                         <a href="../index.htm?preview_theme_id=46655701097">
                                             <img src="assets/home/cdn/shop/files/home1.jpg?v=1614311256" alt=""
-                                                class="img-responsive">
+                                                class="img-responsive lazyload">
                                         </a>
                                         <h3 class="demo-text"><a href="../index.htm?preview_theme_id=46655701097">Home
                                                 Page 1</a></h3>
@@ -30,7 +30,7 @@
                                     <div class="demo-img">
                                         <a href="../index.htm?preview_theme_id=47529328745">
                                             <img src="assets/home/cdn/shop/files/home2.jpg?v=1614311256" alt=""
-                                                class="img-responsive">
+                                                class="img-responsive lazyload">
                                         </a>
                                         <h3 class="demo-text"><a href="../index.htm?preview_theme_id=47529328745">Home
                                                 Page 2</a></h3>
@@ -40,7 +40,7 @@
                                     <div class="demo-img">
                                         <a href="../index.htm?preview_theme_id=47528804457">
                                             <img src="assets/home/cdn/shop/files/home3.jpg?v=1614311256" alt=""
-                                                class="img-responsive">
+                                                class="img-responsive lazyload">
                                         </a>
                                         <h3 class="demo-text"><a href="../index.htm?preview_theme_id=47528804457">Home
                                                 Page 3</a></h3>
@@ -50,7 +50,7 @@
                                     <div class="demo-img">
                                         <a href="../index.htm?preview_theme_id=47527395433">
                                             <img src="assets/home/cdn/shop/files/home4.jpg?v=1614311256" alt=""
-                                                class="img-responsive">
+                                                class="img-responsive lazyload">
                                         </a>
                                         <h3 class="demo-text"><a href="../index.htm?preview_theme_id=47527395433">Home
                                                 Page 4</a></h3>
@@ -60,7 +60,7 @@
                                     <div class="demo-img">
                                         <a href="../index.htm?preview_theme_id=47526772841">
                                             <img src="assets/home/cdn/shop/files/home5.jpg?v=1614311256" alt=""
-                                                class="img-responsive">
+                                                class="img-responsive lazyload">
                                         </a>
                                         <h3 class="demo-text"><a href="../index.htm?preview_theme_id=47526772841">Home
                                                 Page 5</a></h3>
@@ -70,7 +70,7 @@
                                     <div class="demo-img">
                                         <a href="../index.htm?preview_theme_id=47525396585">
                                             <img src="assets/home/cdn/shop/files/home6.jpg?v=1614311256" alt=""
-                                                class="img-responsive">
+                                                class="img-responsive lazyload">
                                         </a>
                                         <h3 class="demo-text"><a href="../index.htm?preview_theme_id=47525396585">Home
                                                 Page 6</a></h3>
@@ -80,7 +80,7 @@
                                     <div class="demo-img">
                                         <a href="../index.htm?preview_theme_id=47478800489">
                                             <img src="assets/home/cdn/shop/files/home7.jpg?v=1614311256" alt=""
-                                                class="img-responsive">
+                                                class="img-responsive lazyload">
                                         </a>
                                         <h3 class="demo-text"><a href="../index.htm?preview_theme_id=47478800489">Home
                                                 Page 7</a></h3>
@@ -90,7 +90,7 @@
                                     <div class="demo-img">
                                         <a href="../index.htm?preview_theme_id=47478997097">
                                             <img src="assets/home/cdn/shop/files/home8.jpg?v=1614311256" alt=""
-                                                class="img-responsive">
+                                                class="img-responsive lazyload">
                                         </a>
                                         <h3 class="demo-text"><a href="../index.htm?preview_theme_id=47478997097">Home
                                                 Page 8</a></h3>
@@ -280,7 +280,7 @@
                 <div class="container-fluid  relative banner_page margin_bottom_20  hidden-xs ">
                     <div class="row">
                         <a href="" class="effect_img2">
-                            <img src="assets/home/cdn/shop/files/banner_hero.png" class="img-responsive">
+                            <img src="assets/home/cdn/shop/files/banner_hero.png" class="img-responsive lazyload">
                         </a>
                     </div>
                     <div class="absolute text_banner">
@@ -640,11 +640,9 @@
                     {{-- product content --}}
                     <div class="container-fluid container_100 content_shop ">
                         <div class="row">
-                            <div
-                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product_shop product-collection-grid product_full">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product_shop product-collection-grid product_full">
                                 <div class="row">
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
+                                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
                                         <div class="product margin_bottom_50 engoj_grid_parent relative">
                                             <div class="img-product relative">
                                                 
@@ -654,9 +652,9 @@
                                                 <a href="{{ route('detailProduct') }}" class="engoj_find_img">
                                                 @endif
                                                     <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
+                                                        class="img-responsive full-width lazyload" alt="Arper Round table">
                                                     <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
+                                                        class="img-responsive absolute img-product-hover full-width lazyload"
                                                         alt="Arper Round table">
                                                 </a>
                                                 <div class="product-icon text-center absolute">
@@ -708,903 +706,6 @@
                                                             enctype="multipart/form-data"
                                                             class="inline-block icon-addcart margin_right_10 box-shadow text-center">
                                                             <input type="hidden" name="id" value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add" enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id" value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add" enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id" value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add" enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id"
-                                                                value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add"
-                                                        enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id"
-                                                                value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add"
-                                                        enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id"
-                                                                value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add"
-                                                        enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id"
-                                                                value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add"
-                                                        enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id"
-                                                                value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add"
-                                                        enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id"
-                                                                value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add"
-                                                        enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id"
-                                                                value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add"
-                                                        enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id"
-                                                                value="21680969842793">
-                                                            <button type="submit" name="add"
-                                                                class="enj-add-to-cart-btn btn-default">
-                                                                <i class="icon-bag"></i>
-                                                            </button>
-                                                        </form>
-                                                        <a href="#"
-                                                            class="engoj_btn_quickview icon-quickview inline-block box-shadow text-center"
-                                                            title="quickview" data-id="arper-round-table">
-                                                            <i class="icon-magnifier"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-rating space_top_10">
-                                                    <span class="shopify-product-reviews-badge"
-                                                        data-id="2423347839081"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-4">
-                                        <div class="product margin_bottom_50 engoj_grid_parent relative">
-                                            <div class="img-product relative">
-                                                <a href="/collections/all/products/arper-round-table"
-                                                    class="engoj_find_img">
-                                                    <img src="assets/img/elements/thegirl.jpg?v=1552895486"
-                                                        class="img-responsive full-width" alt="Arper Round table">
-                                                    <img src="assets/img/elements/thegirlBackCover.jpg?v=1552895486"
-                                                        class="img-responsive absolute img-product-hover full-width"
-                                                        alt="Arper Round table">
-                                                </a>
-                                                <div class="product-icon text-center absolute">
-                                                    <form method="post" action="/cart/add"
-                                                        enctype="multipart/form-data"
-                                                        class="inline-block icon-addcart margin_right_10 box-shadow">
-                                                        <input type="hidden" name="id" value="21680969842793">
-                                                        <button type="submit" name="add"
-                                                            class="enj-add-to-cart-btn btn-default">
-                                                            <i class="icon-bag"></i>
-                                                        </button>
-                                                    </form>
-                                                    <a href="#"
-                                                        class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                                        title="quickview" data-id="arper-round-table">
-                                                        <i class="icon-magnifier"></i>
-                                                    </a>
-                                                    <a href="../account/login.html"
-                                                        class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                        data-toggle="tooltip" data-placement="top"
-                                                        data-original-title="Add to Wishlist">
-                                                        <i class=""></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="info-product text-center">
-                                                <h4 class="des-font capital title-product space_top_bot_20">
-                                                    <a href="/collections/all/products/arper-round-table">Arper Round
-                                                        table</a>
-                                                </h4>
-                                                <p class="price-product">
-                                                    <span class="price"><span class="money">$200.00</span></span>
-                                                </p>
-                                                <div class="content_list hidden">
-                                                    <div class="stock">
-                                                        <a href="/collections/all/products/arper-round-table"
-                                                            class="capital">in stock</a>
-                                                    </div>
-                                                    <div class="des_product">Kyuzo is a capsule collection of desk and
-                                                        home accessories, driven by materiality and designed to provide
-                                                        divisions of space...</div>
-                                                    <div class="product-icon flex">
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
-                                                            <i class=""></i>
-                                                        </a>
-                                                        <form method="post" action="/cart/add"
-                                                            enctype="multipart/form-data"
-                                                            class="inline-block icon-addcart margin_right_10 box-shadow text-center">
-                                                            <input type="hidden" name="id"
-                                                                value="21680969842793">
                                                             <button type="submit" name="add"
                                                                 class="enj-add-to-cart-btn btn-default">
                                                                 <i class="icon-bag"></i>
@@ -1953,7 +1054,7 @@
                                 <a href="../index.htm">
                                     <img alt=" Minim - Minimal &amp; Clean Furniture Store Shopify Theme"
                                         src="assets/home/cdn/shop/t/9/assets/logo.png?v=76281246793426370331552127529"
-                                        class="img-logo">
+                                        class="img-logo lazyload">
                                 </a>
                             </div>
                             <p class="des-footer-v3 margin_bottom_30 uppercase">We are eager to help you to make your

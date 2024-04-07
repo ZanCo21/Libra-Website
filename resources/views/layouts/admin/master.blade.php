@@ -164,5 +164,8 @@ data-template="vertical-menu-template-free">
 
     {{-- gasparesganga cdn --}}
 	<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+
+    {{-- lazyLoad --}}
+    <script src="{{ asset('assets/js/lazysizes.min.js') }}" async=""></script>
     </body>
 </html>
