@@ -5,6 +5,7 @@ use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManageBooksController;
 
 /*
@@ -31,13 +32,7 @@ Route::get('/get/kota/{id}', [RegisterController::class, 'getKota'])->name('getK
 Route::get('/get/kecamatan/{id}', [RegisterController::class, 'getKecamatan'])->name('getKecamatan');
 Route::get('/get/kelurahan/{id}', [RegisterController::class, 'getKelurahan'])->name('getKelurahan');
 
-
-
-
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('dashboard')->middleware('role:admin')->group(function () {
@@ -47,9 +42,7 @@ Route::middleware(['auth'])->group(function () {
     });
     
     Route::prefix('home')->middleware('role:peminjam')->group(function () {
-        Route::get('/detail', function () {
-            return view('home.detail');
-        })->name('detailProduct');
+        Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('detailBook');
         Route::get('/cart', function () {
             return view('home.cart');
         });
