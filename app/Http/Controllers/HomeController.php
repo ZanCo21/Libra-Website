@@ -13,10 +13,11 @@ class HomeController extends Controller
         return view('home', compact('books'));
     }
 
-    public function detail($id)
+    public function show($id)
     {
-        
 
-        return view('home.detail');
+        $book = Buku::findOrFail($id);
+
+        return view('home.detail', compact('book'));
     }
 }

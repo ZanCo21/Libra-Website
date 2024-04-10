@@ -42,7 +42,7 @@ Route::middleware(['auth'])->group(function () {
     });
     
     Route::prefix('home')->middleware('role:peminjam')->group(function () {
-        Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('detailBook');
+        Route::get('/detail/{id}', [HomeController::class, 'show'])->name('detailBook');
         Route::get('/cart', function () {
             return view('home.cart');
         });

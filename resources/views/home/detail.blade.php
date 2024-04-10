@@ -10,7 +10,7 @@
                         <li class="">
                             <a href="../index.htm" title="Back to the frontpage">Home</a>
                         </li>
-                        <li class="active"><a>The Girl Who Fell Beneath The Sea</a></li>
+                        <li class="active"><a>{{ $book->judul }}</a></li>
                     </ul>
                 </div>
                 <div class="container ">
@@ -19,26 +19,26 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="flex product-img-slide">
                                     <div class="product-images">
-                                        <div class="main-img js-product-slider">
-                                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}" alt="Earphone Case"
-                                                class="engoj_img_main img-responsive-detail full-width-detail">
+                                        <div class="main-img js-product-slider" style="width: 80%;   object-fit: fill; ">
+                                            <img src="{{ asset('storage/') . '/' . $book->front_book_cover }}"
+                                                alt="Earphone Case" class="engoj_img_main img-responsive-detail full-width">
 
-                                                <img src="{{ asset('assets/img/elements/thegirlBackCover.jpg') }}" alt="Earphone Case"
-                                                    class="engoj_img_main img-responsive-detail full-width-detail">
+                                            <img src="{{ asset('storage/') . '/' . $book->back_book_cover }}"
+                                                alt="Earphone Case" class="engoj_img_main img-responsive-detail full-width">
                                         </div>
                                     </div>
                                     <div class="multiple-img-list-ver2 js-click-product">
                                         <div class="product-col">
                                             <div class="engoj_img_variant img">
-                                                <img src="{{ asset('assets/img/elements/thegirl.jpg') }}" alt="Earphone Case"
-                                                    class="img-reponsive">
+                                                <img src="{{ asset('storage/') . '/' . $book->front_book_cover }}"
+                                                    alt="Earphone Case" class="img-reponsive-product">
                                             </div>
                                         </div>
 
                                         <div class="product-col">
                                             <div class="engoj_img_variant img">
-                                                <img src="{{ asset('assets/img/elements/thegirlBackCover.jpg') }}" alt="Earphone Case"
-                                                    class="img-reponsive">
+                                                <img src="{{ asset('storage/') . '/' . $book->back_book_cover }}"
+                                                    alt="Earphone Case" class="img-reponsive-product">
                                             </div>
                                         </div>
                                     </div>
@@ -48,108 +48,57 @@
                                 <div class="single-flex">
                                     <div class="single-product-info product-info product-grid-v2 s-50">
 
-                                        <h3 class="product-title"><a>The Girl Who Fell Beneath The Sea</a></h3>
+                                        <h2 class="product-title"><a>{{ $book->judul }}</a></h2>
 
                                         <div class="flex">
-                                            <div class="product-price enj-product-price column-60">
-
-                                                <link itemprop="availability" href="http://schema.org/InStock">
-
-
-                                                <span class="price engoj_price_main"><span
-                                                        class="money">$29.00</span></span>
+                                            <div class="column-60">
+                                                <span class=""><span class="money"></span></span>
                                             </div>
                                             <div class="product-rating column-40">
                                                 <span class="shopify-product-reviews-badge" data-id="2426722123881"></span>
                                             </div>
                                         </div>
 
+                                        <p><b>Deskripsi :</b></p>
+                                        <br>
                                         <div class="product-description">
-                                            <span>Badai mematikan telah merusak tanah kelahiran Mina selama beberapa
-                                                generasi. Banjir menyapu seluruh desa, sementara perang berdarah dikobarkan
-                                                untuk memperebutkan sumber daya yang tersisa. Masyarakat di desa Mina
-                                                memercayai bahwa Dewa Laut mengutuk mereka dengan kematian dan keputusasaan.
-                                                Dalam upaya untuk menenangkan Dewa Laut, setiap tahun seoran ...</span>
+                                            <span>{!! html_entity_decode($book->deskripsi) !!}</span>
                                         </div>
-
-
-
+                                        <br>
                                         <div class="single-product-button-group">
                                             <form action="/cart/add" method="post" enctype="multipart/form-data"
                                                 class="product-form product-form-product-template product-form--hide-variant-labels"
                                                 data-section="product-template">
                                                 <select name="id" id="productSelect"
                                                     class="engoj-except-select2 product-single__variants">
-
-
-
-
                                                     <option selected="selected" data-sku="" value="21703421853801">
-                                                        Default Title - <span class="money">$29.00 USD</span></option>
-
-
-
+                                                        Default Title - <span class="">Deskripsi</span></option>
                                                 </select>
-
-
-
-
-
                                                 <div class="e-btn cart-qtt">
-
-
-                                                    <div class="product-form__item product-form__item--quantity e-quantity">
-                                                        <input type="number" id="Quantity" name="quantity" value="1"
-                                                            min="1" class="product-form__input" pattern="[0-9]*">
-                                                    </div>
-
-
-                                                    <div class="product-form__item product-form__item--submit">
-                                                        <button type="submit" name="add" id="AddToCart"
-                                                            class="btn-add-cart product-form__cart-submit--small">
-
-                                                            <span id="AddToCartText-product-template">
-
-                                                                Add To Cart
-
-                                                            </span>
-
-
-                                                            <p class="icon-bg icon-cart v2"></p>
-
-
-                                                        </button>
-                                                    </div>
+                                                    <button type="submit" name="add" id="AddToCart"
+                                                        class="btn-add-cart product-form__cart-submit--small me-4 rounded-lg">
+                                                            Book Now
+                                                    </button>
+                                                    <button type="submit" name="add" id="AddToCart"
+                                                        class="btn-add-cart product-form__cart-submit--small rounded-lg">
+                                                            Add To Wishlist
+                                                    </button>
                                                 </div>
-
-
-
                                             </form>
-
-
                                         </div>
-
-
                                         <div class="product-sku fz-12" style="font-weight:600;">
                                             <label>SKU :</label>
-
                                             <span> </span>
                                         </div>
-
-
                                         <div class="product-tags fz-12" style="font-weight:600;">
                                             <label>Categories :</label>
                                             <a href="../collections/frontpage.html">All</a>,
                                             <a href="../collections/decoration.html">mitologiKorea</a>,
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -160,53 +109,25 @@
                     <div class="single-product-tab ver3 margin_bottom_50">
                         <div class="cmt-title text-center abs">
                             <ul class="nav nav-tabs v3 text-center ">
-
                                 <li class="active"><a class=" " data-toggle="tab" href="#desc">Description</a>
                                 </li>
-
-
-                                <li><a class=" " data-toggle="tab" href="#info">Specification</a></li>
-
-
                                 <li><a class=" " data-toggle="tab" href="#review">Review</a></li>
-
                             </ul>
                         </div>
                         <div class="tab-content ">
-
                             <div id="desc" class="tab-pane fade in active">
-
-                                <span>Kyuzo is a capsule collection of desk and home accessories, driven by materiality and
-                                    designed to provide divisions of space through subtle hierarchies.</span>
-
+                                <span>{!! html_entity_decode($book->deskripsi) !!}</span>
                             </div>
-
-
-                            <div id="info" class="tab-pane fade ">
-
-
-                                <p class="p-center">Constructed in cotton sweat fabric, this lovely piece, lacus eu mattis
-                                    auctor, dolor lectus venenatis nulla, at tristique eros sem vel ante. Sed leo enim,
-                                    iaculis ornare tristique non, vulputate sit amet ante. Mauris placerat eleifend leo.</p>
-
-                            </div>
-
-
                             <div id="review" class="tab-pane fade  ">
                                 <div class="entry-inside v3">
                                     <div id="shopify-product-reviews" data-id="2426722123881"></div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
-
-
             <!-- BOX TITLE -->
-
-
 
 
             <div class="bestseller container">
@@ -215,302 +136,146 @@
                     <p class="line"></p>
                 </div>
                 <div class="owl-carousel owl-theme owl-cate v2 js-owl-cate2">
-                    <div class="product margin_bottom_50 engoj_grid_parent relative" style="margin-left: 15px; margin-right: 15px;">
+                    <div class="product margin_bottom_50 engoj_grid_parent relative"
+                        style="margin-left: 15px; margin-right: 15px;">
                         <div class="img-product relative">
-                                <img src="{{ asset('assets/img/elements/thegirl.jpg') }}" class="img-responsive-detail full-width-detail"
-                                    alt="Ottoman Chair">
-                                <img src="{{ asset('assets/img/elements/thegirlBackCover.jpg') }}"
-                                    class="img-responsive-detail absolute img-product-hover full-width-detail"
-                                    alt="Ottoman Chair">
+                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
+                                class="img-responsive-Related full-width-detail" alt="Ottoman Chair">
+                            <img src="{{ asset('assets/img/elements/thegirlBackCover.jpg') }}"
+                                class="img-responsive-Related absolute img-product-hover full-width-detail"
+                                alt="Ottoman Chair">
                             <div class="product-icon text-center absolute">
                                 <form method="post" action="/cart/add" enctype="multipart/form-data"
                                     class="inline-block icon-addcart margin_right_10 box-shadow">
                                     <input type="hidden" name="id" value="21747541409897">
                                     <button type="submit" name="add" class="enj-add-to-cart-btn btn-default">
-
                                         <i class="icon-bag"></i>
-
                                     </button>
                                 </form>
-
                                 <a href="#" class="engoj_btn_quickview icon-quickview inline-block box-shadow"
                                     title="quickview" data-id="ottoman-chair-1">
-
                                     <i class="icon-magnifier"></i>
-
                                 </a>
-
                                 <a href="../account/login.html"
                                     class="icon-heart inline-block maxus-product__wishlist wish text-center"
                                     data-toggle="tooltip" data-placement="top" data-original-title="Add to Wishlist">
                                     <i class=""></i>
                                 </a>
-
                             </div>
-
-
-
-
-
-
-
-
-
-
                         </div>
                         <div class="info-product text-center">
                             <h4 class="des-font capital title-product space_top_bot_20">
                                 <a href="../collections/decoration/products/ottoman-chair-1.html">Ottoman Chair</a>
                             </h4>
-
-
-
                             <p class="price-product">
                                 <span class="price"><span class="money">$250.00</span></span>
-
                             </p>
-
-
                             <div class="product-rating space_top_10">
                                 <span class="shopify-product-reviews-badge" data-id="2430652121193"></span>
                             </div>
-
-
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-                    <div class="product margin_bottom_50 engoj_grid_parent relative" style="margin-left: 15px; margin-right: 15px;">
+                    <div class="product margin_bottom_50 engoj_grid_parent relative"
+                        style="margin-left: 15px; margin-right: 15px;">
                         <div class="img-product relative">
-                                <img src="{{ asset('assets/img/elements/thegirl.jpg') }}" class="img-responsive-detail full-width-detail"
-                                    alt="Wallnut Wall Clock">
-
-
-
-
-
-
-
-
-                                <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
-                                    class="img-responsive-detail absolute img-product-hover full-width-detail"
-                                    alt="Wallnut Wall Clock">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
+                                class="img-responsive-Related full-width-detail" alt="Wallnut Wall Clock">
+                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
+                                class="img-responsive-Related absolute img-product-hover full-width-detail"
+                                alt="Wallnut Wall Clock">
                             <div class="product-icon text-center absolute">
-
                                 <form method="post" action="/cart/add" enctype="multipart/form-data"
                                     class="inline-block icon-addcart margin_right_10 box-shadow">
                                     <input type="hidden" name="id" value="21703505608809">
                                     <button type="submit" name="add" class="enj-add-to-cart-btn btn-default">
-
                                         <i class="icon-bag"></i>
-
                                     </button>
                                 </form>
-
                                 <a href="#" class="engoj_btn_quickview icon-quickview inline-block box-shadow"
                                     title="quickview" data-id="wallnut-wall-clock">
-
                                     <i class="icon-magnifier"></i>
-
                                 </a>
-
                                 <a href="../account/login.html"
                                     class="icon-heart inline-block maxus-product__wishlist wish text-center"
                                     data-toggle="tooltip" data-placement="top" data-original-title="Add to Wishlist">
                                     <i class=""></i>
                                 </a>
-
                             </div>
-
-
-
-
-
-
-
-
-
-
                         </div>
                         <div class="info-product text-center">
                             <h4 class="des-font capital title-product space_top_bot_20">
                                 <a href="../collections/decoration/products/wallnut-wall-clock.html">Wallnut Wall Clock</a>
-                            </h4>
-
-
-
+                            </h4>ZZZ
                             <p class="price-product">
                                 <span class="price"><span class="money">$79.00</span></span>
-
                             </p>
-
-
                             <div class="product-rating space_top_10">
                                 <span class="shopify-product-reviews-badge" data-id="2426727989353"></span>
                             </div>
-
-
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div class="product margin_bottom_50 engoj_grid_parent relative" style="margin-left: 15px; margin-right: 15px;">
+                    <div class="product margin_bottom_50 engoj_grid_parent relative"
+                        style="margin-left: 15px; margin-right: 15px;">
                         <div class="img-product relative">
-                                <img src="{{ asset('assets/img/elements/thegirl.jpg') }}" class="img-responsive-detail full-width-detail"
-                                    alt="Wallnut Wall Clock">
-
-
-
-
-
-
-
-
-                                <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
-                                    class="img-responsive-detail absolute img-product-hover full-width-detail"
-                                    alt="Wallnut Wall Clock">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
+                                class="img-responsive-Related full-width-detail" alt="Wallnut Wall Clock">
+                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
+                                class="img-responsive-Related absolute img-product-hover full-width-detail"
+                                alt="Wallnut Wall Clock">
                             <div class="product-icon text-center absolute">
-
                                 <form method="post" action="/cart/add" enctype="multipart/form-data"
                                     class="inline-block icon-addcart margin_right_10 box-shadow">
                                     <input type="hidden" name="id" value="21703505608809">
                                     <button type="submit" name="add" class="enj-add-to-cart-btn btn-default">
-
                                         <i class="icon-bag"></i>
-
                                     </button>
                                 </form>
-
                                 <a href="#" class="engoj_btn_quickview icon-quickview inline-block box-shadow"
                                     title="quickview" data-id="wallnut-wall-clock">
-
                                     <i class="icon-magnifier"></i>
-
                                 </a>
-
                                 <a href="../account/login.html"
                                     class="icon-heart inline-block maxus-product__wishlist wish text-center"
                                     data-toggle="tooltip" data-placement="top" data-original-title="Add to Wishlist">
                                     <i class=""></i>
                                 </a>
-
                             </div>
-
-
-
-
-
-
-
-
-
-
                         </div>
                         <div class="info-product text-center">
                             <h4 class="des-font capital title-product space_top_bot_20">
                                 <a href="../collections/decoration/products/wallnut-wall-clock.html">Wallnut Wall Clock</a>
                             </h4>
-
-
-
                             <p class="price-product">
                                 <span class="price"><span class="money">$79.00</span></span>
-
                             </p>
-
-
                             <div class="product-rating space_top_10">
                                 <span class="shopify-product-reviews-badge" data-id="2426727989353"></span>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
             </div>
+
+            {{-- modal cart --}}
+            <div class="pushmenu pushmenu-left cart-box-container">
+                <div class="cart-list enj-minicart-ajax">
+                    <div class="cart-list-heading">
+                        <span class="close-menu-mobile js-close"></span>
+                        <h3 class="cart-title">your cart</h3>
+                        <span class="minicart-number-items enj-cartcount">0</span>
+                    </div>
+                    <div class="empty-cart">
+                        <p class="fz-18">No products in the cart.</p>
+                        <div class="flex center">
+                            <a href="" class="capital">start shopping</a>
+                        </div>
+                    </div>
+                    <!-- End cart bottom -->
+                </div>
+            </div>
+            <div class="overlay"></div>
             <script>
                 jQuery(document).ready(function($) {
-
-
                     $('.js-product-360-2426722123881').ThreeSixty({
                         totalFrames: 4, // Total no. of image you have for 360 slider
                         endFrame: 4, // end frame for the auto spin animation
@@ -532,7 +297,7 @@
                 });
             </script>
             <script
-                src="{{ asset('assets/home/cdn/shopifycloud/shopify/assets/themes_support/option_selection-86cdd286ddf3be7e25d68b9fc5965d7798a3ff6228ff79af67b3f4e41d6a34be.j')}}"
+                src="{{ asset('assets/home/cdn/shopifycloud/shopify/assets/themes_support/option_selection-86cdd286ddf3be7e25d68b9fc5965d7798a3ff6228ff79af67b3f4e41d6a34be.js') }}"
                 type="text/javascript"></script>
 
             <script>

@@ -651,13 +651,13 @@
                                                     @if (!Auth::user())
                                                         <a href="#login_form" class="engoj_find_img" data-iteration="{{ $loop->iteration }}"">
                                                         @else
-                                                        <a href="{{ url('/detail') . '/' . $item->id }}" class="engoj_find_img">
+                                                        <a href="{{ url('home/detail') . '/' . $item->id }}" class="engoj_find_img">
                                                     @endif
                                                     <img src="{{ asset('storage/') . '/' . $item->front_book_cover }}"
-                                                        class="img-responsive full-width lazyload"
+                                                        class="img-responsive-product full-width lazyload"
                                                         alt="Arper Round table">
                                                     <img src="{{ asset('storage/') . '/' . $item->back_book_cover }}"
-                                                        class="img-responsive absolute img-product-hover full-width lazyload"
+                                                        class="img-responsive-product absolute img-product-hover full-width lazyload"
                                                         alt="Arper Round table">
                                                     </a>
                                                     <div class="product-icon text-center absolute">
