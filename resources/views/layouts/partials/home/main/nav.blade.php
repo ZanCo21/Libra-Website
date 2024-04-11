@@ -22,84 +22,7 @@
                 <div class="col-lg-5 col-md-5 hidden-sm hidden-xs flex">
                     <ul class="nav navbar-nav menu-main">
                         <li class="relative dropdown">
-                            <a href="../index.htm" title="Home" class="delay03 ">Home</a>
-                            <div
-                                class="dropdown-menu mega-menu-main absolute space_30 space_top_bot_50 text-left mega-menu-shop bg-mega-menu1">
-                                <div class="relative row">
-                                    <div class="column-4 hover-filter container_15 left">
-                                        <a class="delay03 relative" href="../index.htm?preview_theme_id=46655701097">
-                                            <img src="{{ asset('assets/home/cdn/shop/files/home1.jpg?v=1614311256')}}"
-                                                alt="" class="img-responsive box-shadow">
-                                        </a>
-                                        <p><a href="../index.htm?preview_theme_id=46655701097"
-                                                class="delay03 uppercase  clear-space animate inline-block lt-2">Home
-                                                Page 1</a></p>
-                                    </div>
-                                    <div class="column-4 hover-filter container_15 left">
-                                        <a class="delay03 relative" href="../index.htm?preview_theme_id=47529328745">
-                                            <img src="{{ asset('assets/home/cdn/shop/files/home2.jpg?v=1614311256')}}"
-                                                alt="" class="img-responsive box-shadow">
-                                        </a>
-                                        <p><a href="../index.htm?preview_theme_id=47529328745"
-                                                class="delay03 uppercase  clear-space animate inline-block lt-2">Home
-                                                Page 2</a></p>
-                                    </div>
-                                    <div class="column-4 hover-filter container_15 left">
-                                        <a class="delay03 relative" href="../index.htm?preview_theme_id=47528804457">
-                                            <img src="{{ asset('assets/home/cdn/shop/files/home3.jpg?v=1614311256')}}"
-                                                alt="" class="img-responsive box-shadow">
-                                        </a>
-                                        <p><a href="../index.htm?preview_theme_id=47528804457"
-                                                class="delay03 uppercase  clear-space animate inline-block lt-2">Home
-                                                Page 3</a></p>
-                                    </div>
-                                    <div class="column-4 hover-filter container_15 left">
-                                        <a class="delay03 relative" href="../index.htm?preview_theme_id=47527395433">
-                                            <img src="{{ asset('assets/home/cdn/shop/files/home4.jpg?v=1614311256')}}"
-                                                alt="" class="img-responsive box-shadow">
-                                        </a>
-                                        <p><a href="../index.htm?preview_theme_id=47527395433"
-                                                class="delay03 uppercase  clear-space animate inline-block lt-2">Home
-                                                Page 4</a></p>
-                                    </div>
-                                    <div class="column-4 hover-filter container_15 left">
-                                        <a class="delay03 relative" href="../index.htm?preview_theme_id=47526772841">
-                                            <img src="{{ asset('assets/home/cdn/shop/files/home5.jpg?v=1614311256')}}"
-                                                alt="" class="img-responsive box-shadow">
-                                        </a>
-                                        <p><a href="../index.htm?preview_theme_id=47526772841"
-                                                class="delay03 uppercase  clear-space animate inline-block lt-2">Home
-                                                Page 5</a></p>
-                                    </div>
-                                    <div class="column-4 hover-filter container_15 left">
-                                        <a class="delay03 relative" href="../index.htm?preview_theme_id=47525396585">
-                                            <img src="{{ asset('assets/home/cdn/shop/files/home6.jpg?v=1614311256')}}"
-                                                alt="" class="img-responsive box-shadow">
-                                        </a>
-                                        <p><a href="../index.htm?preview_theme_id=47525396585"
-                                                class="delay03 uppercase  clear-space animate inline-block lt-2">Home
-                                                Page 6</a></p>
-                                    </div>
-                                    <div class="column-4 hover-filter container_15 left">
-                                        <a class="delay03 relative" href="../index.htm?preview_theme_id=47478800489">
-                                            <img src="{{ asset('assets/home/cdn/shop/files/home7.jpg?v=1614311256')}}"
-                                                alt="" class="img-responsive box-shadow">
-                                        </a>
-                                        <p><a href="../index.htm?preview_theme_id=47478800489"
-                                                class="delay03 uppercase  clear-space animate inline-block lt-2">Home
-                                                Page 7</a></p>
-                                    </div>
-                                    <div class="column-4 hover-filter container_15 left">
-                                        <a class="delay03 relative" href="../index.htm?preview_theme_id=47478997097">
-                                            <img src="{{ asset('assets/home/cdn/shop/files/home8.jpg?v=1614311256')}}"
-                                                alt="" class="img-responsive box-shadow">
-                                        </a>
-                                        <p><a href="../index.htm?preview_theme_id=47478997097"
-                                                class="delay03 uppercase  clear-space animate inline-block lt-2">Home
-                                                Page 8</a></p>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="{{ route('home') }}" title="Home" class="delay03 ">Home</a>
                         </li>
                         <li class="relative dropdown">
                             <a href="all.html" title="Shop" class="delay03">Shop</a>
@@ -238,10 +161,155 @@
                     <a href="#" class="delay03 relative inline-block text-center icon-cart" id="btn-cart">
                         <img src="{{ asset('assets/home/cdn/shop/t/9/assets/iconcar.png?v=19912236354837126781552623685')}}"
                             class="img-responsive">
-                        <figure class="absolute label-cart enj-cartcount">0</figure>
+                        <figure class="absolute label-cart enj-cartcount">{{ $countwishlist }}</figure>
                     </a>
                 </div>
             </div>
         </div>
     </header>
 </div>
+
+{{-- wishlist --}}
+{{-- modal cart --}}
+<div class="pushmenu pushmenu-left cart-box-container">
+    <div class="cart-list enj-minicart-ajax">
+        <div class="cart-list-heading">
+            <span class="close-menu-mobile js-close"></span>
+            <h3 class="cart-title">your wishlist</h3>
+            <span class="minicart-number-items enj-cartcount">{{ $countwishlist }}</span>
+        </div>
+        @if ($countwishlist !== 0)
+            <div class="cart-inside">
+                <ul class="list">
+                    @foreach ($wishlist as $item)
+                    <li class="item-cart">
+                        <div class="product-img-wrap">
+                            <a href="" title="Product"><img
+                                    src="{{ asset('storage/') . '/' . $item->buku->front_book_cover }}"
+                                    alt="Wallnut Wall Clock - Black" class="img-responsive"></a>
+                        </div>
+                        <div class="product-details">
+                            <div class="inner-left">
+                                <div class="product-name"><a
+                                        href="/products/wallnut-wall-clock?variant=21703505608809">{{ $item->buku->judul }}</a></div>
+                                <div class="product-qtt">
+                                    QTY : 1
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" data-bookId="{{ $item->buku->id }}" class="deleteWishList btn-del"><i class="ti-close"></i></a>
+                    </li>
+                    @endforeach
+                </ul>
+                <div class="cart-bottom">
+                    <div class="cart-price">
+                        <span>Total</span>
+                        <span class="price-total"><span id="revy-cart-subtotal-price"><span class="money"
+                                    data-currency-usd="$226.00">{{ $countwishlist }}</span></span></span>
+                    </div>
+                    <div class="cart-button">
+                        <a class="ciloe-btn checkout" href="/cart" title="">View cart</a>
+                    </div>
+                </div>
+            </div>
+        @else
+        <div class="empty-cart">
+            <p class="fz-18">No products in the wishlist.</p>
+            <div class="flex center">
+                <a href="{{ route('home') }}" class="capital">start explore</a>
+            </div>
+        </div>
+        @endif
+    </div>
+</div>
+
+<script>
+    jQuery(document).ready(function($) {
+        $('.deleteWishList').on('click', function(e) {
+            var BookId = $(this).attr('data-BookId');
+            var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            console.log(BookId); 
+            $.ajax({
+                url: "{{ url('/home/deleteWishList') }}",
+                method: 'POST',
+                data: {
+                    _token: token,
+                    buku_id: BookId,
+                },
+                beforeSend: function() {
+                    $.LoadingOverlay("show");
+                },
+                success: function(response) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Buku berhasil dihapus dari WishList.',
+                        confirmButtonText: 'OK',
+                    }).then(() => {
+                        location.reload();
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Terjadi kesalahan saat memuat data.',
+                        error,
+                        confirmButtonText: 'OK'
+                    });
+                },
+                complete: function() {
+                    $.LoadingOverlay("hide");
+                },
+            });
+        });
+
+        $('.AddToWish').on('click', function(e) {
+            var BookId = $(this).attr('data-BookId');
+            var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            console.log(BookId); 
+            $.ajax({
+                url: "{{ url('/home/storeWishList') }}",
+                method: 'POST',
+                data: {
+                    _token: token,
+                    buku_id: BookId,
+                },
+                beforeSend: function() {
+                    $.LoadingOverlay("show");
+                },
+                success: function(response) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Buku berhasil ditambahkan kedalam WishList.',
+                        confirmButtonText: 'OK',
+                    }).then(() => {
+                        location.reload();
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                    if (error) {
+                        var errorObj = JSON.parse(xhr.responseText);
+                        var errorMessage = errorObj.error;
+                    }else{
+                        var errorMessage = 'Terjadi kesalahan saat memuat data.';
+                    }
+                    
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: errorMessage,
+                        error,
+                        confirmButtonText: 'OK'
+                    });
+                },
+                complete: function() {
+                    $.LoadingOverlay("hide");
+                },
+            });
+        });
+    });
+</script>

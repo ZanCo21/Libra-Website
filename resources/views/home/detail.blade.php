@@ -59,8 +59,7 @@
                                             </div>
                                         </div>
 
-                                        <p><b>Deskripsi :</b></p>
-                                        <br>
+                                        <p class="mb-2">Deskripsi :</p>
                                         <div class="product-description">
                                             <span>{!! html_entity_decode($book->deskripsi) !!}</span>
                                         </div>
@@ -75,13 +74,13 @@
                                                         Default Title - <span class="">Deskripsi</span></option>
                                                 </select>
                                                 <div class="e-btn cart-qtt">
-                                                    <button type="submit" name="add" id="AddToCart"
+                                                    <button type="submit" id="AddToCart"
                                                         class="btn-add-cart product-form__cart-submit--small me-4 rounded-lg">
-                                                            Book Now
+                                                        Book Now
                                                     </button>
-                                                    <button type="submit" name="add" id="AddToCart"
-                                                        class="btn-add-cart product-form__cart-submit--small rounded-lg">
-                                                            Add To Wishlist
+                                                    <button type="submit" data-BookId="{{ $book->id }}"
+                                                        class="AddToWish btn-add-cart product-form__cart-submit--small rounded-lg">
+                                                        Add To Wishlist
                                                     </button>
                                                 </div>
                                             </form>
@@ -256,23 +255,6 @@
                 </div>
             </div>
 
-            {{-- modal cart --}}
-            <div class="pushmenu pushmenu-left cart-box-container">
-                <div class="cart-list enj-minicart-ajax">
-                    <div class="cart-list-heading">
-                        <span class="close-menu-mobile js-close"></span>
-                        <h3 class="cart-title">your cart</h3>
-                        <span class="minicart-number-items enj-cartcount">0</span>
-                    </div>
-                    <div class="empty-cart">
-                        <p class="fz-18">No products in the cart.</p>
-                        <div class="flex center">
-                            <a href="" class="capital">start shopping</a>
-                        </div>
-                    </div>
-                    <!-- End cart bottom -->
-                </div>
-            </div>
             <div class="overlay"></div>
             <script>
                 jQuery(document).ready(function($) {

@@ -15,4 +15,9 @@ class Buku extends Model
     protected $fillable = [
         'judul', 'penulis', 'front_book_cover', 'back_book_cover', 'penerbit', 'tahunTerbit', 'deskripsi', 'stock'
     ];
+
+    public function koleksipribadi()
+    {
+        return $this->hasMany(KoleksiPribadi::class)->withTrash();
+    }
 }

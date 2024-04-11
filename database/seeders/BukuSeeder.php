@@ -35,16 +35,6 @@ class BukuSeeder extends Seeder
                 'back_book_cover' => 'photos/seeder/easterAnnPeters-back.png',
             ],
             [
-                'judul' => 'Easter Ann Peters',
-                'penulis' => 'Jody Lamb',
-                'penerbit' => 'Jody Lamb Communications',
-                'tahunTerbit' => '2022-02-01',
-                'stock' => 2,
-                'deskripsi' => 'Twelve-year-old Easter Ann Peters has a plan to make seventh grade awesome: Operation Cool. Shes determined to erase years of being known as the quiet, straight-A student who cant think of a decent comeback to a bully she calls Horse Girl. When the confident new girl, Wreni, becomes her long-needed best friend, Easter lets her personality shine. The coolest guy in school takes a sudden interest. But as tough times at school fade away, so does a happy life at home. Mom is drinking, and Easter works double-overtime to keep their secret in the tiny lakeside town. Operation Cool derails. Fast. Can Easter discover the solution in time? Or will seventh grade be her worst year yet? Short Summary: Twelve-year-old Easter Ann Peters’ Operation Cool, a plan to make her seventh grade year awesome, is derailed as Easter copes with her mother’s alcoholism in their tiny lakeside town.',
-                'front_book_cover' => 'photos/seeder/easterAnnPeters-front.png',
-                'back_book_cover' => 'photos/seeder/easterAnnPeters-back.png',
-            ],
-            [
                 'judul' => 'A dash Of Belladonna',
                 'penulis' => 'Jenn Rackham',
                 'penerbit' => 'Jenn Rackham Communications',

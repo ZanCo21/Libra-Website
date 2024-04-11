@@ -19456,15 +19456,15 @@ padding-right: 80px; } } */
   color: var(--engoc-primary-color); }
 .cart-bottom .cart-button {
   margin-top: 16px;
-  display: -webkit-box;
+  /* display: -webkit-box; */
   /* OLD - iOS 6-, Safari 3.1-6 */
   display: -moz-box;
   /* OLD - Firefox 19- (buggy but mostly works) */
   display: -ms-flexbox;
   /* TWEENER - IE 10 */
-  display: -webkit-flex;
+  /* display: -webkit-flex; */
   /* NEW - Chrome */
-  display: flex;
+  /* display: flex; */
   /* NEW, Spec - Opera 12.1, Firefox 20+ */ }
 .cart-bottom .cart-button:before:before, .cart-bottom .cart-button:before:after {
   content: " ";
@@ -19472,7 +19472,7 @@ padding-right: 80px; } } */
 .cart-bottom .cart-button:before:after {
   clear: both; }
 .cart-bottom .cart-button .ciloe-btn {
-  width: 50%;
+  width: 100%;
   flex: 0 0 50%;
   font-size: 12px;
   letter-spacing: 0.2em;

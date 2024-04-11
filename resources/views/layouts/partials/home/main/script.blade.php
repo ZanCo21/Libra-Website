@@ -1,3 +1,7 @@
+{{-- gasparesganga cdn --}}
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="{{ asset('assets/home/cdn/shop/t/9/assets/fastclick.js?v=180948248748138531451552289293')}}" type="text/javascript">
   </script>
 

@@ -243,24 +243,6 @@
             </div>
         </div>
     </div>
-    <!-- Push cart modal-->
-    <div class="pushmenu pushmenu-left cart-box-container">
-        <div class="cart-list enj-minicart-ajax">
-            <div class="cart-list-heading">
-                <span class="close-menu-mobile js-close"></span>
-                <h3 class="cart-title">your cart</h3>
-                <span class="minicart-number-items enj-cartcount">0</span>
-            </div>
-            <div class="empty-cart">
-                <p class="fz-18">No products in the cart.</p>
-                <div class="flex center">
-                    <a href="" class="capital">start shopping</a>
-                </div>
-            </div>
-            <!-- End cart bottom -->
-        </div>
-    </div>
-    <!-- End pushcart -->
     <div class="form-search delay03 text-center">
         <i class="ti-close" id="close-search"></i>
         <!--   <h3 class="text-center title-font">what are<br>your looking for ?</h3> -->
@@ -675,12 +657,10 @@
                                                             title="quickview" data-id="arper-round-table">
                                                             <i class="icon-magnifier"></i>
                                                         </a>
-                                                        <a href="../account/login.html"
-                                                            class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                                            data-toggle="tooltip" data-placement="top"
-                                                            data-original-title="Add to Wishlist">
+                                                        <button type="submit" data-BookId="{{ $item->id }}"
+                                                            class="AddToWish icon-heart inline-block text-center">
                                                             <i class=""></i>
-                                                        </a>
+                                                        </button>
                                                     </div>
                                                 </div>
                                                 <div class="info-product text-center">
@@ -1139,87 +1119,5 @@
                 </div>
             </div>
         </footer>
-    </div>
-
-
-    {{-- login & regis --}}
-    <div class="login_form_pc" id="login_form">
-        <div class="content_login_form over-hidden">
-            <div class="absolute btn_close_login">
-                <a href="#close" title="Close (Esc)"><i class="ti-close"></i></a>
-            </div>
-            <div class="mn-mobile-content-tab tab-pane hidden-xs hidden-sm">
-                @if (!Auth::user())
-                    <div class="my-account-wrap">
-                        <div class="login-form">
-                            <div class="text-center icon_top"><span class="flaticon-user"></span></div>
-                            <h3 class="text-center">Create an account to expedite future checkouts, track order history &
-                                receive emails, discounts, & special offers</h3>
-                            <form method="post" action="{{ route('login.post') }}" id="customer_login"
-                                accept-charset="UTF-8" data-login-with-shop-sign-in="true"><input type="hidden"
-                                    name="form_type" value="customer_login"><input type="hidden" name="utf8"
-                                    value="✓">
-                                @csrf
-                                @method('POST')
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-account" placeholder="Username*"
-                                        name="email">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-account" placeholder="Password*"
-                                        name="password">
-                                </div>
-                                <div class="flex">
-                                    <a href="#recover" id="RecoverPassword" class="btn-lostpwd space_bot_30">Lost your
-                                        password?</a>
-                                </div>
-                                <div class="btn-button-group mg-top-30 mg-bottom-15">
-                                    <button type="submit" class="ciloe-btn btn-login hover-white">LOGIN</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="RecoverPasswordForm" class="recover account-element hidden">
-                            <div class="cmt-title text-center">
-                                <h3 class="recover_pw">Reset your password</h3>
-                            </div>
-
-                            <div class="page-content">
-                                <p>We will send you an email to reset your password.</p>
-                                <div class="form-login">
-                                    <form method="post" action="/account/recover" accept-charset="UTF-8"><input
-                                            type="hidden" name="form_type" value="recover_customer_password"><input
-                                            type="hidden" name="utf8" value="✓">
-                                        <div class="form-group">
-                                            <label for="RecoverEmail">Email</label>
-                                            <input type="email" class="form-control form-account" value=""
-                                                name="email" id="RecoverEmail" class="input-full" autocorrect="off"
-                                                autocapitalize="off">
-                                        </div>
-                                        <button class="ciloe-btn btn-login hover-white mgr-5">Submit</button>
-                                        <button id="HideRecoverPasswordLink"
-                                            class="ciloe-btn btn-login hover-white">Cancel</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="spec"><span>Or</span></div>
-                    <a href="#" class="login-link hidden">Back to login</a>
-                    <a href="{{ route('register') }}">Back to register</a>
-                @else
-                <div class="my-account-wrap">
-                    <div class="login-form">
-                        <div class="text-center icon_top"><span class="flaticon-user"></span></div>
-                        <h3 class="text-center">Thank you for using our service. If you would like to enjoy our full features, please log in again.</h3>
-                    </div>
-                    <div class="spec margin_bottom_20"><span>-</span></div>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button class="ciloe-btn btn-login  hover-white mgr-5">Logout</button>
-                    </form>
-                </div>
-                @endif
-            </div>
-        </div>
     </div>
 @endsection
