@@ -135,123 +135,46 @@
                     <p class="line"></p>
                 </div>
                 <div class="owl-carousel owl-theme owl-cate v2 js-owl-cate2">
-                    <div class="product margin_bottom_50 engoj_grid_parent relative"
-                        style="margin-left: 15px; margin-right: 15px;">
-                        <div class="img-product relative">
-                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
-                                class="img-responsive-Related full-width-detail" alt="Ottoman Chair">
-                            <img src="{{ asset('assets/img/elements/thegirlBackCover.jpg') }}"
-                                class="img-responsive-Related absolute img-product-hover full-width-detail"
-                                alt="Ottoman Chair">
-                            <div class="product-icon text-center absolute">
-                                <form method="post" action="/cart/add" enctype="multipart/form-data"
-                                    class="inline-block icon-addcart margin_right_10 box-shadow">
-                                    <input type="hidden" name="id" value="21747541409897">
-                                    <button type="submit" name="add" class="enj-add-to-cart-btn btn-default">
-                                        <i class="icon-bag"></i>
+                    @foreach ($relatedBooks as $item)      
+                        <div class="product margin_bottom_50 engoj_grid_parent relative"
+                            style="margin-left: 15px; margin-right: 15px;">
+                            <div class="img-product relative">
+                                <img src="{{ asset('storage/') . '/' . $item->front_book_cover }}"
+                                    class="img-responsive-Related full-width-detail" alt="Ottoman Chair">
+                                <img src="{{ asset('storage/') . '/' . $item->back_book_cover }}"
+                                    class="img-responsive-Related absolute img-product-hover full-width-detail"
+                                    alt="Ottoman Chair">
+                                <div class="product-icon text-center absolute">
+                                    <form method="post" action="/cart/add" enctype="multipart/form-data"
+                                        class="inline-block icon-addcart margin_right_10 box-shadow">
+                                        <input type="hidden" name="id" value="21747541409897">
+                                        <button type="submit" name="add" class="enj-add-to-cart-btn btn-default">
+                                            <i class="icon-bag"></i>
+                                        </button>
+                                    </form>
+                                    <a href="#" class="engoj_btn_quickview icon-quickview inline-block box-shadow"
+                                        title="quickview" data-id="ottoman-chair-1">
+                                        <i class="icon-magnifier"></i>
+                                    </a>
+                                    <button type="submit" data-BookId="{{ $item->id }}"
+                                        class="AddToWish icon-heart inline-block text-center">
+                                        <i class=""></i>
                                     </button>
-                                </form>
-                                <a href="#" class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                    title="quickview" data-id="ottoman-chair-1">
-                                    <i class="icon-magnifier"></i>
-                                </a>
-                                <a href="../account/login.html"
-                                    class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                    data-toggle="tooltip" data-placement="top" data-original-title="Add to Wishlist">
-                                    <i class=""></i>
-                                </a>
+                                </div>
+                            </div>
+                            <div class="info-product text-center">
+                                <p class="price-product space_top_20">
+                                    <span class="price"><span class="money">{{ $item->judul }}</span></span>
+                                </p>
+                                <h4 class="des-font capital title-product">
+                                    <a href="/collections/all/products/arper-round-table">{{ $item->penulis }}</a>
+                                </h4>
+                                <div class="product-rating space_top_10">
+                                    <span class="shopify-product-reviews-badge" data-id="2430652121193"></span>
+                                </div>
                             </div>
                         </div>
-                        <div class="info-product text-center">
-                            <h4 class="des-font capital title-product space_top_bot_20">
-                                <a href="../collections/decoration/products/ottoman-chair-1.html">Ottoman Chair</a>
-                            </h4>
-                            <p class="price-product">
-                                <span class="price"><span class="money">$250.00</span></span>
-                            </p>
-                            <div class="product-rating space_top_10">
-                                <span class="shopify-product-reviews-badge" data-id="2430652121193"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product margin_bottom_50 engoj_grid_parent relative"
-                        style="margin-left: 15px; margin-right: 15px;">
-                        <div class="img-product relative">
-                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
-                                class="img-responsive-Related full-width-detail" alt="Wallnut Wall Clock">
-                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
-                                class="img-responsive-Related absolute img-product-hover full-width-detail"
-                                alt="Wallnut Wall Clock">
-                            <div class="product-icon text-center absolute">
-                                <form method="post" action="/cart/add" enctype="multipart/form-data"
-                                    class="inline-block icon-addcart margin_right_10 box-shadow">
-                                    <input type="hidden" name="id" value="21703505608809">
-                                    <button type="submit" name="add" class="enj-add-to-cart-btn btn-default">
-                                        <i class="icon-bag"></i>
-                                    </button>
-                                </form>
-                                <a href="#" class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                    title="quickview" data-id="wallnut-wall-clock">
-                                    <i class="icon-magnifier"></i>
-                                </a>
-                                <a href="../account/login.html"
-                                    class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                    data-toggle="tooltip" data-placement="top" data-original-title="Add to Wishlist">
-                                    <i class=""></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="info-product text-center">
-                            <h4 class="des-font capital title-product space_top_bot_20">
-                                <a href="../collections/decoration/products/wallnut-wall-clock.html">Wallnut Wall Clock</a>
-                            </h4>ZZZ
-                            <p class="price-product">
-                                <span class="price"><span class="money">$79.00</span></span>
-                            </p>
-                            <div class="product-rating space_top_10">
-                                <span class="shopify-product-reviews-badge" data-id="2426727989353"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product margin_bottom_50 engoj_grid_parent relative"
-                        style="margin-left: 15px; margin-right: 15px;">
-                        <div class="img-product relative">
-                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
-                                class="img-responsive-Related full-width-detail" alt="Wallnut Wall Clock">
-                            <img src="{{ asset('assets/img/elements/thegirl.jpg') }}"
-                                class="img-responsive-Related absolute img-product-hover full-width-detail"
-                                alt="Wallnut Wall Clock">
-                            <div class="product-icon text-center absolute">
-                                <form method="post" action="/cart/add" enctype="multipart/form-data"
-                                    class="inline-block icon-addcart margin_right_10 box-shadow">
-                                    <input type="hidden" name="id" value="21703505608809">
-                                    <button type="submit" name="add" class="enj-add-to-cart-btn btn-default">
-                                        <i class="icon-bag"></i>
-                                    </button>
-                                </form>
-                                <a href="#" class="engoj_btn_quickview icon-quickview inline-block box-shadow"
-                                    title="quickview" data-id="wallnut-wall-clock">
-                                    <i class="icon-magnifier"></i>
-                                </a>
-                                <a href="../account/login.html"
-                                    class="icon-heart inline-block maxus-product__wishlist wish text-center"
-                                    data-toggle="tooltip" data-placement="top" data-original-title="Add to Wishlist">
-                                    <i class=""></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="info-product text-center">
-                            <h4 class="des-font capital title-product space_top_bot_20">
-                                <a href="../collections/decoration/products/wallnut-wall-clock.html">Wallnut Wall Clock</a>
-                            </h4>
-                            <p class="price-product">
-                                <span class="price"><span class="money">$79.00</span></span>
-                            </p>
-                            <div class="product-rating space_top_10">
-                                <span class="shopify-product-reviews-badge" data-id="2426727989353"></span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buku;
+use App\Models\KategoriRelasi;
 use App\Models\KoleksiPribadi;
 use Illuminate\Http\Request;
 
@@ -11,10 +12,10 @@ class HomeController extends Controller
     public function index()
     {
         $books = Buku::all();
-
+        
         $wishlist = [];
         $countwishlist = 0;
-    
+        
         if(auth()->check()) {
             $userId = auth()->user()->id;
             $wishlist = KoleksiPribadi::where('user_id', $userId)->get();
@@ -31,7 +32,17 @@ class HomeController extends Controller
         $wishlist = KoleksiPribadi::where('user_id', $userId)->get();
         $countwishlist = KoleksiPribadi::where('user_id', $userId)->count();
 
-        return view('home.detail', compact('book','wishlist', 'countwishlist'));
+        $kategoriIds = $book->kategorirelasi()->pluck('kategori_id')->toArray();
+
+        $relatedBooks = Buku::whereHas('kategorirelasi', function ($query) use ($kategoriIds) {
+            $query->whereIn('kategori_id', $kategoriIds);
+        })
+        ->where('id', '!=', $book->id) 
+        ->orderBy('created_at', 'desc')
+        ->limit(3)
+        ->get();
+
+        return view('home.detail', compact('book','wishlist', 'countwishlist','relatedBooks'));
     }
 
     public function storeWishList(Request $request)

@@ -665,10 +665,10 @@
                                                 </div>
                                                 <div class="info-product text-center">
                                                     <p class="price-product space_top_20">
-                                                        <span class="price"><span class="money">{{ $item->penulis }}</span></span>
+                                                        <span class="price"><span class="money">{{ $item->judul }}</span></span>
                                                     </p>
                                                     <h4 class="des-font capital title-product">
-                                                        <a href="/collections/all/products/arper-round-table">{{ $item->judul }}</a>
+                                                        <a href="/collections/all/products/arper-round-table">{{ $item->penulis }}</a>
                                                     </h4>
                                                     <div class="content_list hidden">
                                                         <div class="stock">

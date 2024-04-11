@@ -20,4 +20,10 @@ class Buku extends Model
     {
         return $this->hasMany(KoleksiPribadi::class)->withTrash();
     }
+
+    public function kategorirelasi()
+    {
+        return $this->hasMany(KategoriRelasi::class);
+    }
+
 }
