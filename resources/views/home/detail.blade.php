@@ -1,5 +1,95 @@
 @extends('layouts.partials.home.main.main')
 @section('content')
+    <style>
+        .txt-center {
+            text-align: center;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .clear {
+            float: none;
+            clear: both;
+        }
+
+        .rating {
+            width: auto;
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            float: left;
+            text-align: center;
+            position: relative;
+        }
+
+        .rating>label {
+            float: right;
+            display: inline;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            width: 1.1em;
+            cursor: pointer;
+            color: #000;
+        }
+
+        .rating>label:hover,
+        .rating>label:hover~label,
+        .rating>input.radio-btn:checked~label {
+            color: transparent;
+        }
+
+        .rating>label:hover:before,
+        .rating>label:hover~label:before,
+        .rating>input.radio-btn:checked~label:before,
+        .rating>input.radio-btn:checked~label:before {
+            content: "\2605";
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+        }
+
+        .ratingDua {
+            width: auto;
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            float: left;
+            text-align: center;
+            position: relative;
+        }
+
+        .ratingDua>label {
+            float: right;
+            display: inline;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            width: 1.1em;
+            cursor: pointer;
+            color: #000;
+        }
+
+        .ratingDua #star5Dua:checked~label,
+        .ratingDua #star4Dua:checked~label,
+        .ratingDua #star3Dua:checked~label,
+        .ratingDua #star2Dua:checked~label,
+        .ratingDua #star1Dua:checked~label,
+        .ratingDua>label:hover,
+        .ratingDua>label:hover~label,
+        .ratingDua>input.radio-btn:checked~label {
+            color: transparent;
+        }
+
+        .ratingDua>label:hover:before,
+        .ratingDua>label:hover~label:before,
+        .ratingDua>input.radio-btn:checked~label:before {
+            content: "\2605";
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+        }
+    </style>
     <main>
         <!-- /templates/product.liquid -->
         <div id="shopify-section-product-template" class="shopify-section">
@@ -21,24 +111,26 @@
                                     <div class="product-images">
                                         <div class="main-img js-product-slider" style="width: 80%;   object-fit: fill; ">
                                             <img src="{{ asset('storage/') . '/' . $book->front_book_cover }}"
-                                                alt="Earphone Case" class="engoj_img_main img-responsive-detail full-width">
+                                                alt="Earphone Case"
+                                                class="engoj_img_main img-responsive-detail full-width lazyload">
 
                                             <img src="{{ asset('storage/') . '/' . $book->back_book_cover }}"
-                                                alt="Earphone Case" class="engoj_img_main img-responsive-detail full-width">
+                                                alt="Earphone Case"
+                                                class="engoj_img_main img-responsive-detail full-width lazyload">
                                         </div>
                                     </div>
                                     <div class="multiple-img-list-ver2 js-click-product">
                                         <div class="product-col">
                                             <div class="engoj_img_variant img">
                                                 <img src="{{ asset('storage/') . '/' . $book->front_book_cover }}"
-                                                    alt="Earphone Case" class="img-reponsive-product">
+                                                    alt="Earphone Case" class="img-reponsive-product v">
                                             </div>
                                         </div>
 
                                         <div class="product-col">
                                             <div class="engoj_img_variant img">
                                                 <img src="{{ asset('storage/') . '/' . $book->back_book_cover }}"
-                                                    alt="Earphone Case" class="img-reponsive-product">
+                                                    alt="Earphone Case" class="img-reponsive-product lazyload">
                                             </div>
                                         </div>
                                     </div>
@@ -47,15 +139,25 @@
                             <div class="col-xs-12 col-sm-6 col-md-6">
                                 <div class="single-flex">
                                     <div class="single-product-info product-info product-grid-v2 s-50">
-
                                         <h2 class="product-title"><a>{{ $book->judul }}</a></h2>
-
                                         <div class="flex">
                                             <div class="column-60">
                                                 <span class=""><span class="money"></span></span>
                                             </div>
                                             <div class="product-rating column-40">
-                                                <span class="shopify-product-reviews-badge" data-id="2426722123881"></span>
+                                                <span class="spr-badge" id="spr_badge_2426722123881" data-rating="4.0">
+                                                    <span class="spr-starrating spr-badge-starrating flex items-center">
+                                                        <div class="ratingDua">
+                                                            @for ($i = 5; $i >= 1; $i--)
+                                                                <input id="star{{$i}}KeseluruhanDetail" name="starKeseluruhanDetail" type="radio" value="{{$i}}"
+                                                                    class="radio-btn hide" {{ floor($averageRating) == $i ? 'checked' : '' }} />
+                                                                <label for="star{{$i}}KeseluruhanDetail" style="pointer-events: none;">☆</label>
+                                                            @endfor
+                                                        </div>
+                                                        <span class="ms-1">{{ $averageRating }}</span>
+                                                    </span>
+                                                    <span class="spr-badge-caption">{{ $countReview }} reviews</span>
+                                                </span>
                                             </div>
                                         </div>
 
@@ -91,8 +193,9 @@
                                         </div>
                                         <div class="product-tags fz-12" style="font-weight:600;">
                                             <label>Categories :</label>
-                                            <a href="../collections/frontpage.html">All</a>,
-                                            <a href="../collections/decoration.html">mitologiKorea</a>,
+                                            @foreach ($categoryBook as $item)
+                                            <a href="#">{{ $item->namaKategori }},</a>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +222,132 @@
                             </div>
                             <div id="review" class="tab-pane fade  ">
                                 <div class="entry-inside v3">
-                                    <div id="shopify-product-reviews" data-id="2426722123881"></div>
+                                    <div class="spr-container">
+                                        <div class="spr-header">
+                                            <h2 class="spr-header-title">Customer Reviews</h2>
+                                            <div class="spr-summary rte flex items-center text-center">
+                                                <span class="spr-starrating spr-summary-starrating"
+                                                    aria-label="5.0 of 5 stars" role="img">
+                                                    <div class="ratingDua">
+                                                        @for ($i = 5; $i >= 1; $i--)
+                                                            <input id="star{{$i}}Keseluruhan" name="starKeseluruhan" type="radio" value="{{$i}}"
+                                                                class="radio-btn hide" {{ floor($averageRating) == $i ? 'checked' : '' }} />
+                                                            <label for="star{{$i}}Keseluruhan" style="pointer-events: none;">☆</label>
+                                                        @endfor
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                </span>
+                                                <span class="ms-2 me-4">
+                                                    <strong>{{ $averageRating }}</strong>
+                                                </span>
+                                                <span class="spr-summary-caption"><span
+                                                        class="spr-summary-actions-togglereviews">
+                                                        Based on {{ $countReview }} reviews</span>
+                                                </span>
+                                                <span class="spr-summary-actions ml-auto">
+                                                    <button
+                                                        class="btn-writeReview hover:text-green-600 spr-summary-actions-newreview">Write
+                                                        a review</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="spr-content">
+                                            {{-- ini form review --}}
+                                            <div id="formReview" class="spr-form hidden" style="">
+                                                <form method="post" class="new-review-form">
+                                                    {{-- <input type="hidden" name="review[rating]"><input type="hidden"
+                                                        name="rating"> --}}
+                                                    <h3 class="spr-form-title mb-6">Write a review</h3>
+                                                    <fieldset class="spr-form-review mb-6">
+                                                        <div>
+                                                            <label class="spr-form-label"
+                                                                for="review[rating]">Rating</label>
+                                                        </div>
+                                                        <div class="ratingDua mb-2">
+                                                            <input id="star5" name="star" type="radio"
+                                                                value="5" class="radio-btn hide" />
+                                                            <label for="star5">☆</label>
+                                                            <input id="star4" name="star" type="radio"
+                                                                value="4" class="radio-btn hide" />
+                                                            <label for="star4">☆</label>
+                                                            <input id="star3" name="star" type="radio"
+                                                                value="3" class="radio-btn hide" />
+                                                            <label for="star3">☆</label>
+                                                            <input id="star2" name="star" type="radio"
+                                                                value="2" class="radio-btn hide" />
+                                                            <label for="star2">☆</label>
+                                                            <input id="star1" name="star" type="radio"
+                                                                value="1" class="radio-btn hide" />
+                                                            <label for="star1">☆</label>
+                                                            <div class="clear"></div>
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="spr-form-contact">
+                                                        <div class="spr-form-review-body">
+                                                            <label class="spr-form-label" for="review_body_2426722123881">
+                                                                Body of Review
+                                                                <span role="status" aria-live="polite"
+                                                                    aria-atomic="true">
+                                                                    <span
+                                                                        class="spr-form-review-body-charactersremaining">(1500)</span>
+                                                                    <span class="visuallyhidden">characters
+                                                                        remaining</span>
+                                                                </span>
+                                                            </label>
+                                                            <div class="spr-form-input">
+                                                                <textarea class="spr-form-input spr-form-input-textarea" name="ulasan" rows="10"
+                                                                    placeholder="Write your comments here"></textarea>
+                                                                <script>
+                                                                    function sprUpdateCount(e) {
+                                                                        var $el = SPR.$(e.currentTarget);
+                                                                        SPR.$(".spr-form-review-body-charactersremaining").html('(' + (1500 - $el.val().length) + ')');
+                                                                    }
+                                                                    SPR.$("textarea[data-product-id=2426722123881]").keyup(sprUpdateCount).trigger("keyup");
+                                                                </script>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset class="spr-form-actions">
+                                                        <input type="submit" data-BookId="{{ $book->id }}"
+                                                            class="btn-submitReview spr-button spr-button-primary button button-primary btn btn-primary"
+                                                            value="Submit Review">
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                            {{-- ini content review nya --}}
+                                            @foreach ($review as $item)
+                                                <div class="spr-review" id="spr-review-206325459">
+                                                    <div class="ratingDua">
+                                                        @for ($i = 5; $i >= 1; $i--)
+                                                            <input id="star{{ $i }}Dua_{{ $item->id }}"
+                                                                name="star{{ $item->id }}" type="radio"
+                                                                value="{{ $i }}" class="radio-btn hide"
+                                                                {{ $item->rating == $i ? 'checked' : '' }} />
+                                                            <label for="star{{ $i }}Dua_{{ $item->id }}"
+                                                                style="pointer-events: none;">☆</label>
+                                                        @endfor
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="spr-review-header">
+                                                        <br>
+                                                        <span class="spr-review-header-byline"><strong>{{ $item->user->userName }}</strong>
+                                                            on
+                                                            <strong class="formatDate">{{ $item->created_at }}</strong></span>
+                                                    </div>
+                                                    <div class="spr-review-content">
+                                                        <p class="spr-review-content-body">{{ $item->ulasan }}</p>
+                                                    </div>
+                                                    <div class="spr-review-footer rte">
+                                                        <a href="#" class="spr-review-reportreview"
+                                                            onclick="SPR.reportReview(206325459);return false"
+                                                            id="report_206325459"
+                                                            data-msg="This review has been reported">Report as
+                                                            Inappropriate</a>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -135,14 +363,14 @@
                     <p class="line"></p>
                 </div>
                 <div class="owl-carousel owl-theme owl-cate v2 js-owl-cate2">
-                    @foreach ($relatedBooks as $item)      
+                    @foreach ($relatedBooks as $item)
                         <div class="product margin_bottom_50 engoj_grid_parent relative"
                             style="margin-left: 15px; margin-right: 15px;">
                             <div class="img-product relative">
                                 <img src="{{ asset('storage/') . '/' . $item->front_book_cover }}"
-                                    class="img-responsive-Related full-width-detail" alt="Ottoman Chair">
+                                    class="img-responsive-Related full-width-detail lazyload" alt="Ottoman Chair">
                                 <img src="{{ asset('storage/') . '/' . $item->back_book_cover }}"
-                                    class="img-responsive-Related absolute img-product-hover full-width-detail"
+                                    class="img-responsive-Related absolute img-product-hover full-width-detail lazyload"
                                     alt="Ottoman Chair">
                                 <div class="product-icon text-center absolute">
                                     <form method="post" action="/cart/add" enctype="multipart/form-data"
@@ -179,6 +407,89 @@
             </div>
 
             <div class="overlay"></div>
+
+            <script>
+                jQuery(document).ready(function($) {
+                    $('.btn-writeReview').on('click', function(e) {
+                        var formReview = $('div[id="formReview"]');
+                        if (formReview.hasClass('hidden')) {
+                            formReview.removeClass('hidden');
+                        } else {
+                            formReview.addClass('hidden');
+                        }
+                    });
+
+                    $('.btn-submitReview').on('click', function(e) {
+                        e.preventDefault();
+
+                        var form = $(this).closest('form');
+                        var BookId = $(this).attr('data-BookId');
+                        var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+                        var rating = $('input[name="star"]:checked').val();
+
+
+                        $.ajax({
+                            url: "{{ url('/home/storeUlasan') }}",
+                            method: 'POST',
+                            data: {
+                                _token: token,
+                                buku_id: BookId,
+                                rating: rating,
+                                ulasan: form.find('textarea[name="ulasan"]').val()
+                            },
+                            beforeSend: function() {
+                                $.LoadingOverlay("show");
+                            },
+                            success: function(response) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Success!',
+                                    text: 'Ulasan berhasil ditambahkan.',
+                                    confirmButtonText: 'OK',
+                                }).then(() => {
+                                    location.reload();
+                                });
+                            },
+                            error: function(xhr, status, error) {
+                                console.error(xhr.responseText);
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error!',
+                                    text: 'Terjadi kesalahan saat memuat data.',
+                                    error,
+                                    confirmButtonText: 'OK'
+                                });
+                            },
+                            complete: function() {
+                                $.LoadingOverlay("hide");
+                            },
+                        });
+                    });
+
+                });
+                document.addEventListener('DOMContentLoaded', function() {
+                    var dateCells = document.querySelectorAll('.formatDate');
+                    dateCells.forEach(function(cell) {
+                        var originalDate = cell.textContent.trim();
+                        var formattedDate = new Date(originalDate).toLocaleDateString('en-US', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric'
+                        });
+                        cell.textContent = formattedDate;
+                    });
+                });
+
+                function formatDateString(dateString) {
+                    var dateObj = new Date(dateString);
+                    return dateObj.toLocaleDateString('en-US', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    });
+                }
+            </script>
             <script>
                 jQuery(document).ready(function($) {
                     $('.js-product-360-2426722123881').ThreeSixty({

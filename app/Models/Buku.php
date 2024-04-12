@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\UlasanBuku;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,6 +25,11 @@ class Buku extends Model
     public function kategorirelasi()
     {
         return $this->hasMany(KategoriRelasi::class);
+    }
+
+    public function ulasanBuku()
+    {
+        return $this->hasMany(UlasanBuku::class);
     }
 
 }

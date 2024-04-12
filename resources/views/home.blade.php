@@ -266,7 +266,8 @@
                         </a>
                     </div>
                     <div class="absolute text_banner">
-                        <h1 class="margin_bottom_20  text-center ">Library</h1>
+        
+                        <h1 class="margin_bottom_20  text-center ">@if(Auth::user())Hello, {{Auth::user()->userName}} @else Library @endif</h1>
                         <div class="  text-center ">
                             <!-- /snippets/breadcrumb.liquid -->
                             <ul class="breadcrumb" style="font-weight:500;">

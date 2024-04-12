@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Anggota;
+use App\Models\UlasanBuku;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -55,5 +56,10 @@ class User extends Authenticatable
     public function koleksiBuku()
     {
         return $this->hasMany(koleksiBuku::class);
+    }
+
+    public function ulasanBuku()
+    {
+        return $this->hasMany(UlasanBuku::class);
     }
 }

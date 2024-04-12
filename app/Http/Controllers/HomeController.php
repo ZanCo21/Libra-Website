@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buku;
+use App\Models\KategoriBuku;
 use App\Models\KategoriRelasi;
 use App\Models\KoleksiPribadi;
+use App\Models\UlasanBuku;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -32,7 +34,21 @@ class HomeController extends Controller
         $wishlist = KoleksiPribadi::where('user_id', $userId)->get();
         $countwishlist = KoleksiPribadi::where('user_id', $userId)->count();
 
+        $review = UlasanBuku::where('buku_id',$id)->get();
+        $countReview = $review->count();
+        $sumReview = $review->sum('rating');
+
+        $averageRating = 0;
+        if ($countReview > 0) {
+            $averageRating = ($sumReview / $countReview);
+            $averageRating = round($averageRating, 2);
+            $averageRating = max(min($averageRating, 5.0), 1.0);
+        }
+
+
         $kategoriIds = $book->kategorirelasi()->pluck('kategori_id')->toArray();
+        
+        $categoryBook = KategoriBuku::whereIn('id', $kategoriIds)->get();
 
         $relatedBooks = Buku::whereHas('kategorirelasi', function ($query) use ($kategoriIds) {
             $query->whereIn('kategori_id', $kategoriIds);
@@ -42,7 +58,7 @@ class HomeController extends Controller
         ->limit(3)
         ->get();
 
-        return view('home.detail', compact('book','wishlist', 'countwishlist','relatedBooks'));
+        return view('home.detail', compact('book','wishlist', 'countwishlist','relatedBooks','review', 'averageRating', 'countReview', 'categoryBook'));
     }
 
     public function storeWishList(Request $request)
@@ -80,6 +96,25 @@ class HomeController extends Controller
             ->where('buku_id', $bukuId)
             ->delete();
     
+            return response()->json(['success' => true], 200);
+        } catch (\Throwable $th) {
+            return  response()->json(['error' => 'Error: ' . $th->getMessage()], 500);
+        }
+    }
+
+    public function storeUlasan(Request $request)
+    {
+        try {
+            $bukuId = $request->input('buku_id');
+            $userId = auth()->user()->id;
+
+            $storeReview = new UlasanBuku();
+            $storeReview->user_id = $userId;
+            $storeReview->buku_id = $bukuId;
+            $storeReview->ulasan = $request->input('ulasan');
+            $storeReview->rating = $request->input('rating');
+            $storeReview->save();
+
             return response()->json(['success' => true], 200);
         } catch (\Throwable $th) {
             return  response()->json(['error' => 'Error: ' . $th->getMessage()], 500);

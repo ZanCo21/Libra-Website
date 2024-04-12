@@ -45,6 +45,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/detail/{id}', [HomeController::class, 'show'])->name('detailBook');
         Route::post('/storeWishList', [HomeController::class, 'storeWishList'])->name('storeWishList');
         Route::post('/deleteWishList', [HomeController::class, 'deleteWishList'])->name('deleteWishList');
+        Route::post('/storeUlasan', [HomeController::class, 'storeUlasan'])->name('storeUlasan');
 
         Route::get('/cart', function () {
             return view('home.cart');
