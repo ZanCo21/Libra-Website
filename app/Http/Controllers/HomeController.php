@@ -11,10 +11,21 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $books = Buku::paginate(10);
+        $booksQuery = Buku::query();
+        $getCategory = KategoriBuku::all();
+
+        if ($request->has('category')) {
+            $categoryId = $request->category;
+            $booksQuery->whereHas('kategorirelasi', function ($query) use ($categoryId) {
+                $query->where('kategori_id', $categoryId);
+            });
+        }    
         
+        $books = $booksQuery->paginate(10);
+        $countBooks = Buku::count();
+
         $wishlist = [];
         $countwishlist = 0;
         
@@ -24,7 +35,7 @@ class HomeController extends Controller
             $countwishlist = KoleksiPribadi::where('user_id', $userId)->count();
         }
 
-        return view('home', compact('books', 'wishlist', 'countwishlist'));
+        return view('home', compact('books', 'wishlist', 'countwishlist', 'countBooks', 'getCategory'));
     }
 
     public function show($id)

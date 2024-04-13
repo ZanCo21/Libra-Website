@@ -322,7 +322,7 @@
                             <div class=" space_bot_20 flex margin_left_right ">
                                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 btn_function available-filter">
 
-                                    <h4 class="">14 products <span>available</span></h4>
+                                    <h4 class="">{{ $countBooks }} products <span>available</span></h4>
                                 </div>
                                 <div class="col-lg-3 col-md-3 hidden-sm hidden-xs btn_function left ">
                                     <div class="wrap-filter-sorting">
@@ -369,20 +369,13 @@
                                             </div>
                                             <ul class="filter-brand" style="max-height: 200px;overflow: auto;">
                                                 <li>
-                                                    <a href="frontpage.html" title="All">All </a>
+                                                    <a href="{{ route('home') }}">All </a>
                                                 </li>
-                                                <li>
-                                                    <a href="decoration.html" title="Decor">Decor </a>
-                                                </li>
-                                                <li>
-                                                    <a href="editorial.html" title="Funiter">Funiter </a>
-                                                </li>
-                                                <li>
-                                                    <a href="trending.html" title="Interior">Interior </a>
-                                                </li>
-                                                <li>
-                                                    <a href="life-style.html" title="Life Style">Life Style </a>
-                                                </li>
+                                                @foreach ($getCategory as $item)
+                                                    <li>
+                                                        <a href="{{ route('home', ['category' => $item->id]) }}">{{ $item->namaKategori }} </a>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>

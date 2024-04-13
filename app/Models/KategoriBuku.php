@@ -10,6 +10,9 @@ class KategoriBuku extends Model
     use HasFactory;
 
     protected $table = 'kategori_buku';
+    protected $fillable = [
+        'namaKategori'
+    ];
 
     public function kategorirelasi()
     {
