@@ -386,236 +386,6 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <!--          -->
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 space_bot_20">
-                                        <div class="filter margin_bottom_30 space_bot_30 border-bot filter-tag">
-                                            <div class="flex margin_bottom_20">
-                                                <h4 class="fz-12 widget_title lt-2">COLOR</h4>
-                                            </div>
-                                            <ul>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="dc9814">
-                                                    <a href="javascript:void(0)" title="#dc9814">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:#dc9814;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="92e5c3">
-                                                    <a href="javascript:void(0)" title="#92e5c3">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:#92e5c3;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="14c2dc">
-                                                    <a href="javascript:void(0)" title="#14c2dc">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:#14c2dc;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="e34848">
-                                                    <a href="javascript:void(0)" title="#e34848">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:#e34848;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="b4b4b4">
-                                                    <a href="javascript:void(0)" title="#b4b4b4">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:#b4b4b4;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="ffffff">
-                                                    <a href="javascript:void(0)" title="#ffffff">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:#ffffff;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="3763e2">
-                                                    <a href="javascript:void(0)" title="#3763e2">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:#3763e2;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="da14dc">
-                                                    <a href="javascript:void(0)" title="#da14dc">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:#da14dc;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="80d46f">
-                                                    <a href="javascript:void(0)" title="#80d46f">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:#80d46f;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="black">
-                                                    <a href="javascript:void(0)" title="Black">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:Black;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="red">
-                                                    <a href="javascript:void(0)" title="Red">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:Red;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="green">
-                                                    <a href="javascript:void(0)" title="Green">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:Green;"></span>
-                                                        </span>
-                                                    </a>
-                                                <li class="cat-item inline-block">
-                                                    <input class="hidden" type="checkbox" value="blue">
-                                                    <a href="javascript:void(0)" title="Blue">
-                                                        <span class="link_color">
-                                                            <span class="ciloe_filter_color"
-                                                                style="background:Blue;"></span>
-                                                        </span>
-                                                    </a>
-
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!--          -->
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 space_bot_20">
-                                        <div class="filter space_bot_30  filter-tag">
-                                            <div class="flex margin_bottom_20">
-                                                <h4 class="fz-12 widget_title ">BY SIZE</h4>
-                                            </div>
-                                            <ul>
-                                                <li class="inline-block cat-item">
-                                                    <input class="hidden" type="checkbox" value="xs">
-                                                    <a href="javascript:void(0)" title="XS"
-                                                        class="filter_size">XS</a>
-                                                <li class="inline-block cat-item">
-                                                    <input class="hidden" type="checkbox" value="s">
-                                                    <a href="javascript:void(0)" title="S" class="filter_size">S</a>
-                                                <li class="inline-block cat-item">
-                                                    <input class="hidden" type="checkbox" value="m">
-                                                    <a href="javascript:void(0)" title="M" class="filter_size">M</a>
-                                                <li class="inline-block cat-item">
-                                                    <input class="hidden" type="checkbox" value="l">
-                                                    <a href="javascript:void(0)" title="L" class="filter_size">L</a>
-                                                <li class="inline-block cat-item">
-                                                    <input class="hidden" type="checkbox" value="xl">
-                                                    <a href="javascript:void(0)" title="XL"
-                                                        class="filter_size">XL</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!--          -->
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 space_bot_20">
-                                        <div class="filter  space_bot_30  filter-tag">
-                                            <div class="flex margin_bottom_20">
-                                                <h4 class="fz-12 widget_title ">BY PRICE</h4>
-                                            </div>
-                                            <ul class="filter-brand">
-                                                <li class="cat-item">
-                                                    <input class="hidden" type="checkbox" value="0-50">
-                                                    <a href="javascript:void(0)" title="$0-$50">$0-$50</a>
-                                                <li class="cat-item">
-                                                    <input class="hidden" type="checkbox" value="50-100">
-                                                    <a href="javascript:void(0)" title="$50-$100">$50-$100</a>
-                                                <li class="cat-item">
-                                                    <input class="hidden" type="checkbox" value="100-200">
-                                                    <a href="javascript:void(0)" title="$100-$200">$100-$200</a>
-                                                <li class="cat-item">
-                                                    <input class="hidden" type="checkbox" value="200-400">
-                                                    <a href="javascript:void(0)" title="$200-$400">$200-$400</a>
-                                                <li class="cat-item">
-                                                    <input class="hidden" type="checkbox" value="400-more-than">
-                                                    <a href="javascript:void(0)" title="$400 more than">$400 more than</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!--          -->
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 space_bot_20">
-                                        <div class="filter margin_bottom_30 space_bot_30 filter-tag">
-                                            <div class="flex margin_bottom_20">
-                                                <h4 class="fz-12 widget_title lt-2"></h4>
-                                            </div>
-                                            <ul>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!--          -->
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 space_bot_20">
-                                        <div class="filter margin_bottom_30 space_bot_30 border-bot filter-tag">
-                                            <div class="flex margin_bottom_20">
-                                                <h4 class="fz-12 widget_title lt-2">SORT BY</h4>
-                                            </div>
-                                            <ul class="filter-brand engoj-sortby">
-                                                <li><a href="javascript:void(0)" data-jsortby="manual">Featured</a></li>
-                                                <li><a href="javascript:void(0)" data-jsortby="best-selling">Best
-                                                        Selling</a></li>
-                                                <li><a href="javascript:void(0)"
-                                                        data-jsortby="title-ascending">Alphabetically, A-Z</a></li>
-                                                <li><a href="javascript:void(0)"
-                                                        data-jsortby="title-descending">Alphabetically, Z-A</a></li>
-                                                <li><a href="javascript:void(0)" data-jsortby="price-descending">Price,
-                                                        high to low</a></li>
-                                                <li><a href="javascript:void(0)" data-jsortby="price-ascending">Price, low
-                                                        to high</a></li>
-                                                <li><a href="javascript:void(0)" data-jsortby="created-ascending">Date,
-                                                        old to new</a></li>
-                                                <li><a href="javascript:void(0)" data-jsortby="created-descending">Date,
-                                                        new to old</a></li>
-                                            </ul>
-                                        </div>
-                                        <script>
-                                            /*============================================================================
-                                                                                                                              Inline JS because collection liquid object is only available
-                                                                                                                              on collection pages and not external JS files
-                                                                                                                            ==============================================================================*/
-                                            Shopify.queryParams = {};
-                                            if (location.search.length) {
-                                                for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
-                                                    aKeyValue = aCouples[i].split('=');
-                                                    if (aKeyValue.length > 1) {
-                                                        Shopify.queryParams[decodeURIComponent(aKeyValue[0])] = decodeURIComponent(aKeyValue[1]);
-                                                    }
-                                                }
-                                            }
-
-                                            $(function() {
-                                                $('.engoj-sortby a')
-                                                    .bind('click', function() {
-                                                        Shopify.queryParams.sort_by = jQuery(this).data('jsortby');
-                                                        location.search = jQuery.param(Shopify.queryParams);
-                                                    });
-                                            });
-                                        </script>
-
-                                    </div>
-                                    <!--          -->
                                 </div>
                             </div>
                         </div>
@@ -713,14 +483,21 @@
                                     @endforeach
                                     <div class="text-center col-md-12 col-xs-12 content_pagination">
                                         <ul class="pagination text-center">
-                                            <li class="active" class="active"><a class="active"
-                                                    href="all-3.html?page=1">1</a></li>
-                                            <li class="active"><a href="all-2.html?page=2">2</a></li>
-                                            <li>
-                                                <a href="all-2.html?page=2"><i class="ion-ios-arrow-forward"></i></a>
-                                            </li>
+                                            @if ($books->previousPageUrl())
+                                                <li><a href="{{ $books->previousPageUrl() }}"><i class="ion-ios-arrow-back"></i></a></li>
+                                            @endif
+                                            
+                                            @if ($books->nextPageUrl())
+                                                <li><a href="{{ $books->nextPageUrl() }}"><i class="ion-ios-arrow-forward"></i></a></li>
+                                            @endif
+                                    
+                                            @for ($i = 1; $i <= $books->lastPage(); $i++)
+                                                <li class="active">
+                                                    <a class="{{ $i == $books->currentPage() ? 'active' : '' }} " href="{{ $books->url($i) }}">{{ $i }}</a>
+                                                </li>
+                                            @endfor
                                         </ul>
-                                    </div>
+                                    </div>            
                                 </div>
                             </div>
                         </div>

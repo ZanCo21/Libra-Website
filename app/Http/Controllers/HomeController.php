@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $books = Buku::all();
+        $books = Buku::paginate(10);
         
         $wishlist = [];
         $countwishlist = 0;
