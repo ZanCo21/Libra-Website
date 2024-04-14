@@ -6,6 +6,7 @@ use App\Models\Buku;
 use App\Models\KategoriBuku;
 use App\Models\KategoriRelasi;
 use App\Models\KoleksiPribadi;
+use App\Models\Peminjaman;
 use App\Models\UlasanBuku;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,13 @@ class HomeController extends Controller
             $userId = auth()->user()->id;
             $wishlist = KoleksiPribadi::where('user_id', $userId)->get();
             $countwishlist = KoleksiPribadi::where('user_id', $userId)->count();
+
+            $reserveBook = Peminjaman::where('user_id', $userId)
+            ->whereIn('status_peminjaman', ['reserved', 'borrowed', 'overdue'])
+            ->get();
         }
 
-        return view('home', compact('books', 'wishlist', 'countwishlist', 'countBooks', 'getCategory'));
+        return view('home', compact('books', 'wishlist', 'countwishlist', 'countBooks', 'getCategory','reserveBook'));
     }
 
     public function show($id)

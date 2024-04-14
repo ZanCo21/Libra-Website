@@ -1,5 +1,13 @@
 @extends('layouts.partials.home.main.main')
 @section('content')
+    <style>
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 3; /* Jumlah baris yang ingin dibatasi */
+        }
+    </style>
     <div class="pushmenu menu-home5 box-mobile-menu">
         <div class="menu-push box-mobile-menu-inner">
             <a href="#" class="close-menu-mobile"><span class="">Close</span></a>
@@ -266,8 +274,14 @@
                         </a>
                     </div>
                     <div class="absolute text_banner">
-        
-                        <h1 class="margin_bottom_20  text-center ">@if(Auth::user())Hello, {{Auth::user()->userName}} @else Library @endif</h1>
+
+                        <h1 class="margin_bottom_20  text-center ">
+                            @if (Auth::user())
+                                Hello, {{ Auth::user()->userName }}
+                            @else
+                                Library
+                            @endif
+                        </h1>
                         <div class="  text-center ">
                             <!-- /snippets/breadcrumb.liquid -->
                             <ul class="breadcrumb" style="font-weight:500;">
@@ -316,10 +330,61 @@
                         </div>
                     </div>
                 </div>
-                <div class=" space_top_70">
+                {{-- card peminjaman --}}
+                @if ($reserveBook)
+                <div class="container-fluid container_100 btn_layout_shop hidden-xs mt-4">
+                    <div class="row">
+                        <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product_shop product-collection-grid product_full">
+                            <h4 class="text-3xl mb-4">The Reserved Book</h4>
+                            <div class="row">
+                                @foreach ($reserveBook as $item)
+                                <div class="mt-2 col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-50">
+                                    <div class="me-2 relative flex w-full flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                                        <div class="relative m-0 w-1/6 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
+                                            <img src="{{ asset('storage/') . '/' . $item->buku->front_book_cover }}" alt="image" class="h-full w-full object-cover lazyload" />
+                                        </div>
+                                        <div class="p-6">
+                                            <h6
+                                                class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
+                                                {{ucwords($item->status_peminjaman)}}
+                                            </h6>
+                                            <h4
+                                                class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                                                {{ $item->buku->judul }}
+                                            </h4>
+                                            <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased line-clamp-3">
+                                                {{ $item->buku->deskripsi }}
+                                            </p>
+                                            @if (!Auth::user())
+                                                <a href="#login_form" class="inline-block" data-iteration="{{ $loop->iteration }}">">
+                                            @else
+                                                <a class="inline-block" href="{{ url('home/detail/peminjaman') . '/' . $item->id }}">
+                                            @endif
+                                                <button
+                                                    class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                                    type="button">
+                                                    Learn More
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                        stroke-width="2" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+                                                    </svg>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                {{-- card peminjaman end --}}
+                <div class="space_top_50">
                     <div class="container-fluid container_100 btn_layout_shop margin_bottom_30 hidden-xs">
                         <div class="row">
-                            <div class=" space_bot_20 flex margin_left_right ">
+                            <div class="space_bot_20 flex margin_left_right ">
                                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4 btn_function available-filter">
 
                                     <h4 class="">{{ $countBooks }} products <span>available</span></h4>
@@ -327,11 +392,11 @@
                                 <div class="col-lg-3 col-md-3 hidden-sm hidden-xs btn_function left ">
                                     <div class="wrap-filter-sorting">
                                         <div class="dropdown">
-                                            <button class="dropdown-toggle text-left" data-toggle="dropdown"
+                                            {{-- <button class="dropdown-toggle text-left" data-toggle="dropdown"
                                                 aria-expanded="false">
                                                 Sort
                                                 <span class="dropdown-label">Featured</span>
-                                            </button>
+                                            </button> --}}
                                             <ul class="dropdown-menu">
                                                 <li><a href="manual">Featured</a></li>
                                                 <li><a href="best-selling">Best Selling</a></li>
@@ -373,7 +438,8 @@
                                                 </li>
                                                 @foreach ($getCategory as $item)
                                                     <li>
-                                                        <a href="{{ route('home', ['category' => $item->id]) }}">{{ $item->namaKategori }} </a>
+                                                        <a href="{{ route('home', ['category' => $item->id]) }}">{{ $item->namaKategori }}
+                                                        </a>
                                                     </li>
                                                 @endforeach
                                             </ul>
@@ -395,7 +461,7 @@
                                             <div class="product margin_bottom_50 engoj_grid_parent relative">
                                                 <div class="img-product relative">
                                                     @if (!Auth::user())
-                                                        <a href="#login_form" class="engoj_find_img" data-iteration="{{ $loop->iteration }}"">
+                                                        <a href="#login_form" class="engoj_find_img" data-iteration="{{ $loop->iteration }}">
                                                         @else
                                                         <a href="{{ url('home/detail') . '/' . $item->id }}" class="engoj_find_img">
                                                     @endif
@@ -429,10 +495,12 @@
                                                 </div>
                                                 <div class="info-product text-center">
                                                     <p class="price-product space_top_20">
-                                                        <span class="price"><span class="money">{{ $item->judul }}</span></span>
+                                                        <span class="price"><span
+                                                                class="money">{{ $item->judul }}</span></span>
                                                     </p>
                                                     <h4 class="des-font capital title-product">
-                                                        <a href="/collections/all/products/arper-round-table">{{ $item->penulis }}</a>
+                                                        <a
+                                                            href="/collections/all/products/arper-round-table">{{ $item->penulis }}</a>
                                                     </h4>
                                                     <div class="content_list hidden">
                                                         <div class="stock">
@@ -477,20 +545,23 @@
                                     <div class="text-center col-md-12 col-xs-12 content_pagination">
                                         <ul class="pagination text-center">
                                             @if ($books->previousPageUrl())
-                                                <li><a href="{{ $books->previousPageUrl() }}"><i class="ion-ios-arrow-back"></i></a></li>
+                                                <li><a href="{{ $books->previousPageUrl() }}"><i
+                                                            class="ion-ios-arrow-back"></i></a></li>
                                             @endif
-                                            
+
                                             @if ($books->nextPageUrl())
-                                                <li><a href="{{ $books->nextPageUrl() }}"><i class="ion-ios-arrow-forward"></i></a></li>
+                                                <li><a href="{{ $books->nextPageUrl() }}"><i
+                                                            class="ion-ios-arrow-forward"></i></a></li>
                                             @endif
-                                    
+
                                             @for ($i = 1; $i <= $books->lastPage(); $i++)
                                                 <li class="active">
-                                                    <a class="{{ $i == $books->currentPage() ? 'active' : '' }} " href="{{ $books->url($i) }}">{{ $i }}</a>
+                                                    <a class="{{ $i == $books->currentPage() ? 'active' : '' }} "
+                                                        href="{{ $books->url($i) }}">{{ $i }}</a>
                                                 </li>
                                             @endfor
                                         </ul>
-                                    </div>            
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -618,10 +689,6 @@
                     </ul>
                 </div>
                 <script>
-                    /*============================================================================
-                                                      Inline JS because collection liquid object is only available
-                                                      on collection pages and not external JS files
-                                                    ==============================================================================*/
                     Shopify.queryParams = {};
                     if (location.search.length) {
                         for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {

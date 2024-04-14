@@ -11,6 +11,11 @@ class Peminjaman extends Model
 
     protected $table = 'peminjaman';
 
+    protected $fillable = [
+        'qr_code',
+    ];
+
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

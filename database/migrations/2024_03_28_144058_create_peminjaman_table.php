@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('tanggal_peminjaman');
             $table->date('tanggal_pengembalian');
             $table->date('tanggal_batas_pengembalian');
-            $table->string('qr_code')->nullable();
+            $table->text('qr_code')->nullable();
             $table->enum('status_peminjaman',['reserved','borrowed','overdue','returned','rejected','cancelled','lost']);
             // Dipesan: Reserved
             // Dipinjam: Borrowed
