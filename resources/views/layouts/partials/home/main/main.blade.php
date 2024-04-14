@@ -45,6 +45,34 @@
             --engoc-color-main4: #bdefd6;
             --engoc-primary-font: Poppins;
         }
+
+        /* Notifikasi responsif untuk perangkat mobile */
+        @media (max-width: 768px) {
+            #notification {
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                width: auto;
+                max-width: 90%;
+                padding: 10px;
+                font-size: 14px;
+                z-index: 999;
+            }
+        }
+        #notification {
+            z-index: 999;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            /* display: none; */
+            padding: 15px;
+            border-radius: 5px;
+            transition: 3s ease-in-out;
+        }
+        #notification .hidden{
+            opacity: 0;
+            transition: 3s ease-in;
+        }
     </style>
 
     <!-- font -->
@@ -949,6 +977,35 @@
 
     {{-- Footer --}}
     @include('layouts.partials.home.main.footer')
+    @include('layouts.partials.home.main.flashMessage')
+
+    @if($errors->any())
+    <div class="flex absolute right-0 mb-6 bottom-6 p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+        <svg class="flex-shrink-0 inline w-4 h-4 me-3 mt-[2px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+        </svg>
+        <span class="sr-only">Danger</span>
+        <div>
+        <span class="font-medium">Ensure that these requirements are met:</span>
+            <ul class="mt-1.5 list-disc list-inside">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var notificationContent = document.getElementById('notification');
+
+                notificationContent.style.display = 'block';
+
+                setTimeout(function () {
+                    notificationContent.style.display = 'none';
+                }, 4000);
+        });
+    </script>
+    @endif
     @include('layouts.partials.home.main.script')
 </body>
 </html>
