@@ -163,7 +163,15 @@
 
                                         <p class="mb-2">Deskripsi :</p>
                                         <div class="product-description">
-                                            <span>{!! html_entity_decode($book->deskripsi) !!}</span>
+                                            <span>
+                                                @if(strpos($book->deskripsi, '<p>') !== false)
+                                                    {!! html_entity_decode($book->deskripsi) !!}
+                                                @else
+                                                    <p>
+                                                        {!! html_entity_decode($book->deskripsi) !!}
+                                                    </p>
+                                                @endif
+                                            </span>
                                         </div>
                                         <br>
                                         <div class="single-product-button-group">
