@@ -7,6 +7,7 @@ use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManageBooksController;
+use App\Http\Controllers\PeminjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/storeWishList', [HomeController::class, 'storeWishList'])->name('storeWishList');
         Route::post('/deleteWishList', [HomeController::class, 'deleteWishList'])->name('deleteWishList');
         Route::post('/storeUlasan', [HomeController::class, 'storeUlasan'])->name('storeUlasan');
+
+        Route::post('/storePeminjaman', [PeminjamanController::class, 'storePeminjaman'])->name('storePeminjaman');
 
         Route::get('/cart', function () {
             return view('home.cart');

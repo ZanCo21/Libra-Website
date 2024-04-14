@@ -89,6 +89,78 @@
             left: 0;
             color: #FFD700;
         }
+
+        .bookingbook {
+            height: 100vh;
+            /* This part is important for centering the content */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* End center */
+            background: -webkit-linear-gradient(to right, #834d9b, #d04ed6);
+            background: linear-gradient(to right, #834d9b, #d04ed6);
+        }
+
+        .bookingbook a {
+            display: inline-block;
+            text-decoration: none;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 3px;
+            text-transform: uppercase;
+            color: #585858;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .modal {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,.9);
+            transition:all .3s ease;
+        }
+
+        .modal:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal__content {
+            border-radius: 4px;
+            position: relative;
+            width: 620px;
+            max-width: 100%;
+            background: #fff;
+            padding: 1em 2em;
+            box-shadow: 3px 7px 120px rgba(0,0,0,.07);
+        }
+
+        .modal__footer {
+            text-align: right;
+        }
+
+        .modal__footer a {
+            color: #585858;
+        }
+
+        .modal__footer i {
+            color: #d02d2c;
+        }
+
+        .modal__close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #585858;
+            text-decoration: none;
+        }
     </style>
     <main>
         <!-- /templates/product.liquid -->
@@ -184,10 +256,9 @@
                                                         Default Title - <span class="">Deskripsi</span></option>
                                                 </select>
                                                 <div class="e-btn cart-qtt">
-                                                    <button type="submit" id="AddToCart"
-                                                        class="btn-add-cart product-form__cart-submit--small me-4 rounded-lg">
+                                                    <a href="#booking-modal" class="btn-add-cart product-form__cart-submit--small me-4 rounded-lg">
                                                         Book Now
-                                                    </button>
+                                                    </a>
                                                     <button type="submit" data-BookId="{{ $book->id }}"
                                                         class="AddToWish btn-add-cart product-form__cart-submit--small rounded-lg">
                                                         Add To Wishlist
@@ -411,6 +482,40 @@
                             </div>
                         </div>
                     @endforeach
+                </div>
+            </div>
+        
+            {{-- modal booking --}}
+            <div id="booking-modal" class="modal">
+                <div class="modal__content">
+                    <h1>Booking Book</h1>
+                    <hr class="mt-2 mb-6">
+                    <form action="{{ route('storePeminjaman') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="buku_id" value="{{ $book->id }}">
+                        <div class="-mx-3 flex flex-wrap">
+                            <div class="w-full px-3 sm:w-1/2">
+                                <div class="mb-5">
+                                    <label for="date" class="mb-3 block text-base font-medium text-[#07074D]">
+                                        Tanggal Peminjaman
+                                    </label>
+                                    <input type="date" name="tanggal_peminjaman" id="date" class="w-full border border-solid border-y-gray-600 rounded-lg bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                </div>
+                            </div>
+                            <div class="w-full px-3 sm:w-1/2">
+                                <div class="mb-5">
+                                    <label for="time" class="mb-3 block text-base font-medium text-[#07074D]">
+                                        Tanggal Pengembalian
+                                    </label>
+                                    <input type="date" name="tanggal_pengembalian" id="date" class="w-full border border-solid border-y-gray-600 rounded-lg bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                </div>
+                            </div>
+                        </div>
+                        <button class="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
+                            Submit
+                        </button>   
+                    </form>
+                    <a href="#" class="modal__close">&times;</a>
                 </div>
             </div>
 
