@@ -28,6 +28,7 @@ class HomeController extends Controller
         $countBooks = Buku::count();
 
         $wishlist = [];
+        $reserveBook = [];
         $countwishlist = 0;
         
         if(auth()->check()) {
