@@ -12,7 +12,7 @@ class Peminjaman extends Model
     protected $table = 'peminjaman';
 
     protected $fillable = [
-        'qr_code',
+        'user_id','tanggal_peminjaman','tanggal_pengembalian', 'tanggal_batas_pengembalian', 'qr_code'
     ];
 
 
@@ -21,8 +21,9 @@ class Peminjaman extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function buku()
+    public function detailPeminjaman()
     {
-        return $this->belongsTo(Buku::class, 'buku_id', 'id');
+        return $this->hasMany(DetailPeminjaman::class);
     }
+    
 }

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
+use App\Models\Anggota;
 use App\Models\Peminjaman;
 use App\Models\KategoriBuku;
 use Illuminate\Http\Request;
 use App\Models\KoleksiPribadi;
+use App\Models\DetailPeminjaman;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Validation\ValidationException;
 
@@ -24,26 +27,49 @@ class PeminjamanController extends Controller
             
             $userId = auth()->user()->id;
 
-            $peminjamanAktif = Peminjaman::where('user_id', $userId)
-            ->whereIn('status_peminjaman', ['reserved', 'borrowed', 'overdue'])
-            ->exists();
-
+            $peminjamanAktif = DetailPeminjaman::whereHas('peminjaman', function ($query) use ($userId) {
+                $query->where('user_id', $userId)
+                    ->whereIn('status_peminjaman', ['overdue']);
+            })->exists();
+            
             if ($peminjamanAktif) {
                 return redirect()->back()->with(['info' => "Anda masih memiliki buku yang belum dikembalikan"]);
             }
     
-            $peminjaman = new Peminjaman();
-            $peminjaman->user_id = $userId;
-            $peminjaman->buku_id = $request->buku_id;
-            $peminjaman->tanggal_peminjaman = $request->tanggal_peminjaman;
-            $peminjaman->tanggal_pengembalian = $request->tanggal_pengembalian;
-            $peminjaman->tanggal_batas_pengembalian = Carbon::parse($request->tanggal_pengembalian)->addWeekdays(3);
-            $peminjaman->status_peminjaman = 'reserved';
-            $qrCode = QrCode::size(200)->generate(json_encode($peminjaman));
-            $peminjaman->qr_code = $qrCode;
+            $checkUser = User::where('id', $userId)->whereIn('status',['blocked'])->exists();
+            
+            if ($checkUser) {
+                return redirect()->back()->with(['info' => "Akun Anda telah diblokir. Silakan hubungi layanan pengguna untuk bantuan lebih lanjut."]);
+            }
+
+            $peminjaman = new Peminjaman([
+                'user_id' => $userId,
+                'tanggal_peminjaman' => $request->tanggal_peminjaman,
+                'tanggal_pengembalian' => $request->tanggal_pengembalian,
+                'tanggal_batas_pengembalian' => Carbon::parse($request->tanggal_pengembalian)->addWeekdays(3),
+            ]); 
+            $peminjaman->qr_code = QrCode::size(200)->generate(json_encode($peminjaman));
             $peminjaman->save();
-    
-            return view('home')->with(['success' => "Buku berhasil dibooking"],200);
+
+            if (is_array($request->buku_id)) {
+                foreach ($request->buku_id as $bukuID) {
+                    $detailPeminjaman = new DetailPeminjaman([
+                        'peminjaman_id' => $peminjaman->id,
+                        'buku_id' => $bukuID,
+                        'status_peminjaman' => 'reserved',
+                    ]);
+                    $detailPeminjaman->save();
+                }
+            } else {
+                $detailPeminjaman = new DetailPeminjaman([
+                    'peminjaman_id' => $peminjaman->id,
+                    'buku_id' => $request->buku_id,
+                    'status_peminjaman' => 'reserved',
+                ]);
+                $detailPeminjaman->save();
+            }
+            
+            return redirect()->route('home')->with(['success' => "Buku berhasil dibooking"],200);
         }catch (ValidationException $e) {
             $errors = $e->validator->getMessageBag()->toArray();
     
@@ -56,10 +82,11 @@ class PeminjamanController extends Controller
         $wishlist = [];
         $countwishlist = 0;
 
-        $reservedBooks = Peminjaman::findOrFail($id);
+        $reservedBooks = Peminjaman::with('DetailPeminjaman')
+        ->whereHas('DetailPeminjaman', function ($query) use ($id) {
+            $query->where('peminjaman_id', $id);
+        })->findOrFail($id);
         
-        $kategoriIds = $reservedBooks->buku->kategorirelasi()->pluck('kategori_id')->toArray();
-        $categoryBook = KategoriBuku::whereIn('id', $kategoriIds)->get();
         
         if(auth()->check()) {
             $userId = auth()->user()->id;
@@ -67,6 +94,6 @@ class PeminjamanController extends Controller
             $countwishlist = KoleksiPribadi::where('user_id', $userId)->count();
         }
 
-        return view('home.detailPeminjaman', compact('wishlist', 'countwishlist','reservedBooks','categoryBook'));
+        return view('home.detailPeminjaman', compact('wishlist', 'countwishlist','reservedBooks'));
     }
 }

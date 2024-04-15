@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Buku;
+use App\Models\DetailPeminjaman;
 use App\Models\KategoriBuku;
 use App\Models\KategoriRelasi;
 use App\Models\KoleksiPribadi;
@@ -28,17 +29,21 @@ class HomeController extends Controller
         $countBooks = Buku::count();
 
         $wishlist = [];
-        $reserveBook = [];
         $countwishlist = 0;
+        $reserveBook = [];
         
         if(auth()->check()) {
             $userId = auth()->user()->id;
             $wishlist = KoleksiPribadi::where('user_id', $userId)->get();
             $countwishlist = KoleksiPribadi::where('user_id', $userId)->count();
 
-            $reserveBook = Peminjaman::where('user_id', $userId)
-            ->whereIn('status_peminjaman', ['reserved', 'borrowed', 'overdue'])
-            ->get();
+            $reserveBook = Peminjaman::with('DetailPeminjaman')
+            ->whereHas('DetailPeminjaman', function ($query) use ($userId) {
+                $query->where('user_id', $userId)
+                    ->whereIn('status_peminjaman', ['reserved', 'borrowed', 'overdue']);
+            })->get();
+        
+            // dd($reserveBook);
         }
 
         return view('home', compact('books', 'wishlist', 'countwishlist', 'countBooks', 'getCategory','reserveBook'));

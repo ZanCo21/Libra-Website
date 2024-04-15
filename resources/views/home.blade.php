@@ -341,19 +341,30 @@
                                 <div class="mt-2 col-lg-2 col-md-3 col-sm-6 col-xs-6 layout_product_shop delay05 layout_pd_6c column-50">
                                     <div class="me-2 relative flex w-full flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                                         <div class="relative m-0 w-1/6 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
-                                            <img src="{{ asset('storage/') . '/' . $item->buku->front_book_cover }}" alt="image" class="h-full w-full object-cover lazyload" />
+                                            @if ($item->DetailPeminjaman->isNotEmpty())
+                                            @php
+                                                $firstBook = $item->DetailPeminjaman->first();
+                                            @endphp
+                                                <img src="{{ asset('storage/') . '/' . $firstBook->buku->front_book_cover }}" alt="image" class="h-full w-full object-cover lazyload" />
+                                            @endif
                                         </div>
                                         <div class="p-6">
                                             <h6
                                                 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-                                                {{ucwords($item->status_peminjaman)}}
+                                                @foreach ($item->DetailPeminjaman as $detail)
+                                                    {{ ucwords($detail->buku->status) }}
+                                                 @endforeach
                                             </h6>
-                                            <h4
-                                                class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                                                {{ $item->buku->judul }}
+                                            <h4 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                                                @foreach ($item->DetailPeminjaman as $index => $detail)
+                                                    {{ $detail->buku->judul }}
+                                                    @if ($index < count($item->DetailPeminjaman) - 1)
+                                                        & 
+                                                    @endif
+                                                @endforeach
                                             </h4>
-                                            <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased line-clamp-3">
-                                                {{ $item->buku->deskripsi }}
+                                            <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased line-clamp-4">
+                                                Peminjaman buku ini dilakukan pada tanggal <strong class="formatDate">{{ $item->tanggal_peminjaman }}</strong> dengan tanggal pengembalian yang telah ditetapkan pada <strong class="formatDate">{{ $item->tanggal_pengembalian }}</strong>. Dalam setiap peminjaman, disediakan waktu selama 3 hari setelah tanggal pengembalian, yaitu hingga <strong class="formatDate">{{ $item->tanggal_batas_pengembalian }}</strong>. Jika pengembalian dilakukan melewati batas waktu tersebut, akun Anda akan terblokir.
                                             </p>
                                             @if (!Auth::user())
                                                 <a href="#login_form" class="inline-block" data-iteration="{{ $loop->iteration }}">">
@@ -867,4 +878,28 @@
         </a>
     </div>
     <div class="overlay"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+                var dateCells = document.querySelectorAll('.formatDate');
+                dateCells.forEach(function(cell) {
+                    var originalDate = cell.textContent.trim();
+                    var formattedDate = new Date(originalDate).toLocaleDateString('en-US', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    });
+                    cell.textContent = formattedDate;
+                });
+            });
+
+            function formatDateString(dateString) {
+                var dateObj = new Date(dateString);
+                return dateObj.toLocaleDateString('en-US', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                });
+            }
+    </script>
 @endsection
