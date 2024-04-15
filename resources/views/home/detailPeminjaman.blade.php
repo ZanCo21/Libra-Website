@@ -94,6 +94,7 @@
                 @foreach ($reservedBooks->DetailPeminjaman as $item)
                     @if ($item->status_peminjaman == 'reserved')
                         <button class="mt-2 mb-8 w-full rounded-md bg-black px-6 py-3 font-medium text-white">Cancel</button>
+                        @break 
                     @endif
                 @endforeach
             

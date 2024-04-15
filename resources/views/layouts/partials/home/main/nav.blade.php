@@ -208,7 +208,7 @@
                                     data-currency-usd="$226.00">{{ $countwishlist }}</span></span></span>
                     </div>
                     <div class="cart-button">
-                        <a class="ciloe-btn checkout" href="/cart" title="">View cart</a>
+                        <a class="ciloe-btn checkout" href="{{ route('cart') }}" title="">View cart</a>
                     </div>
                 </div>
             </div>

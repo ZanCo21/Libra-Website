@@ -42,8 +42,6 @@ class HomeController extends Controller
                 $query->where('user_id', $userId)
                     ->whereIn('status_peminjaman', ['reserved', 'borrowed', 'overdue']);
             })->get();
-        
-            // dd($reserveBook);
         }
 
         return view('home', compact('books', 'wishlist', 'countwishlist', 'countBooks', 'getCategory','reserveBook'));

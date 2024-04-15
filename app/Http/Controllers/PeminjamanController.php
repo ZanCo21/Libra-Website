@@ -96,4 +96,17 @@ class PeminjamanController extends Controller
 
         return view('home.detailPeminjaman', compact('wishlist', 'countwishlist','reservedBooks'));
     }
+
+    public function showcart()
+    {
+        $userId = auth()->user()->id;
+        $wishlist = [];
+        $countwishlist = 0;
+        if(auth()->check()) {
+            $userId = auth()->user()->id;
+            $wishlist = KoleksiPribadi::where('user_id', $userId)->get();
+            $countwishlist = KoleksiPribadi::where('user_id', $userId)->count();
+        }
+        return view('home.cart', compact('wishlist','countwishlist'));
+    }
 }

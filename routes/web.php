@@ -51,6 +51,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/storePeminjaman', [PeminjamanController::class, 'storePeminjaman'])->name('storePeminjaman');
         
         Route::get('/detail/peminjaman/{id}', [PeminjamanController::class, 'detailPeminjaman'])->name('detailPeminjaman');
+        Route::get('/cart', [PeminjamanController::class, 'showcart'])->name('cart');
+
         
     });
 });
