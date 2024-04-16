@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Anggota;
+use App\Models\Buku;
 use App\Models\Peminjaman;
 use App\Models\KategoriBuku;
 use Illuminate\Http\Request;
@@ -26,6 +27,12 @@ class PeminjamanController extends Controller
             ]);
             
             $userId = auth()->user()->id;
+
+            $checkStock = Buku::where('id', $request->buku_id)->where('stock', '>', 0)->exists();
+
+            if (!$checkStock) {
+                return redirect()->back()->with(['info' => "Maaf, buku ini tidak memiliki stok"]);
+            }
 
             $peminjamanAktif = DetailPeminjaman::whereHas('peminjaman', function ($query) use ($userId) {
                 $query->where('user_id', $userId)
@@ -71,6 +78,18 @@ class PeminjamanController extends Controller
                     'status_peminjaman' => 'reserved',
                 ]);
                 $detailPeminjaman->save();
+            }
+
+            if (is_array($request->buku_id)) {
+                foreach ($request->buku_id as $bukuID) {
+                    $buku = Buku::find($bukuID);
+                    $buku->stock -= 1;
+                    $buku->save();
+                }
+            } else {
+                $buku = Buku::find($request->buku_id);
+                $buku->stock -= 1;
+                $buku->save();
             }
             
             return redirect()->route('home')->with(['success' => "Buku berhasil dibooking"],200);
