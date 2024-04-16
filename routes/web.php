@@ -48,6 +48,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/transactionBooks/changePageScan/UpdateStatus', [ManageBooksController::class, 'updateStatus'])->name('updateStatus');
 
         Route::get('/manageAccount', [ManageAccountController::class, 'index'])->name('manageAccount');
+        Route::get('/manageRequestAccount', [ManageAccountController::class, 'requestAccount'])->name('manageRequestAccount');
+        Route::post('/manageRequestAccount/approve', [ManageAccountController::class, 'approveAccount'])->name('approveAccount');
     });
     
     Route::prefix('home')->middleware('role:peminjam')->group(function () {

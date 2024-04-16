@@ -22,4 +22,26 @@ class ManageAccountController extends Controller
 
         return view('admin.manageAccount', compact('getUser', 'provinsi', 'getRoles'));
     }
+
+    public function requestAccount()
+    {
+        $getUser = User::with('anggota')->where('status', 'pending')->orderBy('created_at', 'asc')->get();
+
+        return view('admin.manageRequestAccount', compact('getUser'));
+    }
+
+    public function approveAccount(Request $request)
+    {
+        try {
+            $getuser = User::findOrFail($request->user_id);
+
+            $getuser->update([
+                'status' => 'active',
+            ]);
+          
+            return redirect()->back()->with(['success' => "User berhasil diapprove."],200);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with(['error' => $th->getMessage()]);
+        }
+    }
 }
