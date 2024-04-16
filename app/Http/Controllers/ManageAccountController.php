@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\auth\RegisterController;
 use App\Models\User;
+use App\Mail\ApproveAccount;
 use Illuminate\Http\Request;
+use App\Jobs\SendApprovalEmail;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\auth\RegisterController;
 
 class ManageAccountController extends Controller
 {
@@ -38,6 +41,10 @@ class ManageAccountController extends Controller
             $getuser->update([
                 'status' => 'active',
             ]);
+
+            $imagePath = public_path('assets/home/cdn/shop/t/9/assets/logo.png');
+
+            SendApprovalEmail::dispatch($getuser, $imagePath)->onQueue('emails');
           
             return redirect()->back()->with(['success' => "User berhasil diapprove."],200);
         } catch (\Throwable $th) {
