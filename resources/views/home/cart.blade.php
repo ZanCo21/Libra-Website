@@ -43,7 +43,7 @@
                                                                     class="ion-ios-close-empty" onclick="deleteItem(event, {{ $item->buku->id }})"></i></a>
                                                             <div class="product-img">
                                                                 <img src="{{ asset('storage/') . '/' . $item->buku->front_book_cover }}"
-                                                                    alt="Wallnut Wall Clock - Black">
+                                                                    alt="Wallnut Wall Clock - Black" class="lazyload">
                                                             </div>
                                                             <div class="product-info">
                                                                 <p style="display: block;font-weight: 300;font-size: 14px;letter-spacing: 1px;margin-bottom: 5px;">{{ $item->buku->judul }}</p>

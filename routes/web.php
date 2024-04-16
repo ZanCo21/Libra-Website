@@ -40,6 +40,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/analytics',  function () {return view('admin.dashboard');})->name('dashboard');
         Route::get('/manageBooks', [ManageBooksController::class, 'index'])->name('manageBooks');
         Route::post('/storeBooks', [ManageBooksController::class, 'store'])->name('storeBooks');
+
+        Route::get('/transactionBooks', [ManageBooksController::class, 'showtransactionBooks'])->name('transactionBooks');
+        Route::get('/transactionBooks/scanQr/{id}', [ManageBooksController::class, 'showScanQr'])->name('showScanQr');
+        Route::get('/transactionBooks/changePageScan/{id}', [ManageBooksController::class, 'showScanPage'])->name('showScanQr');
+        Route::post('/transactionBooks/changePageScan/UpdateStatus', [ManageBooksController::class, 'updateStatus'])->name('updateStatus');
     });
     
     Route::prefix('home')->middleware('role:peminjam')->group(function () {

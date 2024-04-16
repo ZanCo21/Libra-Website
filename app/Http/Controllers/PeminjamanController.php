@@ -48,7 +48,11 @@ class PeminjamanController extends Controller
                 'tanggal_pengembalian' => $request->tanggal_pengembalian,
                 'tanggal_batas_pengembalian' => Carbon::parse($request->tanggal_pengembalian)->addWeekdays(3),
             ]); 
-            $peminjaman->qr_code = QrCode::size(200)->generate(json_encode($peminjaman));
+            $peminjaman->save();
+            $dataQR = [
+                'peminjaman_id' => $peminjaman->id,
+            ];
+            $peminjaman->qr_code = QrCode::size(200)->generate(json_encode($dataQR));
             $peminjaman->save();
 
             if (is_array($request->buku_id)) {

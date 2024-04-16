@@ -81,7 +81,7 @@
         <span class="menu-header-text">Data &amp; report</span>
       </li>
       <!-- Pages -->
-      <li class="menu-item {{ Request::is('dashboard/manageBooks*') ? 'active open' : '' }}">
+      <li class="menu-item {{ Request::is('dashboard/manageBooks*') ? 'active open' : '' }} {{ Request::is('dashboard/transactionBooks*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-box"></i>
           <div data-i18n="Account Settings">Data</div>
@@ -92,8 +92,8 @@
               <div data-i18n="Notifications">Manage Books</div>
             </a>
           </li>
-          <li class="menu-item">
-            <a href="" class="menu-link">
+          <li class="menu-item {{ Request::is('dashboard/transactionBooks*') ? 'active' : '' }}">
+            <a href="{{ route('transactionBooks') }}" class="menu-link">
               <div data-i18n="Account">Transactions Books</div>
             </a>
           </li>
