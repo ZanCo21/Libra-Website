@@ -36,6 +36,8 @@ Route::get('/get/kelurahan/{id}', [RegisterController::class, 'getKelurahan'])->
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::view('/nyoba', 'mail.approveAccount');
+
 Route::middleware(['auth'])->group(function () {
     Route::prefix('dashboard')->middleware('role:admin')->group(function () {
         Route::get('/analytics',  function () {return view('admin.dashboard');})->name('dashboard');
