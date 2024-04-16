@@ -104,21 +104,21 @@
         <span class="menu-header-text">manage Account</span>
       </li>
       <!-- Pages -->
-      <li class="menu-item">
+      <li class="menu-item {{ Request::is('dashboard/manageAccount*') ? 'active open' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-box"></i>
           <div data-i18n="Account Settings">Account</div>
           <div class="badge bg-danger rounded-pill ms-auto">5</div>
         </a>
         <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="" class="menu-link">
+          <li class="menu-item {{ Request::is('dashboard/manageAccount*') ? 'active' : '' }}">
+            <a href="{{ route('manageAccount') }}" class="menu-link">
               <div data-i18n="Notifications">Manage Users</div>
             </a>
           </li>
           <li class="menu-item">
             <a href="" class="menu-link">
-              <div data-i18n="Notifications">Inactive Users</div>
+              <div data-i18n="Notifications">Request Account</div>
             </a>
           </li>
         </ul>

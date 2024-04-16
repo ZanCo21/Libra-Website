@@ -6,6 +6,7 @@ use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ManageAccountController;
 use App\Http\Controllers\ManageBooksController;
 use App\Http\Controllers\PeminjamanController;
 
@@ -45,6 +46,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/transactionBooks/scanQr/{id}', [ManageBooksController::class, 'showScanQr'])->name('showScanQr');
         Route::get('/transactionBooks/changePageScan/{id}', [ManageBooksController::class, 'showScanPage'])->name('showScanQr');
         Route::post('/transactionBooks/changePageScan/UpdateStatus', [ManageBooksController::class, 'updateStatus'])->name('updateStatus');
+
+        Route::get('/manageAccount', [ManageAccountController::class, 'index'])->name('manageAccount');
     });
     
     Route::prefix('home')->middleware('role:peminjam')->group(function () {

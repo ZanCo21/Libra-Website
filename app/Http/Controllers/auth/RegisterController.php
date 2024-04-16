@@ -37,12 +37,22 @@ class RegisterController extends Controller
             'alamat' => 'required|string',
         ]);
 
-        $user = User::create([
-            'userName' => $request->username,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'role' => 'peminjam',
-        ]);
+        if ($request->role) {
+            $user = User::create([
+                'userName' => $request->username,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'role' => $request->role,
+                'status' => $request->status,
+            ]);
+        } else {
+            $user = User::create([
+                'userName' => $request->username,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'role' => 'peminjam',
+            ]);
+        }
 
         $anggota = Anggota::create([
             'user_id' => $user->id,
@@ -58,8 +68,13 @@ class RegisterController extends Controller
             'alamat' => $request->alamat,
         ]);
 
-        $peminjamRole = Role::findByName('peminjam');
-        $user->assignRole($peminjamRole);
+        if ($request->role) {
+            $peminjamRole = Role::findByName($request->role);
+            $user->assignRole($peminjamRole);
+        } else {
+            $peminjamRole = Role::findByName('peminjam');
+            $user->assignRole($peminjamRole);
+        }
 
 
 
