@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Buku;
 use App\Models\DetailPeminjaman;
+use App\Models\KategoriBuku;
+use App\Models\KategoriRelasi;
 use App\Models\Peminjaman;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,9 @@ class ManageBooksController extends Controller
     public function index()
     {
         $books = Buku::with('kategorirelasi')->get();
-        return view('admin.manageBooks', compact('books'));
+        $kategoris = KategoriBuku::get();
+        
+        return view('admin.manageBooks', compact('books','kategoris'));
     }
 
     public function store(Request $request)
@@ -25,6 +29,7 @@ class ManageBooksController extends Controller
             'stock' => 'required',
             'deskripsi' => 'required',
             'front_book_cover' => 'required',
+            'kategori' => 'required',
         ]);
 
         try {
@@ -53,7 +58,7 @@ class ManageBooksController extends Controller
                 $input['back_book_cover'] = $urlPhoto;
             }
 
-            Buku::create([
+            $buku = Buku::create([
                 'judul' => $request['judul'],
                 'penulis' => $input['penulis'],
                 'penerbit' => $input['penerbit'],
@@ -64,6 +69,16 @@ class ManageBooksController extends Controller
                 'back_book_cover' => $input['back_book_cover'],
             ]);
             
+            if ($buku) {
+                $kategoriIds = $request->input('kategori');
+                foreach ($kategoriIds as $kategoriId) {
+                    KategoriRelasi::create([
+                        'buku_id' => $buku->id,
+                        'kategori_id' => $kategoriId,
+                    ]);
+                }
+            }
+
             return response()->json(['message' => 'Buku berhasil ditambahkan'], 201); 
             // return redirect()->back()->with(['success' => "Berhasil menambahkan buku"]);
         } catch (\Throwable $th) {
@@ -99,22 +114,23 @@ class ManageBooksController extends Controller
     {
 
         try {
-            // Ambil data dari request
             $peminjamanIds = $request->input('peminjaman_id');
             $bukuIds = $request->input('buku_id');
             $statusPeminjamanArray = $request->input('status_peminjaman');
 
-            // Lakukan iterasi melalui setiap buku
             foreach ($bukuIds as $key => $bukuId) {
-                // Ambil status peminjaman untuk buku saat ini
                 $statusPeminjaman = $statusPeminjamanArray[$key];
 
-                // Cari detail peminjaman yang sesuai dengan id peminjaman dan id buku
                 $detailPeminjaman = DetailPeminjaman::where('peminjaman_id', $peminjamanIds[$key])
-                                                    ->where('buku_id', $bukuId)
-                                                    ->firstOrFail();
+                ->where('buku_id', $bukuId)
+                ->firstOrFail();
+
+                if ($statusPeminjaman === 'cancelled') {
+                    $buku = Buku::find($bukuId);
+                    $buku->stock += 1;
+                    $buku->save();
+                }    
                 
-                // Update status peminjaman buku
                 $detailPeminjaman->status_peminjaman = $statusPeminjaman;
                 $detailPeminjaman->save();
             }

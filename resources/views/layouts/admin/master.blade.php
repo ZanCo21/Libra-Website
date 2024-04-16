@@ -49,6 +49,8 @@ data-template="vertical-menu-template-free">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/editor/typography.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/editor/katex.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/editor/editor.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.css') }}">
 
     <!-- Page CSS -->
     <style>
@@ -167,5 +169,8 @@ data-template="vertical-menu-template-free">
 
     {{-- lazyLoad --}}
     <script src="{{ asset('assets/js/lazysizes.min.js') }}" async=""></script>
+    <script src="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.js')}}"></script>
+    <script src="{{ asset('assets/vendor/js/forms-selects.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/select2/select2.js') }}"></script>
     </body>
 </html>

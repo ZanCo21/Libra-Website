@@ -55,7 +55,8 @@
                                         <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
                                             <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
                                                 class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                                                <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle lazyload" />
+                                                <img src="../assets/img/avatars/5.png" alt="Avatar"
+                                                    class="rounded-circle lazyload" />
                                             </li>
                                             <li>
                                                 {{ $item->penulis }}
@@ -66,9 +67,9 @@
                                         <span class="fw-medium formatDate">{{ $item->tahunTerbit }}</span>
                                     </td>
                                     @if ($item->stock == 0)
-                                    <td><span class="badge bg-label-primary me-1">out of stock</span></td>
+                                        <td><span class="badge bg-label-primary me-1">out of stock</span></td>
                                     @else
-                                    <td><span class="badge bg-label-primary me-1">Available</span></td>
+                                        <td><span class="badge bg-label-primary me-1">Available</span></td>
                                     @endif
                                     <td>
                                         <div class="dropdown">
@@ -141,7 +142,7 @@
                             <input type="text" name="penerbit" id="penerbit" class="form-control"
                                 placeholder="Kepustakaan Libra" />
                         </div>
-                        <div class="row g-2">
+                        <div class="row g-2 mb-3">
                             <div class="col mb-0">
                                 <label for="penerbit" class="form-label">Stock</label>
                                 <input class="form-control" name="stock" type="number" value="1"
@@ -151,6 +152,15 @@
                                 <label for="tahunTerbit" class="form-label">Tahun Terbit</label>
                                 <input type="date" name="tahunTerbit" id="tahunTerbit" class="form-control" />
                             </div>
+                        </div>
+                        <!-- Multiple -->
+                        <div class="col mb-3">
+                            <label for="select2Multiple" class="form-label">Multiple</label>
+                            <select id="select2Multiple" class="select2 form-select" multiple name="kategori[]">
+                                @foreach ($kategoris as $item)
+                                    <option value="{{ $item->id }}">{{ $item->namaKategori }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <input type="hidden" name="deskripsi" id="deskripsi">
                         <div class="row">
@@ -220,7 +230,7 @@
         });
 
         $('form[id="tambahBuku"]').submit(function(event) {
-            event.preventDefault(); 
+            event.preventDefault();
             var editorText = $('#snow-editor .ql-editor').html();
             $('#deskripsi').val(editorText);
             var formData = new FormData($(this)[0]);
@@ -237,24 +247,24 @@
                 },
                 success: function(response) {
                     Swal.fire({
-						icon: 'success',
-						title: 'Success!',
-						text: 'Book berhasil ditambahkan.',
+                        icon: 'success',
+                        title: 'Success!',
+                        text: 'Book berhasil ditambahkan.',
                         confirmButtonText: 'OK',
-					}).then(() => {
+                    }).then(() => {
                         location.reload();
                     });
                 },
                 error: function(xhr, status, error) {
                     console.error(xhr.responseText);
                     Swal.fire({
-						icon: 'error',
-						title: 'Error!',
-						text: 'Terjadi kesalahan saat menyimpan data.',
-						confirmButtonText: 'OK'
-					});
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Terjadi kesalahan saat menyimpan data.',
+                        confirmButtonText: 'OK'
+                    });
                 },
-                complete: function(){
+                complete: function() {
                     $.LoadingOverlay("hide");
                 },
             });
