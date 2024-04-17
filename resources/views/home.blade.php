@@ -331,7 +331,7 @@
                     </div>
                 </div>
                 {{-- card peminjaman --}}
-                @if ($reserveBook)
+                @if ($reserveBook == null)
                 <div class="container-fluid container_100 btn_layout_shop hidden-xs mt-4">
                     <div class="row">
                         <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product_shop product-collection-grid product_full">
@@ -349,10 +349,12 @@
                                             @endif
                                         </div>
                                         <div class="p-6">
-                                            <h6
-                                                class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
-                                                @foreach ($item->DetailPeminjaman as $detail)
-                                                    {{ ucwords($detail->buku->status) }}
+                                            <h6 class="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
+                                                @foreach ($item->DetailPeminjaman as $index => $detail)
+                                                    {{ ucwords($detail->status_peminjaman) }}
+                                                    @if ($index < count($item->DetailPeminjaman) - 1)
+                                                        & 
+                                                    @endif
                                                  @endforeach
                                             </h6>
                                             <h4 class="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
@@ -363,7 +365,7 @@
                                                     @endif
                                                 @endforeach
                                             </h4>
-                                            <p class="mb-8 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased line-clamp-4">
+                                            <p class="mb-8 block font-sans text-lg font-normal leading-relaxed text-gray-700 antialiased line-clamp-4">
                                                 Peminjaman buku ini dilakukan pada tanggal <strong class="formatDate">{{ $item->tanggal_peminjaman }}</strong> dengan tanggal pengembalian yang telah ditetapkan pada <strong class="formatDate">{{ $item->tanggal_pengembalian }}</strong>. Dalam setiap peminjaman, disediakan waktu selama 3 hari setelah tanggal pengembalian, yaitu hingga <strong class="formatDate">{{ $item->tanggal_batas_pengembalian }}</strong>. Jika pengembalian dilakukan melewati batas waktu tersebut, akun Anda akan terblokir.
                                             </p>
                                             @if (!Auth::user())
@@ -371,16 +373,23 @@
                                             @else
                                                 <a class="inline-block" href="{{ url('home/detail/peminjaman') . '/' . $item->id }}">
                                             @endif
-                                                <button
-                                                    class="flex select-none items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-                                                    type="button">
-                                                    Learn More
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                        stroke-width="2" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
-                                                    </svg>
-                                                </button>
+                                                @foreach ($item->DetailPeminjaman as $index => $detail)
+                                                    <button
+                                                        class="flex select-none items-center gap-2 rounded-lg py-2 text-center align-middle font-sans text-lg font-bold uppercase text-pink-500 transition-all hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                                        type="button">
+                                                        @if ($detail->status_peminjaman == 'returned')
+                                                            give rating
+                                                        @else
+                                                            Learn More
+                                                        @endif
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                            stroke-width="2" stroke="currentColor" aria-hidden="true" class="h-4 w-4">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"></path>
+                                                        </svg>
+                                                    </button>
+                                                    @break
+                                                @endforeach
                                             </a>
                                         </div>
                                     </div>

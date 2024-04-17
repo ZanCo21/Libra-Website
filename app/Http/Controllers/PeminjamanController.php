@@ -132,4 +132,28 @@ class PeminjamanController extends Controller
         }
         return view('home.cart', compact('wishlist','countwishlist'));
     }
+
+    public function canclePeminjaman($id)
+    {
+        try {
+            $cancel = Peminjaman::with('DetailPeminjaman')
+            ->whereHas('DetailPeminjaman', function ($query) use ($id) {
+                $query->where('peminjaman_id', $id);
+            })->findOrFail($id);
+    
+            foreach ($cancel->detailPeminjaman as $detail) {
+                $buku = Buku::find($detail->buku_id);
+                $buku->stock += 1;
+                $buku->save();
+            }
+
+            $cancel->detailPeminjaman()->update([
+               'status_peminjaman' => 'cancelled',
+            ]);
+            
+            return response()->json(['message' => 'Buku berhasil dicancel'], 201); 
+        } catch (\Throwable $th) {
+            return response()->json(['error' => 'Buku gagal dicancel'], 400);
+        }
+    }
 }

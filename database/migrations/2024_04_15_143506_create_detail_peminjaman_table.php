@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('peminjaman_id')->references('id')->on('peminjaman');
             $table->unsignedBigInteger('buku_id');
             $table->foreign('buku_id')->references('id')->on('buku');
-            $table->enum('status_peminjaman',['reserved','borrowed','overdue','returned','rejected','cancelled','lost']);
+            $table->enum('status_peminjaman',['reserved','borrowed','overdue','returned','done','rejected','cancelled','lost']);
             // Dipesan: Reserved
             // Dipinjam: Borrowed
             // Terlambat: Overdue

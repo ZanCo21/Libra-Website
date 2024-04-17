@@ -40,7 +40,7 @@ class HomeController extends Controller
             $reserveBook = Peminjaman::with('DetailPeminjaman')
             ->whereHas('DetailPeminjaman', function ($query) use ($userId) {
                 $query->where('user_id', $userId)
-                    ->whereIn('status_peminjaman', ['reserved', 'borrowed', 'overdue']);
+                    ->whereIn('status_peminjaman', ['reserved', 'borrowed', 'overdue','returned']);
             })->get();
         }
 
@@ -139,5 +139,27 @@ class HomeController extends Controller
         } catch (\Throwable $th) {
             return  response()->json(['error' => 'Error: ' . $th->getMessage()], 500);
         }
+    }
+
+    public function storeUlasanMultiple(Request $request)
+    {
+        $userId = auth()->user()->id;
+
+        foreach ($request->bookid as $index => $bookId) {
+            $review = new UlasanBuku();
+            $review->user_id = $userId;
+            $review->buku_id = $bookId;
+            if (isset($request->star[$index])) {
+                $review->rating = $request->star[$index];
+            }
+            if (isset($request->ulasan[$index])) {
+                $review->ulasan = $request->ulasan[$index];
+            }
+            $review->save();
+        }
+
+        DetailPeminjaman::whereIn('id', $request->detailpeminjamanid)->update(['status_peminjaman' => 'done']);
+
+        return redirect()->route('home')->with('success', 'Ulasan berhasil disimpan.');
     }
 }
