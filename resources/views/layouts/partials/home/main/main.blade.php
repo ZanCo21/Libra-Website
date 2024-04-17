@@ -229,7 +229,7 @@
     <script>
         window.ShopifyPaypalV4VisibilityTracking = true;
     </script>
-    <script>
+    {{-- <script>
         ! function(o) {
             o.addEventListener("DOMContentLoaded", function() {
                 window.Shopify = window.Shopify || {}, window.Shopify.recaptchaV3 = window.Shopify.recaptchaV3 || {
@@ -261,8 +261,8 @@
                     n, !0)
             })
         }(document);
-    </script>
-    <script>
+    </script> --}}
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const previewBarInjector = new Shopify.PreviewBarInjector({
                 targetNode: document.body,
@@ -274,7 +274,7 @@
             });
             previewBarInjector.init();
         });
-    </script>
+    </script> --}}
     <script integrity="sha256-n5Uet9jVOXPHGd4hH4B9Y6+BxkTluaaucmYaxAjUcvY=" data-source-attribution="shopify.loadfeatures"
         defer="defer"
         src="{{ asset('assets/home/cdn/shopifycloud/shopify/assets/storefront/load_feature-9f951eb7d8d53973c719de211f807d63af81c644e5b9a6ae72661ac408d472f6.js') }}"
@@ -367,11 +367,11 @@
 
     <meta property="og:type" content="website">
     <meta property="og:title" content=" Minim - Minimal &amp; Clean Furniture Store Shopify Theme">
-    <meta property="og:image"
+    {{-- <meta property="og:image"
         content="http://minim-demo.myshopify.com/cdn/shop/t/9/assets/logo.png?v=76281246793426370331552289318">
     <meta property="og:image:secure_url"
         content="https://minim-demo.myshopify.com/cdn/shop/t/9/assets/logo.png?v=76281246793426370331552289318">
-    <meta property="og:url" content="https://minim-demo.myshopify.com/">
+    <meta property="og:url" content="https://minim-demo.myshopify.com/"> --}}
     <meta property="og:site_name" content=" Minim - Minimal &amp; Clean Furniture Store Shopify Theme">
     <meta name="twitter:card" content="summary">
 
@@ -539,7 +539,7 @@
 
         };
     </script>
-    <script class="analytics">
+    {{-- <script class="analytics">
         (function() {
             var customDocumentWrite = function(content) {
                 var jquery = null;
@@ -730,8 +730,8 @@
             document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
 
         })();
-    </script>
-    <script class="boomerang">
+    </script> --}}
+    {{-- <script class="boomerang">
         (function() {
             if (window.BOOMR && (window.BOOMR.version || window.BOOMR.snippetExecuted)) {
                 return;
@@ -879,7 +879,7 @@
                 });
             }
         })();
-    </script>
+    </script> --}}
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
