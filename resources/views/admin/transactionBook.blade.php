@@ -37,6 +37,14 @@
                                     Fine Transactions
                                 </button>
                             </div>
+                            <div class="mt-2 card-toolbar flex-row-fluid justify-content-end gap-5">
+                                <div class="btn-group" role="group">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Export</button>
+                                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="">
+                                      <a class="dropdown-item" href="{{ route('exportYearlyReport',['year' => $today->year]) }}">Export {{$today->year}}</a>
+                                    </div>
+                                  </div>
+                            </div>
                         </div>
                     </div>
                 </div>

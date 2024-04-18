@@ -24,10 +24,18 @@ class UserSeeder extends Seeder
             ],
             [
                 'userName' => "peminjam",
-                'email' => "peminjam@gmail.com",
-                'role' => 'peminjam'
+                'email' => "alghifari211005@gmail.com",
+                'role' => 'peminjam',
+                'nama_lengkap' => 'Peminjam Satu',
+                'no_identitas' => '11111111111111'
             ],
-
+            [
+                'userName' => "peminjam2",
+                'email' => "peminjam2@gmail.com",
+                'role' => 'peminjam',
+                'nama_lengkap' => 'Peminjam Dua',
+                'no_identitas' => '22222222222222'
+            ],
         ]);
         $dataAdmin->map(function ($data) {
             $userName = $data['userName'];
@@ -48,8 +56,8 @@ class UserSeeder extends Seeder
             if ($role == 'peminjam') {
                 Anggota::create([
                     'user_id' => $admin->id,
-                    'nama_lengkap' => 'Peminjam Peminjam',
-                    'no_identitas' => '92883728326372',
+                    'nama_lengkap' => $data['nama_lengkap'],
+                    'no_identitas' => $data['no_identitas'],
                     'jenis_kartu_identitas' => 'KTP',
                     'alamat' => 'JL.Pekapuran Rt.01 Rw.19 Kec.Sukmajawa Kel.abadijaya kota Depok',
                     'no_telephone' => '089926166212',

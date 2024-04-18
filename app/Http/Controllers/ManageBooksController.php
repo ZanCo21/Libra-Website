@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Buku;
-use App\Models\DetailPeminjaman;
-use App\Models\KategoriBuku;
-use App\Models\KategoriRelasi;
 use App\Models\Peminjaman;
+use App\Models\KategoriBuku;
 use Illuminate\Http\Request;
+use App\Models\KategoriRelasi;
+use App\Models\DetailPeminjaman;
 
 class ManageBooksController extends Controller
 {
@@ -91,7 +92,9 @@ class ManageBooksController extends Controller
     {
         $peminjaman = Peminjaman::with('user.anggota')->with('DetailPeminjaman')->get();
 
-        return view('admin.transactionBook', compact('peminjaman'));
+        $today = Carbon::today()->setTimezone('Asia/Jakarta');
+
+        return view('admin.transactionBook', compact('peminjaman','today'));
     }
 
     public function showScanQr($id)
