@@ -41,7 +41,6 @@
                                 <th>Tahun Terbit</th>
                                 <th>Stock</th>
                                 <th>Actions</th>
-                                <th>Detail</th>
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -71,7 +70,7 @@
                                     @else
                                         <td><span class="badge bg-label-primary me-1">Available</span></td>
                                     @endif
-                                    <td>
+                                    <td class="text-center">
                                         <div class="dropdown">
                                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
                                                 data-bs-toggle="dropdown">
@@ -84,11 +83,6 @@
                                                         class="bx bx-trash me-1"></i> Delete</a>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-icon btn-primary">
-                                            <i class="bx bx-dots-vertical-rounded"></i>
-                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
