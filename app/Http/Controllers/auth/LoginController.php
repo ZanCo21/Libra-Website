@@ -35,6 +35,12 @@ class LoginController extends Controller
             /** @var \App\Models\User */
             $user = auth()->user();
             $name = auth()->user()->name;
+
+            if ($user->status === 'blocked') {
+                Auth::logout();
+                return redirect('/')->withErrors(['error' => 'Your account is blocked.']);
+            }    
+
             if ($user->hasRole('admin') || $user->hasRole('petugas')) {
                 return redirect('/dashboard/analytics')->with(['success' => "$name Login successfully"]);
             } elseif ($user->hasRole('peminjam')) {
