@@ -11,7 +11,7 @@
     <title>
         Libra
     </title>
-    <link rel="shortcut icon" href="{{ asset('assets/home/cdn/shop/t/9/assets/favicon.png?v=29885537522503330011552289293')}}" type="image/png">
+    <link rel="shortcut icon" href="{{ asset('assets/home/cdn/shop/t/9/assets/logo.png?v=76281246793426370331552127529')}}" type="image/png">
 
     <link rel="apple-touch-icon-precomposed"
         href="{{ asset('assets/home/cdn/shop/t/9/assets/icon-for-mobile.png?v=40262354487846272511552289310') }}">
@@ -342,7 +342,7 @@
 
 
     <!-- /snippets/social-meta-tags.liquid -->
-    <link rel="shortcut icon" href="{{ asset('assets/home/cdn/shop/t/9/assets/favicon.png?v=29885537522503330011552289293')}}"
+    <link rel="shortcut icon" href="{{ asset('assets/home/cdn/shop/t/9/assets/logo.png?v=76281246793426370331552127529')}}"
         type="image/png">
     <link rel="apple-touch-icon-precomposed"
         href="{{ asset('assets/home/cdn/shop/t/9/assets/icon-for-mobile.png?v=40262354487846272511552289310') }}">
