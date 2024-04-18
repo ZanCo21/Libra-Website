@@ -331,7 +331,7 @@
                     </div>
                 </div>
                 {{-- card peminjaman --}}
-                @if ($reserveBook == null)
+                @if ($reserveBook != null)
                 <div class="container-fluid container_100 btn_layout_shop hidden-xs mt-4">
                     <div class="row">
                         <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 product_shop product-collection-grid product_full">
