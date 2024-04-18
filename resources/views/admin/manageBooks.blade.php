@@ -77,10 +77,8 @@
                                                 <i class="bx bx-dots-vertical-rounded"></i>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                                <a class="dropdown-item" href="{{ route('getEditBook', ['id' => $item->id]) }}"><i
                                                         class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><i
-                                                        class="bx bx-trash me-1"></i> Delete</a>
                                             </div>
                                         </div>
                                     </td>
@@ -93,7 +91,7 @@
         </div>
     </div>
 
-    {{-- Modal --}}
+    {{-- Modal add --}}
     <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -149,7 +147,7 @@
                         </div>
                         <!-- Multiple -->
                         <div class="col mb-3">
-                            <label for="select2Multiple" class="form-label">Multiple</label>
+                            <label for="select2Multiple" class="form-label">Kategori</label>
                             <select id="select2Multiple" class="select2 form-select" multiple name="kategori[]">
                                 @foreach ($kategoris as $item)
                                     <option value="{{ $item->id }}">{{ $item->namaKategori }}</option>
@@ -208,6 +206,7 @@
             </div>
         </div>
     </div>
+    {{-- modal add end --}}
     <script>
         $(document).ready(function() {
             var dataTable = new DataTable('#booktable', {

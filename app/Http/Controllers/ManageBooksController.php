@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Buku;
+use App\Models\User;
 use App\Models\Peminjaman;
+use App\Models\UlasanBuku;
 use App\Models\KategoriBuku;
 use Illuminate\Http\Request;
 use App\Models\KategoriRelasi;
 use App\Models\DetailPeminjaman;
+use Illuminate\Support\Facades\Storage;
 
 class ManageBooksController extends Controller
 {
@@ -88,6 +91,78 @@ class ManageBooksController extends Controller
         }
     }
 
+    public function getEditBook($id)
+    {
+        $getBook = Buku::with('kategorirelasi')->findOrFail($id);
+        $kategoris = KategoriBuku::get();
+        return view('admin.editBook', compact('getBook', 'kategoris'));
+    }
+
+    public function getUpdateBook(Request $request, $id)
+    {
+        try {
+            $buku = Buku::findOrFail($id);
+            $oldFrontCover = $buku->front_book_cover;
+            $oldBackCover = $buku->back_book_cover;
+            $input = $request->all();
+
+            if ($request->hasFile('front_book_cover')) {
+                $photo = $request->file('front_book_cover');
+                $booktitle = $input['judul']; 
+                $destinationPath = "public/photos/$booktitle";
+                $photoName = 'photo_' . uniqid() . '_' . time() . '.' . $photo->getClientOriginalExtension();
+                $photo->storeAs($destinationPath, $photoName);
+
+                $urlPhoto = 'photos/' . $booktitle . '/' . $photoName;
+                $input['front_book_cover'] = $urlPhoto;
+
+                if ($oldFrontCover) {
+                    Storage::delete('public/' . $oldFrontCover);
+                }
+            }else{
+                $input['front_book_cover'] = $oldFrontCover;
+            }
+
+            if ($request->hasFile('back_book_cover')) {
+                $photo = $request->file('back_book_cover');
+                $booktitle = $input['judul']; 
+                $destinationPath = "public/photos/$booktitle";
+                $photoName = 'photo_' . uniqid() . '_' . time() . '.' . $photo->getClientOriginalExtension();
+                $photo->storeAs($destinationPath, $photoName);
+
+                $urlPhoto = 'photos/' . $booktitle . '/' . $photoName;
+                $input['back_book_cover'] = $urlPhoto;
+
+                if ($oldBackCover) {
+                    Storage::delete('public/' . $oldBackCover);
+                }
+            }else {
+                $input['back_book_cover'] = $oldBackCover;
+            }
+
+            $buku->update([
+                'judul' => $request['judul'],
+                'penulis' => $input['penulis'],
+                'penerbit' => $input['penerbit'],
+                'tahunTerbit' => $input['tahunTerbit'],
+                'stock' => $input['stock'],
+                'deskripsi' => $input['deskripsi'],
+                'front_book_cover' => $input['front_book_cover'],
+                'back_book_cover' => $input['back_book_cover'],
+            ]);
+
+            // multiple kategori
+            if ($request->has('kategori')) {
+                $kategoriIds = $request->input('kategori');
+                $buku->kategoris()->syncWithPivotValues($kategoriIds, ['created_at' => now(), 'updated_at' => now()]);
+            }
+
+            return redirect()->back()->with('success', 'Buku berhasil diperbarui.');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Gagal memperbarui buku: ' . $th->getMessage());
+        }
+    }
+
     public function showtransactionBooks()
     {
         $peminjaman = Peminjaman::with('user.anggota')->with('DetailPeminjaman')->get();
@@ -156,4 +231,27 @@ class ManageBooksController extends Controller
             return redirect()->back()->with('error', 'Gagal memperbarui status peminjaman: ' . $e->getMessage());
         }
     }
-}
+
+    public function dashboard()
+    {
+        $totalUsers = User::count();
+        $totalPeminjaman = Peminjaman::count();
+        // Mendapatkan rata-rata peringkat
+        $rataRataPeringkat = UlasanBuku::avg('rating');
+        // Mendapatkan total ulasan buku
+        $totalUlasanBuku = UlasanBuku::count();
+
+        // Misalnya, Anda ingin menghitung variabel-variabel berikut
+        $profit = $totalUsers; // Misalnya, hasil dari perhitungan profit
+        $sales = $totalPeminjaman; // Misalnya, hasil dari perhitungan sales
+        $payments = $totalUlasanBuku; 
+        $transactions = $rataRataPeringkat;
+
+        // Hitung persentase
+        $profitPercentage = ($profit / 100) * 10;
+        $salesPercentage = ($sales / 100) * 10;
+        $paymentsPercentage = ($payments / 100) * 10;
+        $transactionsPercentage = ($transactions / 100) * 10;
+
+        return view('admin.dashboard', compact('transactions','payments','totalUsers', 'totalPeminjaman', 'totalUlasanBuku', 'profit', 'profitPercentage', 'sales', 'salesPercentage', 'paymentsPercentage', 'transactionsPercentage'));
+}}

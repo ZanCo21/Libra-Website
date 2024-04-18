@@ -37,4 +37,8 @@ class Buku extends Model
         return $this->hasMany(DetailPeminjaman::class);
     }
 
+        public function kategoris()
+    {
+        return $this->belongsToMany(KategoriBuku::class, 'kategori_buku_relasi', 'buku_id', 'kategori_id');
+    }
 }

@@ -40,10 +40,12 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::view('/nyoba', 'mail.approveAccount');
 
 Route::middleware(['auth'])->group(function () {
-    Route::prefix('dashboard')->middleware('role:admin')->group(function () {
-        Route::get('/analytics',  function () {return view('admin.dashboard');})->name('dashboard');
+    Route::prefix('dashboard')->middleware('role:admin,petugas')->group(function () {
+        Route::get('/analytics',  [ManageBooksController::class, 'dashboard'])->name('dashboard');
         Route::get('/manageBooks', [ManageBooksController::class, 'index'])->name('manageBooks');
         Route::post('/storeBooks', [ManageBooksController::class, 'store'])->name('storeBooks');
+        Route::get('/manageBooks/editBook/{id}', [ManageBooksController::class, 'getEditBook'])->name('getEditBook');
+        Route::put('/manageBooks/editBook/update/{id}', [ManageBooksController::class, 'getUpdateBook'])->name('getUpdateBook');
 
         Route::get('/transactionBooks', [ManageBooksController::class, 'showtransactionBooks'])->name('transactionBooks');
         Route::get('/transactionBooks/scanQr/{id}', [ManageBooksController::class, 'showScanQr'])->name('showScanQr');
