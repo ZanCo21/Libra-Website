@@ -72,10 +72,13 @@
                                                 <i class="bx bx-dots-vertical-rounded"></i>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="javascript:void(0);"><i
-                                                        class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><i
-                                                        class="bx bx-trash me-1"></i> Delete</a>
+                                                @if ($item->status == 'active')
+                                                <a id="btn-updateStatus" data-id="{{ $item->id }}" data-status="{{ $item->status }}" class="dropdown-item" href="javascript:void(0);" onclick="userStatus()"><i
+                                                        class="bx bx-edit-alt me-1"></i>Block</a>
+                                                @else
+                                                <a id="btn-updateStatus" data-id="{{ $item->id }}" data-status="{{ $item->status }}" class="dropdown-item" href="javascript:void(0);" onclick="userStatus()"><i
+                                                        class="bx bx-trash me-1"></i> Unblock</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </td>
@@ -324,5 +327,49 @@
             });
         });
 
+    </script>
+    <script>
+          $(document).ready(function() {
+            $('a[id="btn-updateStatus"]').on('click', function(){
+                var userId = $('a[id="btn-updateStatus"]').data("id");
+                var currentStatus = $('a[id="btn-updateStatus"]').data("status");
+
+                $.ajax({
+                    url: "{{ route('changeStatus') }}",
+                    type: "POST",
+                    data: {
+                        user_id: userId,
+                        current_status: currentStatus,
+                        _token: "{{ csrf_token() }}"
+                    },
+                    beforeSend: function() {
+                        $.LoadingOverlay("show");
+                    },
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: response.message,
+                            confirmButtonText: 'OK',
+                        }).then(() => {
+                            location.reload();
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(xhr.responseText);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: response.message,
+                            error,
+                            confirmButtonText: 'OK'
+                        });
+                    },
+                    complete: function() {
+                        $.LoadingOverlay("hide");
+                    },
+                });
+            });
+        });
     </script>
 @endsection

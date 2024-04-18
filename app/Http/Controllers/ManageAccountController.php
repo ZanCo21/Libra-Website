@@ -21,9 +21,31 @@ class ManageAccountController extends Controller
 
         $getUser = User::with('anggota')->where(function($query){
             $query->where('role','petugas')->orWhere('role','peminjam');
-        })->where('status', 'active')->orderBy('created_at', 'desc')->get();
+        })->whereIn('status', ['active','blocked'])->orderBy('created_at', 'desc')->get();
 
         return view('admin.manageAccount', compact('getUser', 'provinsi', 'getRoles'));
+    }
+
+    public function changeStatus(Request $request)
+    {
+        try {
+            $userId = $request->input('user_id');
+            $currentStatus = $request->input('current_status');
+        
+            $user = User::findOrFail($userId);
+        
+            if ($currentStatus === 'active') {
+                $user->status = 'blocked';
+            } else {
+                $user->status = 'active';
+            }
+        
+            $user->save();
+        
+            return response()->json(['message' => 'Update Berhasil']);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Gagal memperbarui status: ' . $th->getMessage());
+        }
     }
 
     public function requestAccount()

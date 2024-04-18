@@ -5,6 +5,7 @@ use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\LogoutController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\ExportExcelController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManageAccountController;
 use App\Http\Controllers\ManageBooksController;
@@ -50,8 +51,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/transactionBooks/changePageScan/UpdateStatus', [ManageBooksController::class, 'updateStatus'])->name('updateStatus');
 
         Route::get('/manageAccount', [ManageAccountController::class, 'index'])->name('manageAccount');
+        Route::post('/manageAccount/changeStatus', [ManageAccountController::class, 'changeStatus'])->name('changeStatus');
         Route::get('/manageRequestAccount', [ManageAccountController::class, 'requestAccount'])->name('manageRequestAccount');
         Route::post('/manageRequestAccount/approve', [ManageAccountController::class, 'approveAccount'])->name('approveAccount');
+
+        Route::get('/exportyearly/export/{year}', [ExportExcelController::class, 'exportYearlyReport'])->name('exportYearlyReport');
     });
     
     Route::prefix('home')->middleware('role:peminjam')->group(function () {
