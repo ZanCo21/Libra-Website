@@ -36,6 +36,13 @@ class UserSeeder extends Seeder
                 'nama_lengkap' => 'Peminjam Dua',
                 'no_identitas' => '22222222222222'
             ],
+            [
+                'userName' => "petugas",
+                'email' => "petugas@gmail.com",
+                'role' => 'petugas',
+                'nama_lengkap' => 'petugas',
+                'no_identitas' => '3344333339111'
+            ],
         ]);
         $dataAdmin->map(function ($data) {
             $userName = $data['userName'];
@@ -68,13 +75,33 @@ class UserSeeder extends Seeder
                 ]);
             }
 
+            if ($role == 'petugas') {
+                Anggota::create([
+                    'user_id' => $admin->id,
+                    'nama_lengkap' => $data['nama_lengkap'],
+                    'no_identitas' => $data['no_identitas'],
+                    'jenis_kartu_identitas' => 'KTP',
+                    'alamat' => 'JL.Pekapuran Rt.01 Rw.19 Kec.Sukmajawa Kel.abadijaya kota Depok',
+                    'no_telephone' => '089926166212',
+                    'provinsi' => 'JAWA BARAT',
+                    'kota' => 'KOTA DEPOK',
+                    'kecamatan' => 'SUKMAJAYA',
+                    'kelurahan' => 'ABADIJAYA',
+                ]);
+            }
+
+            // Kemudian, kita dapat menyesuaikan Seeder untuk menetapkan peran yang sesuai
             if ($role == 'admin') {
                 $adminRole = Role::findByName('admin');
-                $admin->assignRole($adminRole);
-            }else{
+            } elseif ($role == 'peminjam') {
                 $adminRole = Role::findByName('peminjam');
-                $admin->assignRole($adminRole);
+            } else {
+                $adminRole = Role::findByName('petugas');
             }
+
+            // Terakhir, kita tetapkan peran ke pengguna
+            $admin->assignRole($adminRole);
+
             
         });
     }

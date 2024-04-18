@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'petugas' => [
+            'driver' => 'session', // atau 'token' tergantung pada kebutuhan aplikasi Anda
+            'provider' => 'petugas', // Sesuaikan dengan nama provider yang Anda gunakan untuk petugas
+        ],
     ],
 
     /*
@@ -65,6 +69,11 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        
+        'petugas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Petugas::class, // Sesuaikan dengan model petugas Anda
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
