@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Denda;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Peminjaman extends Model
 {
@@ -24,6 +25,11 @@ class Peminjaman extends Model
     public function detailPeminjaman()
     {
         return $this->hasMany(DetailPeminjaman::class);
+    }
+
+    public function denda()
+    {
+        return $this->hasMany(Denda::class);
     }
     
 }

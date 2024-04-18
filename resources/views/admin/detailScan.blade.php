@@ -21,6 +21,10 @@
                                     <span class="text-rose-950">{{ ucwords($item->status_peminjaman) }}</span>
                                 @elseif($item->status_peminjaman == 'cancelled')
                                     <span class="text-rose-950">{{ ucwords($item->status_peminjaman) }}</span>
+                                @elseif($item->status_peminjaman == 'returned')
+                                    <span class="text-green-600">{{ ucwords($item->status_peminjaman) }}</span>
+                                @else
+                                    <span class="text-rose-950">{{ ucwords($item->status_peminjaman) }}</span>
                                 @endif
                             </span>
                         </div>
@@ -92,35 +96,41 @@
                     </div>
                 </div>
                 <!-- Total -->
+                @if ($item->status_peminjaman == 'overdue' || $item->status_peminjaman == 'lost')
                 @php
-                    $totalDenda = 0;
-                    $hasDenda = false;
+                    $hasDenda = true
                 @endphp
-                @foreach ($reservedBooks->DetailPeminjaman as $item)
-                    @if ($item->status_peminjaman == 'Overdue')
-                    @php
-                        $hasDenda = true
-                    @endphp
-                    <div class="border-t border-b ">
-                        <label for="card-holder" class="text-base mt-4 mb-2 block text-sm font-medium">{{ $item->buku->judul }}</label>
-                        <div class="flex items-center justify-between">
-                            <p class="text-sm font-medium text-gray-900">Total Hari</p>
-                            <p class="font-semibold text-gray-900">2</p>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <p class="text-sm font-medium text-gray-900">Denda</p>
-                            <p class="font-semibold text-gray-900">10.000 Rp</p>
-                        </div>
+                <div class="border-t border-b ">
+                    <label for="card-holder" class="text-base mt-4 mb-2 block text-sm font-medium">
+                        @foreach ($reservedBooks->DetailPeminjaman as $index => $item) 
+                            {{ $item->buku->judul }} 
+                            @if ($index < count($reservedBooks->DetailPeminjaman) - 1)
+                                & 
+                            @endif
+                            @endforeach
+                    </label>
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm font-medium text-gray-900">Total Hari</p>
+                        <p class="font-semibold text-gray-900">{{ $totalhari }}</p>
                     </div>
-                    @endif
-                    @php
-                        $totalDenda += 10000; 
-                    @endphp
-                @endforeach
-                @if ($hasDenda)
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm font-medium text-gray-900">Total Buku Dipinjam</p>
+                        <p class="font-semibold text-gray-900">{{ $totalbuku }}</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm font-medium text-gray-900">Per Buku</p>
+                        <p class="font-semibold text-gray-900">5.000</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm font-medium text-gray-900">Denda Perhari</p>
+                        <p class="font-semibold text-gray-900">{{ $totalDendaBukuPerhari }}</p>
+                    </div>
+                </div>
+                @endif
+                @if ($totalKeseluruhan)
                 <div class="mt-6 flex items-center justify-between">
                     <p class="text-sm font-medium text-gray-900">Total</p>
-                    <p class="text-2xl font-semibold text-gray-900">{{ number_format($totalDenda, 2) }}</p>
+                    <p class="text-2xl font-semibold text-gray-900">{{ number_format($totalKeseluruhan, 2) }}</p>
                 </div>
                 @endif
             </div>

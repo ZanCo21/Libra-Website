@@ -107,7 +107,20 @@ class ManageBooksController extends Controller
     {
         $reservedBooks = Peminjaman::with('user.anggota')->with('DetailPeminjaman')->findOrFail($id);
 
-        return view('admin.detailScan', compact('reservedBooks'));
+        if ($reservedBooks->denda->isNotEmpty()) {
+            $totalhari = $reservedBooks->denda->count();
+        } else {
+            $totalhari = 1;
+        }
+
+        $totalbuku = $reservedBooks->DetailPeminjaman()->whereIn('status_peminjaman', ['overdue','lost'])->count();
+        $dendaPerBuku = 5000;
+        $hitungDendaBukuPerhari = $totalbuku * $dendaPerBuku;
+        $totalDendaBukuPerhari = $hitungDendaBukuPerhari;
+
+        $totalKeseluruhan = $reservedBooks->denda->sum('jumlah_denda');
+        
+        return view('admin.detailScan', compact('reservedBooks', 'totalhari', 'totalbuku', 'totalDendaBukuPerhari','totalKeseluruhan'));
     }
 
     public function updateStatus(Request $request)
@@ -125,7 +138,7 @@ class ManageBooksController extends Controller
                 ->where('buku_id', $bukuId)
                 ->firstOrFail();
 
-                if ($statusPeminjaman === 'cancelled') {
+                if ($statusPeminjaman === 'cancelled' || $statusPeminjaman == 'returned') {
                     $buku = Buku::find($bukuId);
                     $buku->stock += 1;
                     $buku->save();
