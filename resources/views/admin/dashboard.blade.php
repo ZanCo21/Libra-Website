@@ -51,7 +51,7 @@
                                         </div>
                                     </div>
                                     <span class="fw-medium d-block mb-1">User</span>
-                                    <h3 class="card-title mb-2">${{ number_format($profit, 2) }}</h3>
+                                    <h3 class="card-title mb-2">{{ number_format($profit, 2) }}</h3>
                                     <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +{{ $profitPercentage }}%</small>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                                         </div>
                                     </div>
                                     <span>Peminjaman</span>
-                                    <h3 class="card-title text-nowrap mb-1">${{ number_format($sales, 2) }}</h3>
+                                    <h3 class="card-title text-nowrap mb-1">{{ number_format($sales, 2) }}</h3>
                                     <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +{{ $salesPercentage }}%</small>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                                         </div>
                                     </div>
                                     <span class="fw-medium d-block mb-1">Rata-Rata Rating</span>
-                                    <h3 class="card-title mb-2">${{ number_format($transactions, 2) }}</h3>
+                                    <h3 class="card-title mb-2">{{ number_format($transactions, 2) }}</h3>
                                     <small class="text-success fw-medium"><i class="bx bx-up-arrow-alt"></i> +{{ $transactionsPercentage }}%</small>
                                 </div>
                             </div>
