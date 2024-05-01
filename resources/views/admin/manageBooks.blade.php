@@ -1,6 +1,21 @@
 @extends('layouts.admin.master')
 @section('title', 'Dashboard')
 @section('content')
+    <div class="container-xxl flex-grow-1 container-p-y cardscanQr hidden">
+        <div class="card-body card">
+            <form action="{{ route('books.import') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="mb-3">
+                <label for="formFile" class="form-label">Import Excel</label>
+                <input class="form-control" type="file" name="file" id="formFile">
+                </div>
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+            </form>
+          </div>
+    </div>
+
     <div class="content-wrapper">
         <div class="container-xxl flex-grow-1 container-p-y">
             <h4 class="py-3 mb-4"><span class="text-muted fw-light">Data /</span> Manage Books</h4>
@@ -23,6 +38,11 @@
                         </div>
                         <!-- Add Book button -->
                         <div>
+                            <div class="card-toolbar flex-row-fluid justify-content-end gap-5 mb-3">
+                                <button type="button" id="showButton" class="btn btn-primary">
+                                    Import
+                                </button>
+                            </div>
                             <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#modalCenter">
@@ -285,4 +305,30 @@
             });
         }
     </script>
+    <script>
+        const showButton = document.getElementById('showButton');
+        const hiddenDiv = document.querySelector('.cardscanQr');
+
+        showButton.addEventListener('click', function() {
+            hiddenDiv.classList.toggle('hidden');
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            Dropzone.autoDiscover = false;
+            $("#dZUpload").dropzone({
+                url: "{{ route('books.import') }}",
+                addRemoveLinks: true,
+                success: function (file, response) {
+                    var imgName = response;
+                    file.previewElement.classList.add("dz-success");
+                    console.log("Successfully uploaded :" + imgName);
+                },
+                error: function (file, response) {
+                    file.previewElement.classList.add("dz-error");
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 @endsection
