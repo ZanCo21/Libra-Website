@@ -37,6 +37,13 @@ class UserSeeder extends Seeder
                 'no_identitas' => '22222222222222'
             ],
             [
+                'userName' => "peminjam3",
+                'email' => "peminjam3@gmail.com",
+                'role' => 'peminjam',
+                'nama_lengkap' => 'Peminjam tiga',
+                'no_identitas' => '33333333333331'
+            ],
+            [
                 'userName' => "petugas",
                 'email' => "petugas@gmail.com",
                 'role' => 'petugas',
