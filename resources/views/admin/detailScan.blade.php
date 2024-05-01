@@ -1,7 +1,9 @@
 @extends('layouts.admin.master')
 @section('title', 'Dashboard')
 @section('content')
-    <div class="grid lg:grid-cols-2 pt-4  card">
+<div class="container-xxl">
+
+    <div class="grid lg:grid-cols-2 pt-4 mt-4 card">
         <div class="px-4">
             <p class="text-xl font-medium">Order Summary</p>
             <div class="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6 ">
@@ -117,24 +119,38 @@
                         <p class="text-sm font-medium text-gray-900">Total Buku Dipinjam</p>
                         <p class="font-semibold text-gray-900">{{ $totalbuku }}</p>
                     </div>
-                    <div class="flex items-center justify-between">
+                    {{-- <div class="flex items-center justify-between">
                         <p class="text-sm font-medium text-gray-900">Per Buku</p>
                         <p class="font-semibold text-gray-900">5.000</p>
-                    </div>
+                    </div> --}}
                     <div class="flex items-center justify-between">
                         <p class="text-sm font-medium text-gray-900">Denda Perhari</p>
-                        <p class="font-semibold text-gray-900">{{ $totalDendaBukuPerhari }}</p>
+                        <p class="font-semibold text-gray-900">{{ number_format($totalDendaBukuPerhari, 2) }}</p>
                     </div>
+                    @if ($item->status_peminjaman == 'lost')
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm font-medium text-gray-900">Harga Hilang</p>
+                            <p class="font-semibold text-gray-900">{{ number_format($hargaHilang, 2) }}</p>
+                        </div>
+                    @endif
                 </div>
-                @endif
                 @if ($totalKeseluruhan)
                 <div class="mt-6 flex items-center justify-between">
                     <p class="text-sm font-medium text-gray-900">Total</p>
                     <p class="text-2xl font-semibold text-gray-900">{{ number_format($totalKeseluruhan, 2) }}</p>
                 </div>
+                <input type="hidden" name="harga_total" value="{{ $totalKeseluruhan }}">
+                @endif
                 @endif
             </div>
-            <button class="mt-2 mb-8 w-full rounded-md bg-black px-6 py-3 font-medium text-white" data-bs-toggle="modal" data-bs-target="#modalCenter">Update Status</button>
+            @if ($item->status_peminjaman == 'overdue' || $item->status_peminjaman == 'lost')
+            <a href="{{ url('/transactionBooks/invoice/' . $reservedBooks->id) }}">
+                <button class="mt-2 mb-8 w-full rounded-md bg-black px-6 py-3 font-medium text-white">Pay!</button>
+            </a>
+            @endif
+            @if ($item->status_peminjaman !== 'lost')
+                <button class="mt-2 mb-8 w-full rounded-md bg-black px-6 py-3 font-medium text-white" data-bs-toggle="modal" data-bs-target="#modalCenter">Update Status</button>
+            @endif
         </div>
     </div>
     {{-- modal update status --}}
@@ -165,6 +181,7 @@
                                         <option value="borrowed">Borrowed</option>
                                         <option value="returned">Returned</option>
                                         <option value="cancelled">cancelled</option>
+                                        <option value="lost">lost/Broken</option>
                                     </select>
                                 </div>
                             </div>
@@ -181,6 +198,7 @@
             </div>
         </div>
     </div>
+</div>
 <script src="https://cdn.tailwindcss.com"></script>
 @endsection
 @php
