@@ -267,7 +267,7 @@
                                             </form>
                                         </div>
                                         <div class="product-sku fz-12" style="font-weight:600;">
-                                            <label>SKU :</label>
+                                            <label>SKU : {{ $book->stock }}</label>
                                             <span> </span>
                                         </div>
                                         <div class="product-tags fz-12" style="font-weight:600;">
