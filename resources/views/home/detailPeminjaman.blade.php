@@ -216,15 +216,26 @@
                     </div>
                     <div class="flex items-center justify-between">
                         <p class="text-2xl font-medium text-gray-900">Denda Perhari</p>
-                        <p class="font-semibold text-gray-900">{{ $totalDendaBukuPerhari }}</p>
+                        <p class="font-semibold text-gray-900">{{ number_format($totalDendaBukuPerhari, 2) }}</p>
                     </div>
+                    @if ($item->status_peminjaman == 'lost')
+                    <div class="flex items-center justify-between">
+                        <p class="text-2xl font-medium text-gray-900">Harga Hilang</p>
+                        <p class="font-semibold text-gray-900">{{ number_format($hargaHilang, 2) }}</p>
+                    </div>
+                @endif
                 </div> 
+                @if ($totalKeseluruhan)
+                 <div class="mt-6 flex items-center justify-between">
+                     <p class="text-2xl font-medium text-gray-900">Total</p>
+                     <p class="text-2xl font-semibold text-gray-900">{{ number_format($totalKeseluruhan, 2) }}</p>
+                 </div>
+                @endif
            @endif
-           @if ($totalKeseluruhan)
-            <div class="mt-6 flex items-center justify-between">
-                <p class="text-2xl font-medium text-gray-900">Total</p>
-                <p class="text-2xl font-semibold text-gray-900">{{ number_format($totalKeseluruhan, 2) }}</p>
-            </div>
+           @if ($item->status_peminjaman == 'overdue' || $item->status_peminjaman == 'lost')
+                <a href="{{ url('/transactionBooks/invoice/' . $reservedBooks->id) }}">
+                    <button class="mt-2 mb-8 w-full rounded-md bg-black px-6 py-3 font-medium text-white">Pay!</button>
+                </a>
            @endif
         @foreach ($reservedBooks->DetailPeminjaman as $item)
             @if ($item->status_peminjaman == 'reserved')
