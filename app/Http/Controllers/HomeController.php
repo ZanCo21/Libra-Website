@@ -42,7 +42,7 @@ class HomeController extends Controller
             $reserveBook = Peminjaman::with('DetailPeminjaman')
             ->whereHas('DetailPeminjaman', function ($query) use ($userId) {
                 $query->where('user_id', $userId)
-                    ->whereIn('status_peminjaman', ['reserved', 'borrowed', 'overdue','returned']);
+                    ->whereIn('status_peminjaman', ['reserved', 'borrowed', 'overdue','returned','lost']);
             })->get();
         }
 

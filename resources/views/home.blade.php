@@ -502,11 +502,11 @@
                                                                 <i class="icon-bag"></i>
                                                             </button>
                                                         </form>
-                                                        <a href="#"
+                                                        {{-- <a href="#"
                                                             class="engoj_btn_quickview icon-quickview inline-block box-shadow"
                                                             title="quickview" data-id="arper-round-table">
                                                             <i class="icon-magnifier"></i>
-                                                        </a>
+                                                        </a> --}}
                                                         <button type="submit" data-BookId="{{ $item->id }}"
                                                             class="AddToWish icon-heart inline-block text-center">
                                                             <i class=""></i>
