@@ -51,6 +51,7 @@ data-template="vertical-menu-template-free">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/editor/editor.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.css') }}">
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{config('midtrans.client_key')}}"></script>
 
     <!-- Page CSS -->
     <style>

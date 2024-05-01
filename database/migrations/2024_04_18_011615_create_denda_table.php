@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('peminjaman_id');
             $table->foreign('peminjaman_id')->references('id')->on('peminjaman');
             $table->decimal('jumlah_denda', 8, 2); 
+            $table->decimal('harga_hilang')->nullable();
             $table->date('tanggal_denda');
             $table->timestamps();
         });
