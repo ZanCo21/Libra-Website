@@ -3,7 +3,7 @@
 @section('content')
     
     <div class="content-wrapper hidden cardscanQr">
-        <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="container-xxl flex-grow-1 container-p-y">
             <div class="card">
             <div id="reader" width="500px"></div>
             </div>
@@ -21,7 +21,7 @@
                     <div
                         class="md:items-center align-items-start gap-2 gap-md-5 d-flex flex-column flex-md-row justify-content-between">
                         <!-- Search input -->
-                        <div class="d-flex align-items-center position-relative">
+                        <div class="d-flex flex-col align-items-start position-relative">
                             <form>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="tf-icons bx bx-search"></i></span>
@@ -29,6 +29,12 @@
                                         placeholder="Search..." />
                                 </div>
                             </form>
+                            <div class="mt-2 card-toolbar flex-row-fluid justify-content-end gap-5">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#modalAddPeminjaman">
+                                    Add Peminjaman
+                                </button>
+                            </div>
                         </div>
                         <!-- Add Book button -->
                         <div>
@@ -100,6 +106,61 @@
     </div>
 
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+
+     {{-- Modal add --}}
+     <div class="modal fade" id="modalAddPeminjaman" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form id="tambahBuku" method="POST" action="{{ route('storePeminjamanManual') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalCenterTitle">Tambah Buku</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Multiple -->
+                        <div class="col mb-3">
+                            <label for="select2Multiple" class="form-label">Select User</label>
+                            <select id="select2Basic" name="userId" class="select2 form-select form-select-lg select2-hidden-accessible" data-allow-clear="true" data-select2-id="select2Basic" tabindex="-1" aria-hidden="true">
+                                <option selected></option>
+                                @foreach ($getUser as $item)
+                                    <option value="{{ $item->id }}">{{ $item->userName }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="nameWithTitle" class="form-label">Cari buku</label>
+                                <select id="select2Multiple" class="select2 form-select" multiple name="buku_id">
+                                    <option selected></option>
+                                    @foreach ($getBuku as $item)
+                                        <option value="{{ $item->id }}">{{ $item->judul }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col mb-0">
+                            <label for="tahunTerbit" class="form-label">Tanggal Peminjaman </label>
+                            <input type="date" name="tanggal_peminjaman" class="form-control" />
+                        </div>
+                        <div class="col mb-0">
+                            <label for="tahunTerbit" class="form-label">Tanggal Pengembalian </label>
+                            <input type="date" name="tanggal_pengembalian" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="submit" id="#save-button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    {{-- modal add end --}}
 
     <script>
         $(document).ready(function() {

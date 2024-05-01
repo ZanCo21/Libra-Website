@@ -9,6 +9,7 @@ use App\Http\Controllers\ExportExcelController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManageAccountController;
 use App\Http\Controllers\ManageBooksController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PeminjamanController;
 
 /*
@@ -37,8 +38,11 @@ Route::get('/get/kelurahan/{id}', [RegisterController::class, 'getKelurahan'])->
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::view('/nyoba', 'mail.approveAccount');
+Route::get('/nyoba', [PeminjamanController::class, 'RejectBatasPeminjaman']);
 
+Route::post('/books/import', [ManageBooksController::class, 'import'])->name('books.import');
+
+Route::get('/transactionBooks/invoice/{id}', [PaymentController::class, 'invoice'])->name('invoice');
 Route::middleware(['auth'])->group(function () {
     Route::prefix('dashboard')->middleware('role:admin,petugas')->group(function () {
         Route::get('/analytics',  [ManageBooksController::class, 'dashboard'])->name('dashboard');
@@ -52,12 +56,16 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/transactionBooks/changePageScan/{id}', [ManageBooksController::class, 'showScanPage'])->name('showScanQr');
         Route::post('/transactionBooks/changePageScan/UpdateStatus', [ManageBooksController::class, 'updateStatus'])->name('updateStatus');
 
+        Route::get('/transactionBooks/sendEmail/{id}', [PaymentController::class, 'sendEmailAfterPay'])->name('sendEmailAfterPay');
+
         Route::get('/manageAccount', [ManageAccountController::class, 'index'])->name('manageAccount');
         Route::post('/manageAccount/changeStatus', [ManageAccountController::class, 'changeStatus'])->name('changeStatus');
         Route::get('/manageRequestAccount', [ManageAccountController::class, 'requestAccount'])->name('manageRequestAccount');
         Route::post('/manageRequestAccount/approve', [ManageAccountController::class, 'approveAccount'])->name('approveAccount');
 
         Route::get('/exportyearly/export/{year}', [ExportExcelController::class, 'exportYearlyReport'])->name('exportYearlyReport');
+
+        Route::post('/storePeminjamanManual', [PeminjamanController::class, 'storePeminjamanManual'])->name('storePeminjamanManual');
     });
     
     Route::prefix('home')->middleware('role:peminjam')->group(function () {
