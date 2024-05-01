@@ -54,7 +54,7 @@
                                                         </td>
                                                         <td class="total-price" data-title="Price">
                                                             <p class="price"><span class="money"
-                                                                    data-currency-usd="$79.00">$79.00</span></p>
+                                                                    data-currency-usd="$79.00"></span></p>
                                                         </td>
                                                     </tr>
                                                 @endforeach
