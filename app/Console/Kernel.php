@@ -17,7 +17,13 @@ class Kernel extends ConsoleKernel
         $schedule->call(function () {
             $controller = new PeminjamanController();
             $controller ->HitungDenda();
-        })->dailyAt('00:02')
+        })->dailyAt('00:01')
+        ->timezone('Asia/Jakarta'); 
+
+        $schedule->call(function () {
+        $controller = new PeminjamanController();
+            $controller ->RejectBatasPeminjaman();
+        })->dailyAt('00:01')
         ->timezone('Asia/Jakarta'); 
     }
 

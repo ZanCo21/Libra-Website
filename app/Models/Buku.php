@@ -14,7 +14,7 @@ class Buku extends Model
     protected $table = 'buku';
 
     protected $fillable = [
-        'judul', 'penulis', 'front_book_cover', 'back_book_cover', 'penerbit', 'tahunTerbit', 'deskripsi', 'stock'
+        'judul', 'penulis', 'front_book_cover', 'back_book_cover', 'penerbit', 'tahunTerbit', 'deskripsi', 'stock','harga'
     ];
 
     public function koleksipribadi()

@@ -13,7 +13,7 @@ class Peminjaman extends Model
     protected $table = 'peminjaman';
 
     protected $fillable = [
-        'user_id','tanggal_peminjaman','tanggal_pengembalian', 'tanggal_batas_pengembalian', 'qr_code'
+        'user_id','tanggal_peminjaman','tanggal_pengembalian', 'tanggal_batas_pengembalian', 'qr_code', 'order_id'
     ];
 
 
@@ -31,5 +31,4 @@ class Peminjaman extends Model
     {
         return $this->hasMany(Denda::class);
     }
-    
 }

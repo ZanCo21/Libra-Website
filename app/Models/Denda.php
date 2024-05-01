@@ -11,7 +11,7 @@ class Denda extends Model
     protected $table = 'denda';
 
     protected $fillable = [
-        'peminjaman_id','jumlah_denda','tanggal_denda'
+        'peminjaman_id','jumlah_denda','tanggal_denda','harga_hilang'
     ];
 
     public function peminjaman()
