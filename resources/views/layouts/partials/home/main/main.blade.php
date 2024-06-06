@@ -2,7 +2,7 @@
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html class="no-js">
+<html class="no-js scroll-smooth focus:scroll-auto">
 
 <head>
     <meta charset="utf-8">
