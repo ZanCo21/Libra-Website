@@ -10,7 +10,7 @@
     </style>
     <div class="pushmenu menu-home5 box-mobile-menu">
         <div class="menu-push box-mobile-menu-inner">
-            <a href="#" class="close-menu-mobile"><span class="">Close</span></a>
+            <a href="#" class="close-menu-mobile"><span>Close</span></a>
             <div class="tab-content">
                 <div id="home" class="mn-mobile-content-tab tab-pane fade in active">
                     <div class="mobile-back-nav-wrap">
