@@ -5,7 +5,7 @@
             display: -webkit-box;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            -webkit-line-clamp: 3; /* Jumlah baris yang ingin dibatasi */
+            -webkit-line-clamp: 3;
         }
     </style>
     <div class="pushmenu menu-home5 box-mobile-menu">
