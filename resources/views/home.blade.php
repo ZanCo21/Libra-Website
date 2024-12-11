@@ -2,7 +2,7 @@
 @section('content')
     <style>
         .line-clamp-3 {
-            display: -webkit-box;
+            display: -webkit-boxs;
             -webkit-box-orient: vertical;
             overflow: hidden;
             -webkit-line-clamp: 3;
@@ -353,7 +353,7 @@
                                                 @foreach ($item->DetailPeminjaman as $index => $detail)
                                                     {{ ucwords($detail->status_peminjaman) }}
                                                     @if ($index < count($item->DetailPeminjaman) - 1)
-                                                        & 
+                                                        &
                                                     @endif
                                                  @endforeach
                                             </h6>
@@ -361,7 +361,7 @@
                                                 @foreach ($item->DetailPeminjaman as $index => $detail)
                                                     {{ $detail->buku->judul }}
                                                     @if ($index < count($item->DetailPeminjaman) - 1)
-                                                        & 
+                                                        &
                                                     @endif
                                                 @endforeach
                                             </h4>
